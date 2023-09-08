@@ -165,4 +165,3 @@ cython_debug/
 
 # Media and static files collection dirs
 /media
-/static
