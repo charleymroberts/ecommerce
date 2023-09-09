@@ -1,20 +1,22 @@
 ---
 name: User Story
-about: Describe this issue template's purpose here.
+about: Default user story template
 title: User Story
 labels: ''
 assignees: ''
 
 ---
 
-As a **[role]**, I can **[action]**, so that **[result]** 
+EPIC: <epic>
 
-Tasks:
+As a **role**, I can **capability**, so that **received benefit** 
+
+**Tasks:**
 - [ ] 
 - [ ] 
 - [ ] 
 
-Acceptance Criteria:
+**Acceptance Criteria:**
 - [ ] 
 - [ ]
 - [ ]
