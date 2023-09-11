@@ -1,151 +1,164 @@
+{% extends 'base.html' %}
+
 {% load static %}
 
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-<head>
+{% block main_content %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.112.5">
-    <title>Vegan Direct - Home</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!--FontAweome script-->
-    <script src="https://kit.fontawesome.com/0eb820b7a5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
-
-
-  </head>
-
-  <body>
-    
-<header data-bs-theme="light">
-  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light py-0">
-    <div class="container-fluid top-nav">
-
-      <a class="navbar-brand display-6" href="#"><h1>VeganDirect</h1></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <form class="d-flex mx-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn search" type="submit">Search</button>
-        </form>
-         <ul class="navbar-nav mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#"><i class="fa-regular fa-heart me-2"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-regular fa-user me-2"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-basket-shopping me-2"></i></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-theme="light">
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel"
+     data-bs-theme="light">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0"
+                class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1 class="carousel-header">New products</h1>
-            <p class="opacity-75 carousel-text">Find out what's just landed!</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Discover new stuff &raquo;</a></p>
-          </div>
+        <div class="carousel-item active">
+            <svg class="bd-placeholder-img" width="100%" height="100%"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1 class="carousel-header">New products</h1>
+                    <p class="opacity-75 carousel-text">Find out what's just
+                        landed!</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Discover new
+                        stuff &raquo;</a></p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <div class="container">
-          <div class="carousel-caption">
-            <h1 class="carousel-header">Featured brand: Mouse's Favourite</h1>
-            <p class="carousel-text">Simply the best cashew cheeses - vegan Camembert, anyone?</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Explore the range &raquo;</a></p>
-          </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1 class="carousel-header">Featured brand: Mouse's
+                        Favourite</h1>
+                    <p class="carousel-text">Simply the best cashew cheeses -
+                        vegan Camembert, anyone?</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Explore the
+                        range &raquo;</a></p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="carousel-item">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1 class="carousel-header">Christmas is coming!</h1>
-            <p class="carousel-text">Seasonal goodies for you and your loved ones</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Take me there &raquo;</a></p>
-          </div>
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%"
+                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                 preserveAspectRatio="xMidYMid slice" focusable="false">
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1 class="carousel-header">Christmas is coming!</h1>
+                    <p class="carousel-text">Seasonal goodies for you and your
+                        loved ones</p>
+                    <p><a class="btn btn-lg btn-primary" href="#">Take me there
+                        &raquo;</a></p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+    <button class="carousel-control-prev" type="button"
+            data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
+    <button class="carousel-control-next" type="button"
+            data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
     </button>
-  </div>
+</div>
 
-  <!--banner immediately underneath carousel-->
+<!--banner immediately underneath carousel-->
 
-  <div class="row mb-5 text-center pt-1 mx-0" id="info-banner">
+<div class="row mb-5 text-center pt-1 mx-0" id="info-banner">
     <div class="col-md-4">
-      <p><i class="fa-solid fa-leaf mx-2"></i>100% vegan product range</p>
+        <p><i class="fa-solid fa-leaf mx-2"></i>100% vegan product range</p>
     </div>
-        <div class="col-md-4">
-      <p><i class="fa-solid fa-truck-fast mx-2"></i>Free delivery over £35</p>
+    <div class="col-md-4">
+        <p><i class="fa-solid fa-truck-fast mx-2"></i>Free delivery over £35
+        </p>
     </div>
-        <div class="col-md-4">
-      <p><i class="fa-solid fa-paw mx-2"></i>Independent vegan-owned store</p>
+    <div class="col-md-4">
+        <p><i class="fa-solid fa-paw mx-2"></i>Independent vegan-owned store
+        </p>
     </div>
-  </div>
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
+</div>
+<!-- Marketing messaging and featurettes
+================================================== -->
+<!-- Wrap the rest of the page in another container to center all the content. -->
 
 
-  <div class="container marketing">
+<div class="container marketing">
 
     <!-- Four columns of text below the carousel -->
     <div class="row">
-      <div class="col-lg-3 text-center">
-        <svg class="bd-placeholder-img rounded-circle mb-3" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">In the fridge</h2>
-        <p>The best vegan meats, cheeses, plant milks, spreads and more!</p>
-        <p><a class="btn btn-secondary mb-3" href="#">View all &raquo;</a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 text-center">
-        <svg class="bd-placeholder-img rounded-circle mb-3" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Food cupboard</h2>
-        <p>Delicious vegan ready meals, storecupboard essentials and cooking ingredients</p>
-        <p><a class="btn btn-secondary mb-3" href="#">View all &raquo;</a></p>
-      </div><!-- /.col-lg-3 -->
-      <div class="col-lg-3 text-center">
-        <svg class="bd-placeholder-img rounded-circle mb-3" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Treats & Snacks</h2>
-        <p>The tastiest vegan chocolate, sweets and savoury snacks!</p>
-        <p><a class="btn btn-secondary mb-3" href="#">View all &raquo;</a></p>
-      </div><!-- /.col-lg-3 -->
-            <div class="col-lg-3 text-center">
-        <svg class="bd-placeholder-img rounded-circle mb-3" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
-        <h2 class="fw-normal">Beauty & Home</h2>
-        <p>Plant-based and cruelty-free haircare, skincare and home cleaning products</p>
-        <p><a class="btn btn-secondary" href="#">View all &raquo;</a></p>
-      </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 text-center">
+            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+                 focusable="false"><title>Placeholder</title>
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <h2 class="fw-normal">In the fridge</h2>
+            <p>The best vegan meats, cheeses, plant milks, spreads and
+                more!</p>
+            <p><a class="btn btn-secondary mb-3" href="#">View all &raquo;</a>
+            </p>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 text-center">
+            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+                 focusable="false"><title>Placeholder</title>
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <h2 class="fw-normal">Food cupboard</h2>
+            <p>Delicious vegan ready meals, storecupboard essentials and
+                cooking ingredients</p>
+            <p><a class="btn btn-secondary mb-3" href="#">View all &raquo;</a>
+            </p>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 text-center">
+            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+                 focusable="false"><title>Placeholder</title>
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <h2 class="fw-normal">Treats & Snacks</h2>
+            <p>The tastiest vegan chocolate, sweets and savoury snacks!</p>
+            <p><a class="btn btn-secondary mb-3" href="#">View all &raquo;</a>
+            </p>
+        </div><!-- /.col-lg-3 -->
+        <div class="col-lg-3 text-center">
+            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
+                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
+                 focusable="false"><title>Placeholder</title>
+                <rect width="100%" height="100%"
+                      fill="var(--bs-secondary-color)"/>
+            </svg>
+            <h2 class="fw-normal">Bodycare & Home</h2>
+            <p>Plant-based and cruelty-free haircare, skincare and home
+                cleaning products</p>
+            <p><a class="btn btn-secondary" href="#">View all &raquo;</a></p>
+        </div><!-- /.col-lg-3 -->
     </div><!-- /.row -->
 
 
@@ -154,178 +167,154 @@
     <hr class="featurette-divider">
 
     <div class="row featurette">
-      <div class="col">
-        <h2 class="featurette-heading fw-normal lh-1 text-body-secondary">New arrivals</h2>
-        <p class="lead">Check out the latest products to hit the (virtual) shelves!</p>
-      </div>
+        <div class="col">
+            <h2 class="featurette-heading fw-normal lh-1 text-body-secondary">
+                New arrivals</h2>
+            <p class="lead">Check out the latest products to hit the (virtual)
+                shelves!</p>
+        </div>
     </div>
 
-
-<div class="row">
-
-  <div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-
-</div>
-
-    <hr class="featurette-divider">
-
-
-
-    <div class="row featurette">
-      <div class="col">
-        <h2 class="featurette-heading fw-normal lh-1 text-body-secondary">Bestsellers</h2>
-        <p class="lead">Stuff you didn't come here to look for but will definitely buy if we stick it right here on the homepage.</p>
-      </div>
-    </div>
-
-
-<div class="row">
-
-  <div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-<div class="col-md-3">
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Product name</h5>
-    <p class="card-text">Product description</p>
-    <a href="#" class="btn btn-primary">View details</a>
-  </div>
-</div>
-</div>
-
-
-</div>
-
-    <hr class="featurette-divider">
-
-<!--    <div class="row featurette">-->
-<!--      <div class="col-md-7 order-md-2">-->
-<!--        <h2 class="featurette-heading fw-normal lh-1">Bestsellers <span class="text-body-secondary">See for yourself.</span></h2>-->
-<!--        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>-->
-<!--      </div>-->
-<!--      <div class="col-md-5 order-md-1">-->
-<!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <hr class="featurette-divider">-->
-
-<!--    <div class="row featurette">-->
-<!--      <div class="col-md-7">-->
-<!--        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>-->
-<!--        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>-->
-<!--      </div>-->
-<!--      <div class="col-md-5">-->
-<!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <hr class="featurette-divider">-->
-
-    <!-- /END THE FEATURETTES -->
-
-  </div><!-- /.container -->
-
-
-  <!-- FOOTER -->
-  <footer class="container">
 
     <div class="row">
 
-      <div class="col-md-6">
-        <h2>Keep in touch!</h2>
-        <i class="fa-brands fa-facebook m-1"></i> <i class="fa-brands fa-instagram m-1"></i> <i class="fa-brands fa-tiktok m-1"></i>
-      </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
 
-      <div class="col-md-6">
-        <h2>Join the family!</h2>
-        <p>Get offers, updates and exciting stuff like that</p>
-      </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
-    <div class="row mt-4">
-      <p class="text-center">&copy; 2023 Vegan Direct <i class="fa-solid fa-seedling mx-1"></i><a href="#">Privacy</a><i class="fa-solid fa-seedling mx-1"></i><a href="#">Terms</a><i class="fa-solid fa-seedling mx-1"></i><a href="#">Contact us</a><i class="fa-solid fa-seedling mx-1"></i><a href="#">About us</a></p>
-    </div>
-<p class="float-end"><a href="#">Back to top</a></p>
-  </footer>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <hr class="featurette-divider">
 
-    </body>
-</html>
+
+    <div class="row featurette">
+        <div class="col">
+            <h2 class="featurette-heading fw-normal lh-1 text-body-secondary">
+                Bestsellers</h2>
+            <p class="lead">Stuff you didn't come here to look for but will
+                definitely buy if we stick it right here on the homepage.</p>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Product name</h5>
+                    <p class="card-text">Product description</p>
+                    <a href="#" class="btn btn-primary">View details</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!--    <div class="row featurette">-->
+    <!--      <div class="col-md-7 order-md-2">-->
+    <!--        <h2 class="featurette-heading fw-normal lh-1">Bestsellers <span class="text-body-secondary">See for yourself.</span></h2>-->
+    <!--        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>-->
+    <!--      </div>-->
+    <!--      <div class="col-md-5 order-md-1">-->
+    <!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <!--    <hr class="featurette-divider">-->
+
+    <!--    <div class="row featurette">-->
+    <!--      <div class="col-md-7">-->
+    <!--        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>-->
+    <!--        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>-->
+    <!--      </div>-->
+    <!--      <div class="col-md-5">-->
+    <!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <!--    <hr class="featurette-divider">-->
+
+    <!-- /END THE FEATURETTES -->
+
+</div><!-- /.container -->
+
+{% endblock %}

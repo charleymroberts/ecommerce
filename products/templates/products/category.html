@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<div class="container">
+    <div class="row">
+
+<!--breadcrumb menu for subcategories-->
+
+{% if category.parent %}
+    <p>{{ category.parent }} > {{ category.name }}</p>
+{% endif %}
+
+<!--page title-->
+
+<h2>{{ category.name }}</h2>
+
+<!--buttons with links to the subcatgories of each category-->
+
+<div class="row">
+    <div class="col">
+
+{% if category.parent is None %}
+    {% for category in children %}
+        <a href="{% url 'by-category' category.slug %}"><p class="btn">{{ category.name }}</p></a>
+    {% endfor %}
+    </div>
+</div>
+
+<!--cards for page displaying all products in a top level category (e.g. all chilled products)-->
+
+<div class="row">
+    {% for category in children %}
+        {% for product in category.products.all %}
+            <div class="col-md-3 mb-2">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        {% for category in product.categories.all %}
+                            <p class="card-text">{{ category.name }}</p>
+                        {% endfor %}
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                        <a href="#" class="card-link">View details</a>
+                        <a href="#" class="card-link">Add to basket</a>
+                      </div>
+                    </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+{% endif %}
+</div>
+
+
+<!--displays all products in a subcategory, e.g. vegan cheese-->
+
+{% if category.parent %}
+
+        {% for product in category.products.all %}
+            <div class="col-md-3 mb-2">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                        {% for category in product.categories.all %}
+                            <p class="card-text">{{ category.name }}</p>
+                        {% endfor %}
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                        <a href="#" class="card-link">View details</a>
+                        <a href="#" class="card-link">Add to basket</a>
+                      </div>
+                    </div>
+            </div>
+        {% endfor %}
+
+{% endif %}
+
+
+    </div>
+</div>
+
+{% endblock %}
