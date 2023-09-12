@@ -4,32 +4,50 @@
 
 {% block main_content %}
 
-<div class="container">
+<!--This page displays the lists of products by category-->
+
+<div class="container mt-5">
     <div class="row">
 
 <!--breadcrumb menu for subcategories-->
 
 {% if category.parent %}
-    <p>{{ category.parent }} > {{ category.name }}</p>
+    <p><a href="{% url 'by-category' category.parent.slug %}">{{ category.parent }}</a> > {{ category.name }}</p>
 {% endif %}
 
 <!--page title-->
-
-<h2>{{ category.name }}</h2>
-
-<!--buttons with links to the subcatgories of each category-->
-
 <div class="row">
-    <div class="col">
-
-{% if category.parent is None %}
-    {% for category in children %}
-        <a href="{% url 'by-category' category.slug %}"><p class="btn">{{ category.name }}</p></a>
-    {% endfor %}
+    <div class="col-md-10">
+        <h2>{{ category.name }}</h2>
+    </div>
+     <div class="col-md-2 justify-content-end">
+        <div class="dropdown-center mb-3">
+          <button class="btn dropdown-toggle sort-by" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort by
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Name A-Z</a></li>
+            <li><a class="dropdown-item" href="#">Name Z-A</a></li>
+            <li><a class="dropdown-item" href="#">Price low-high</a></li>
+            <li><a class="dropdown-item" href="#">Price high-low</a></li>
+          </ul>
+        </div>
     </div>
 </div>
 
-<!--cards for page displaying all products in a top level category (e.g. all chilled products)-->
+<!--buttons with links to subcategories from 'all products' pages of each category-->
+<div class="row">
+    <div class="col">
+    {% if category.parent is None %}
+        {% for category in children %}
+            <a href="{% url 'by-category' category.slug %}"><p type="button" class="btn rounded-pill subcategory-link-button">{{ category.name }}</p></a>
+        {% endfor %}
+    </div>
+</div>
+
+<!--cards for pages displaying all products in a top level category (e.g. all chilled products)-->
+
+<!---Card code from Bootstrap: https://getbootstrap.com/docs/5.3/components/card/-->
 
 <div class="row">
     {% for category in children %}
@@ -42,41 +60,33 @@
                         {% endfor %}
                         <h5 class="card-title">{{ product.name }}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
-                        <a href="#" class="card-link">View details</a>
-                        <a href="#" class="card-link">Add to basket</a>
+                        <a href="#" class="btn buy-now">Add to basket</a>
                       </div>
                     </div>
             </div>
         {% endfor %}
     {% endfor %}
-
 {% endif %}
 </div>
 
-
-<!--displays all products in a subcategory, e.g. vegan cheese-->
+<!--cards for displaying all products in a subcategory, e.g. vegan cheese-->
 
 {% if category.parent %}
-
-        {% for product in category.products.all %}
-            <div class="col-md-3 mb-2">
-                    <div class="card" style="width: 18rem;">
-                      <div class="card-body">
-                        {% for category in product.categories.all %}
-                            <p class="card-text">{{ category.name }}</p>
-                        {% endfor %}
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
-                        <a href="#" class="card-link">View details</a>
-                        <a href="#" class="card-link">Add to basket</a>
-                      </div>
-                    </div>
-            </div>
-        {% endfor %}
-
+    {% for product in category.products.all %}
+        <div class="col-md-3 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    {% for category in product.categories.all %}
+                        <p class="card-text">{{ category.name }}</p>
+                    {% endfor %}
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                    <a href="#" class="btn buy-now">Add to basket</a>
+                  </div>
+                </div>
+        </div>
+    {% endfor %}
 {% endif %}
-
-
     </div>
 </div>
 

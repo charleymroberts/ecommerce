@@ -310,14 +310,22 @@ h2 {
     font-family: rubikregular;
 }
 
-.btn {
+.btn-more-details {
     font-family: rubikmedium;
     background-color: #218380;
     border: none;
 }
 
-.btn:hover {
+.buy-now {
     background-color: #73d2de;
+}
+
+.btn-more-details:hover {
+    background-color: #73d2de;
+}
+
+.buy-now:hover {
+    background-color: #218380;
 }
 
 .search {
@@ -346,4 +354,13 @@ li {
 menu {
     font-family: rubikmedium;
     font-size: larger;
+}
+
+.subcategory-link-button, .subcategory-link-button:hover {
+    background-color: #fbb13c;
+}
+
+.sort-by, .sort-by:hover {
+    background-color: #ffffff;
+    border: 1px black solid;
 }
