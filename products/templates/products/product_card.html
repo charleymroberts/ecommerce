@@ -1,0 +1,60 @@
+<div class="col-md-3 mb-2">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            {% for category in product.categories.all %}
+            <p class="card-text">{{ category.name }}</p>
+            {% endfor %}
+            <a href="{% url 'single-product' category.slug product.slug %}"><h5
+                    class="card-title">{{ product.name }}</h5></a>
+            <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+            <a href="#" class="btn buy-now">Add to basket</a>
+        </div>
+    </div>
+</div>
+
+<!--copy of category page-->
+
+<div class="row">
+    {% for category in children %} <!--this is only difference-->
+
+        {% for product in category.products.all %}
+
+            <div class="col-md-3 mb-2">
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                          <p class="card-text">{{ product.categories.first.name }}</p>
+                        <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                        <h6>£{{ product.retail_price }}</h6>
+                        <a href="#" class="btn buy-now">Add to basket</a>
+                      </div>
+                    </div>
+            </div>
+
+        {% endfor %}
+
+    {% endfor %}
+{% endif %}
+</div>
+
+<!--cards for displaying all products in a subcategory, e.g. vegan cheese-->
+
+{% if category.parent %}
+
+    {% for product in category.products.all %}
+        <div class="col-md-3 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <p class="card-text">{{ product.categories.first.name }}</p>
+                    <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                    <h6>£{{ product.retail_price }}</h6>
+                    <a href="#" class="btn buy-now">Add to basket</a>
+                  </div>
+                </div>
+        </div>
+    {% endfor %}
+
+{% endif %}
+    </div>
+</div>

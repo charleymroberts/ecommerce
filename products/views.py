@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category, Brand
+from django.db.models import Q
 
 '''
 View to render...something. Practice one. Delete? 
@@ -28,10 +29,22 @@ def by_category(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
 
     categories = Category.objects.all()
-    products = Product.objects.all()
+
+    products = Product.objects.filter(
+        Q(categories=category) | Q(categories__parent=category)
+    )
+
+    products = products.order_by('name')
 
     children = Category.objects.filter(parent=category)
     top_level = Category.objects.filter(parent=None)
+
+    sortkey = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+        products = products.order_by(sortkey)
 
     context = {
         'category': category,
@@ -39,6 +52,7 @@ def by_category(request, category_slug):
         'products': products,
         'children': children,
         'top_level': top_level,
+        'sortkey': sortkey,
 
     }
 
@@ -70,4 +84,35 @@ def single_product(request, category_slug, product_slug):
     return render(request, 'products/product.html', context)
 
 
+def brand(request, brand_slug):
+    '''
+    View to render a page containing brand info and a list of products by that brand
+    '''
+    current_brand = get_object_or_404(Brand, slug=brand_slug)
+    products = current_brand.product_set.all()
+    products = products.order_by('-retail_price')
 
+
+    brands = Brand.objects.all()
+
+    categories = Category.objects.all()
+
+    products_by_brand = Product.objects.filter(brand=current_brand)
+
+    sortkey = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+        products = products.order_by(sortkey)
+
+    context = {
+        'current_brand': current_brand,
+        'products': products,
+        'brands': brands,
+        'categories': categories,
+        'products_by_brand': products_by_brand,
+        'sortkey': sortkey,
+    }
+
+    return render(request, 'products/brand.html', context)

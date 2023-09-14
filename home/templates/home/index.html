@@ -115,10 +115,10 @@
                 <rect width="100%" height="100%"
                       fill="var(--bs-secondary-color)"/>
             </svg>
-            <h2 class="fw-normal">In the fridge</h2>
+            <h2 class="fw-normal">Chilled</h2>
             <p>The best vegan meats, cheeses, plant milks, spreads and
                 more!</p>
-            <p><a class="btn btn-secondary mb-3 btn-more-details" href="#">View all &raquo;</a>
+            <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'chilled' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
@@ -132,7 +132,7 @@
             <h2 class="fw-normal">Food cupboard</h2>
             <p>Delicious vegan ready meals, storecupboard essentials and
                 cooking ingredients</p>
-            <p><a class="btn btn-secondary mb-3 btn-more-details" href="#">View all &raquo;</a>
+            <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'food-cupboard' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
@@ -143,9 +143,9 @@
                 <rect width="100%" height="100%"
                       fill="var(--bs-secondary-color)"/>
             </svg>
-            <h2 class="fw-normal">Treats & Snacks</h2>
+            <h2 class="fw-normal">Snacks & Treats</h2>
             <p>The tastiest vegan chocolate, sweets and savoury snacks!</p>
-            <p><a class="btn btn-secondary mb-3 btn-more-details" href="#">View all &raquo;</a>
+            <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'snacks-treats' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
@@ -156,10 +156,10 @@
                 <rect width="100%" height="100%"
                       fill="var(--bs-secondary-color)"/>
             </svg>
-            <h2 class="fw-normal">Bodycare & Home</h2>
+            <h2 class="fw-normal">Body & Home</h2>
             <p>Plant-based and cruelty-free haircare, skincare and home
                 cleaning products</p>
-            <p><a class="btn btn-secondary btn-more-details" href="#">View all &raquo;</a></p>
+            <p><a class="btn btn-secondary btn-more-details" href="{% url 'by-category' 'body-home' %}">View all &raquo;</a></p>
         </div><!-- /.col-lg-3 -->
     </div><!-- /.row -->
 
