@@ -364,3 +364,7 @@ menu {
     background-color: #ffffff;
     border: 1px black solid;
 }
+
+#search-box {
+    width: 200px;
+}

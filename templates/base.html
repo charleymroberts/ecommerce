@@ -40,7 +40,7 @@
 <!--Dropdown code from Bootstrap: https://getbootstrap.com/docs/5.3/components/navbar/-->
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
-            {% for category in categories %}
+            {% for category in nav_categories %}
                 {% if category.parent is None %}
                     <li class="nav-item dropdown mx-3">
                         <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,12 +56,25 @@
                 {% endif %}
             {% endfor %}
 
-
-                <form class="d-flex mx-auto" role="search">
-                    <input class="form-control me-2" type="search"
+                <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                    <div class="row">
+                        <div class="col">
+                  <ul class="dropdown-menu">
+                        <form class="d-flex mx-2" role="search">
+                           <input class="form-control me-2" id="search-box" type="search"
                            placeholder="Search" aria-label="Search">
-                    <button class="btn search" type="submit">Search</button>
-                </form>
+                        <button class="btn search" type="submit"><i class="fa-solid fa-angle-right"></i></button>
+                        </form>
+                  </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
 
                 <ul class="navbar-nav mb-2 mb-md-0">
