@@ -5,11 +5,14 @@
 {% block main_content %}
 
 <div class="container mt-5">
+    <div class="row">
 
-<h2>{{ current_brand.name }}</h2>
-<p>{{ current_brand.description }}</p>
+<div class="col">
+    <h2>{{ current_brand.name }}</h2>
+    <p>{{ current_brand.description }}</p>
+</div>
 
-<div class="col-md-2 justify-content-end">
+    <div class="col-md-2 justify-content-end">
         <div class="dropdown-center mb-3">
           <button class="btn dropdown-toggle sort-by" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sort by
@@ -22,7 +25,13 @@
           </ul>
         </div>
     </div>
+</div>
 
+    <div class="row mb-2">
+        <h3 class="text-center">All products by {{ current_brand.name }}</h3>
+        <hr>
+    </div>
+<div class="row">
 {% for product in products %}
     <div class="col-md-3 mb-2">
         <div class="card" style="width: 18rem;">
@@ -31,7 +40,7 @@
                 <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5
                         class="card-title">{{ product.name }}</h5></a>
                 <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
-                <h6>£{{ product.retail_price }}</h6>
+                <h5>£{{ product.retail_price }}</h5>
                 <a href="#" class="btn buy-now">Add to basket</a>
             </div>
         </div>
@@ -39,6 +48,8 @@
 
 {% endfor %}
 
+
+        </div>
+   </div>
 {% endblock %}
 
-</div>

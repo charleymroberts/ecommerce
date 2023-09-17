@@ -56,8 +56,8 @@
                   <div class="card-body">
                     <p class="card-text">{{ product.categories.first.name }}</p>
                     <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
-                    <h6>£{{ product.retail_price }}</h6>
+                      <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
+                    <h5>£{{ product.retail_price }}</h5>
                     <a href="#" class="btn buy-now">Add to basket</a>
                   </div>
                 </div>

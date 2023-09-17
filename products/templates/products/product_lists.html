@@ -5,7 +5,7 @@
 {% block main_content %}
 
 
-<div class="container mt-4">
+<div class="container mt-5">
     <div class="row">
 
         <h2>All products by category</h2>
@@ -19,7 +19,7 @@
                     <div class="card" style="width: 18rem;">
                       <div class="card-body">
                         {% for category in product.categories.all %}
-                            <p class="card-text">{{ category.name }}</p>
+                            <p class="card-text">{{ product.categories.first.name }}</p>
                         {% endfor %}
                         <h5 class="card-title">{{ product.name }}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>

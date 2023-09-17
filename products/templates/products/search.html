@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<div class="row mt-5 mx-2">
+
+
+    <h5 class="mb-4">Search results for: "{{ query }}"</h5>
+
+    {% for product in products %}
+        <div class="col-md-3 mb-2">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <p class="card-text">{{ product.categories.first.name }}</p>
+                    <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                    <h5>£{{ product.retail_price }}</h5>
+                    <a href="#" class="btn buy-now">Add to basket</a>
+                  </div>
+                </div>
+        </div>
+    {% endfor %}
+
+
+</div>
+
+{% endblock %}

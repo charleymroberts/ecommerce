@@ -180,51 +180,21 @@
 
     <div class="row">
 
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary ">View details</a>
-                </div>
-            </div>
-        </div>
+        {% for product in new_products %}
 
         <div class="col-md-3">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
+              <div class="card-body">
+                <p class="card-text">{{ product.categories.first.name }}</p>
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                  <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
+                <h5>£{{ product.retail_price }}</h5>
+                <a href="#" class="btn buy-now">Add to basket</a>
+              </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
-            </div>
-        </div>
-
-
+        {% endfor %}
     </div>
 
     <hr class="featurette-divider">
@@ -242,54 +212,25 @@
 
     <div class="row">
 
-        <div class="col-md-3">
+        {% for product in bestseller_products %}
+
+            <div class="col-md-3">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
+              <div class="card-body">
+                <p class="card-text">{{ product.categories.first.name }}</p>
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                  <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
+                <h5>£{{ product.retail_price }}</h5>
+                <a href="#" class="btn buy-now">Add to basket</a>
+              </div>
             </div>
         </div>
 
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Product description</p>
-                    <a href="#" class="btn btn-primary">View details</a>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
 
     </div>
 
-    <hr class="featurette-divider">
+<!--    <hr class="featurette-divider">-->
 
     <!--    <div class="row featurette">-->
     <!--      <div class="col-md-7 order-md-2">-->

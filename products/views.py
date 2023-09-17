@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category, Brand
 from django.db.models import Q
@@ -90,7 +91,7 @@ def brand(request, brand_slug):
     '''
     current_brand = get_object_or_404(Brand, slug=brand_slug)
     products = current_brand.product_set.all()
-    products = products.order_by('-retail_price')
+    products = products.order_by('name')
 
 
     brands = Brand.objects.all()
@@ -116,3 +117,26 @@ def brand(request, brand_slug):
     }
 
     return render(request, 'products/brand.html', context)
+
+
+def search_results(request):
+
+    products = Product.objects.all()
+    # category = get_object_or_404(Category, slug=category_slug)
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                # return redirect(reverse('products'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
+    context = {
+        'query': query,
+        'products': products,
+    }
+
+    return render(request, 'products/search.html', context)
