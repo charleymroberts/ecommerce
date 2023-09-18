@@ -37,9 +37,8 @@
 
             <div class="container">
                 <div class="carousel-caption text-start">
-                    <h1 class="carousel-header">Featured brand:<br>Mouse's
-                        Favourite</h1>
-                    <p class="carousel-text">Simply luxurious cashew cheeses!</p>
+                    <h1 class="carousel-header">Featured brand</h1>
+                    <p class="carousel-text">Mouse's Favourite cashew cheeses</p>
                     <p><a class="btn btn-lg btn-primary btn-more-details" href="{% url 'brand' 'mouses-favourite' %}">Explore the
                         range &raquo;</a></p>
                 </div>
@@ -95,35 +94,35 @@
     <!-- Four columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-3 text-center">
-            <img src="static/media/homepage/mouses-camembert.jpeg" class="bd-placeholder-img rounded-circle mb-3" width="140"
+            <a href="{% url 'by-category' 'chilled' %}"><img src="{% static 'media/homepage/mouses-camembert.jpeg' %}" class="bd-placeholder-img rounded-circle mb-3" width="140"
                  height="140" alt="">
-            <h2 class="fw-normal">Chilled</h2>
+            <h2 class="fw-normal">Chilled</h2></a>
             <p>The best vegan meats, cheeses, plant milks, spreads and
                 more!</p>
             <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'chilled' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
-            <img src="static/media/homepage/suma-tinned-meals.png" class="bd-placeholder-img rounded-circle mb-3" width="140"
+            <a href="{% url 'by-category' 'food-cupboard' %}"><img src="{% static 'media/homepage/suma-tinned-meals.png' %}" class="bd-placeholder-img rounded-circle mb-3" width="140"
                  height="140" alt="">
-            <h2 class="fw-normal">Food cupboard</h2>
+            <h2 class="fw-normal">Food cupboard</h2></a>
             <p>Delicious vegan ready meals, storecupboard essentials and
                 cooking ingredients</p>
             <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'food-cupboard' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
-            <img src="static/media/homepage/vego-chocolate.png"  class="bd-placeholder-img rounded-circle mb-3" width="140"
+            <a href="{% url 'by-category' 'snacks-treats' %}"><img src="{% static 'media/homepage/vego-chocolate.png' %}"  class="bd-placeholder-img rounded-circle mb-3" width="140"
                  height="140" alt="">
-            <h2 class="fw-normal">Snacks & Treats</h2>
+            <h2 class="fw-normal">Snacks & Treats</h2></a>
             <p>The tastiest vegan chocolate, sweets and savoury snacks!</p>
             <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'snacks-treats' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
-            <img src="static/media/homepage/faith-soap.png" class="bd-placeholder-img rounded-circle mb-3" width="140"
+            <a href="{% url 'by-category' 'body-home' %}"><img src="{% static 'media/homepage/faith-soap.png' %}" class="bd-placeholder-img rounded-circle mb-3" width="140"
                  height="140" alt="">
-            <h2 class="fw-normal">Body & Home</h2>
+            <h2 class="fw-normal">Body & Home</h2></a>
             <p>Plant-based and cruelty-free haircare, skincare and home
                 cleaning products</p>
             <p><a class="btn btn-secondary btn-more-details" href="{% url 'by-category' 'body-home' %}">View all &raquo;</a></p>
@@ -155,8 +154,6 @@
               <h6 class="card-text m-4">{{ product.categories.first.name }}</h6>
               {% if product.image %}
                 <img src="{{ product.image.url }}" class="card-img-top" alt="">
-              {% else %}
-                <img src="static/media/homepage/image-coming-soon.png" class="card-img-top" alt="">
               {% endif %}
               <div class="card-body">
                 <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>

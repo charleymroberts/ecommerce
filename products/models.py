@@ -15,6 +15,7 @@ class Category(models.Model):
                                blank=True, related_name='children')
     description = models.TextField()
     slug = models.SlugField(unique=True)
+    show_in_menu = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

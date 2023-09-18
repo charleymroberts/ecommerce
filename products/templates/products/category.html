@@ -51,14 +51,14 @@
 <!---Card code from Bootstrap: https://getbootstrap.com/docs/5.3/components/card/-->
 
     {% for product in products %}
-        <div class="col-md-3 mb-2">
-                <div class="card" style="width: 18rem;">
+        <div class="col-6 col-md-4 col-lg-3 mb-2">
+                <div class="card">
                   {% if product.image %}
                     <img src="{{ product.image.url }}" class="card-img-top" alt="">
                   {% endif %}
                   <div class="card-body">
                     <p class="card-text">{{ product.categories.first.name }}</p>
-                    <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                    <a href="{% url 'single-product' category.slug product.slug %}"><h6 class="card-title">{{ product.name }}</h6></a>
                       <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                     <h5>£{{ product.retail_price }}</h5>
                     <a href="#" class="btn buy-now">Add to basket</a>

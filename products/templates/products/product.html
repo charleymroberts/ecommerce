@@ -10,10 +10,14 @@
     {% endif %}
     <div class="row">
         <div class="col-md-6 product-photo my-2">
+          {% if this_product.image %}
+            <div>
             <img src="{{ this_product.image.url }}" alt="">
+            </div>
+          {% endif %}
         </div>
         <div class="col-md-6">
-            <h2>{{ this_product.name }}</h2>
+            <h3>{{ this_product.name }}</h3>
             <p>by {{ this_product.brand }}</p>
             <h5>£{{ this_product.retail_price }}</h5>
             <p>Quantity selector goes here</p>
@@ -80,14 +84,14 @@
     <div class="row row-col mt-5">
         <h4>Products you might also like...</h4>
         {% for product in related_products %}
-        <div class="col-md-3 mb-2">
-                <div class="card" style="width: 18rem;">
+        <div class="col-sm-12 col-md-6 col-lg-3 mb-2 mx-1">
+                <div class="card" style="width: 14rem;">
                   {% if product.image %}
                     <img src="{{ product.image.url }}" class="card-img-top" alt="">
                   {% endif %}
                   <div class="card-body">
                     <p class="card-text">{{ product.categories.first.name }}</p>
-                    <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                    <a href="{% url 'single-product' category.slug product.slug %}"><h6 class="card-title">{{ product.name }}</h6></a>
                     <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
                     <h5>£{{ product.retail_price }}</h5>
                     <a href="#" class="btn buy-now">Add to basket</a>
