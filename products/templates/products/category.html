@@ -12,7 +12,7 @@
 <!--breadcrumb menu for subcategories-->
 
 {% if category.parent %}
-    <p><a href="{% url 'by-category' category.parent.slug %}">{{ category.parent }}</a> > {{ category.name }}</p>
+    <p><a href="{% url 'by-category' category.parent.slug %}" class="breadcrumbs">{{ category.parent }}</a> > {{ category.name }}</p>
 {% endif %}
 
 <!--page title-->
@@ -46,13 +46,16 @@
     </div>
 </div>
 
-<!--cards for pages displaying all products in a top level category (e.g. all chilled products)-->
+<!--cards for pages displaying all products in a category-->
 
 <!---Card code from Bootstrap: https://getbootstrap.com/docs/5.3/components/card/-->
 
     {% for product in products %}
         <div class="col-md-3 mb-2">
                 <div class="card" style="width: 18rem;">
+                  {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="">
+                  {% endif %}
                   <div class="card-body">
                     <p class="card-text">{{ product.categories.first.name }}</p>
                     <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>

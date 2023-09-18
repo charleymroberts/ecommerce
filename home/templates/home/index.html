@@ -17,51 +17,38 @@
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
     </div>
+
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%"
-                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                 preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+        <div class="carousel-item active" id="carousel-image-1">
+<!--            <img class="bd-placeholder-img overflow-hidden" src="../static/media/homepage/new-products-autumn-23.png">-->
+
             <div class="container">
-                <div class="carousel-caption text-start">
+                <div class="carousel-caption text-end">
                     <h1 class="carousel-header">New products</h1>
                     <p class="opacity-75 carousel-text">Find out what's just
                         landed!</p>
-                    <p><a class="btn btn-lg btn-primary btn-more-details" href="#">Discover new
+                    <p><a class="btn btn-lg btn-primary btn-more-details" href="{% url 'by-category' 'new-products' %}">Discover new
                         stuff &raquo;</a></p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%"
-                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                 preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+        <div class="carousel-item" id="carousel-image-2">
+<!--            <img class="bd-placeholder-img overflow-hidden" src="../static/media/homepage/mouses-favourite.png">-->
+
             <div class="container">
-                <div class="carousel-caption">
-                    <h1 class="carousel-header">Featured brand: Mouse's
+                <div class="carousel-caption text-start">
+                    <h1 class="carousel-header">Featured brand:<br>Mouse's
                         Favourite</h1>
-                    <p class="carousel-text">Simply the best cashew cheeses -
-                        vegan Camembert, anyone?</p>
-                    <p><a class="btn btn-lg btn-primary btn-more-details" href="#">Explore the
+                    <p class="carousel-text">Simply luxurious cashew cheeses!</p>
+                    <p><a class="btn btn-lg btn-primary btn-more-details" href="{% url 'brand' 'mouses-favourite' %}">Explore the
                         range &raquo;</a></p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%"
-                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                 preserveAspectRatio="xMidYMid slice" focusable="false">
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+        <div class="carousel-item" id="carousel-image-3">
+            <img class="bd-placeholder-img">
             <div class="container">
-                <div class="carousel-caption text-end">
+                <div class="carousel-caption text-end px-3"">
                     <h1 class="carousel-header">Christmas is coming!</h1>
                     <p class="carousel-text">Seasonal goodies for you and your
                         loved ones</p>
@@ -85,36 +72,31 @@
 
 <!--banner immediately underneath carousel-->
 
-<div class="row mb-5 text-center pt-1 mx-0" id="info-banner">
-    <div class="col-md-4">
+<div class="row mb-5 text-center pt-2 mx-0 shadow" id="info-banner">
+    <div class="col-md-6 col-lg-4 d-none d-md-block info-banner-segment">
         <p><i class="fa-solid fa-leaf mx-2"></i>100% vegan product range</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6 col-lg-4 info-banner-segment">
         <p><i class="fa-solid fa-truck-fast mx-2"></i>Free delivery over £35
         </p>
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4 d-none d-lg-block info-banner-segment">
         <p><i class="fa-solid fa-paw mx-2"></i>Independent vegan-owned store
         </p>
     </div>
 </div>
+
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
-
 
 <div class="container marketing">
 
     <!-- Four columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-3 text-center">
-            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
-                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
-                 focusable="false"><title>Placeholder</title>
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+            <img src="static/media/homepage/mouses-camembert.jpeg" class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" alt="">
             <h2 class="fw-normal">Chilled</h2>
             <p>The best vegan meats, cheeses, plant milks, spreads and
                 more!</p>
@@ -122,13 +104,8 @@
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
-            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
-                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
-                 focusable="false"><title>Placeholder</title>
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+            <img src="static/media/homepage/suma-tinned-meals.png" class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" alt="">
             <h2 class="fw-normal">Food cupboard</h2>
             <p>Delicious vegan ready meals, storecupboard essentials and
                 cooking ingredients</p>
@@ -136,26 +113,16 @@
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
-            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
-                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
-                 focusable="false"><title>Placeholder</title>
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+            <img src="static/media/homepage/vego-chocolate.png"  class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" alt="">
             <h2 class="fw-normal">Snacks & Treats</h2>
             <p>The tastiest vegan chocolate, sweets and savoury snacks!</p>
             <p><a class="btn btn-secondary mb-3 btn-more-details" href="{% url 'by-category' 'snacks-treats' %}">View all &raquo;</a>
             </p>
         </div><!-- /.col-lg-3 -->
         <div class="col-lg-3 text-center">
-            <svg class="bd-placeholder-img rounded-circle mb-3" width="140"
-                 height="140" xmlns="http://www.w3.org/2000/svg" role="img"
-                 aria-label="Placeholder" preserveAspectRatio="xMidYMid slice"
-                 focusable="false"><title>Placeholder</title>
-                <rect width="100%" height="100%"
-                      fill="var(--bs-secondary-color)"/>
-            </svg>
+            <img src="static/media/homepage/faith-soap.png" class="bd-placeholder-img rounded-circle mb-3" width="140"
+                 height="140" alt="">
             <h2 class="fw-normal">Body & Home</h2>
             <p>Plant-based and cruelty-free haircare, skincare and home
                 cleaning products</p>
@@ -170,13 +137,14 @@
 
     <div class="row featurette">
         <div class="col">
-            <h2 class="featurette-heading fw-normal lh-1 text-body-secondary">
-                New arrivals</h2>
+            <h3 class="featurette-heading lh-1">
+                New arrivals</h3>
             <p class="lead">Check out the latest products to hit the (virtual)
                 shelves!</p>
         </div>
     </div>
 
+    <!--Displays a row of four products selected at random from the New Products category-->
 
     <div class="row">
 
@@ -184,8 +152,13 @@
 
         <div class="col-md-3">
             <div class="card" style="width: 18rem;">
+              <h6 class="card-text m-4">{{ product.categories.first.name }}</h6>
+              {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="">
+              {% else %}
+                <img src="static/media/homepage/image-coming-soon.png" class="card-img-top" alt="">
+              {% endif %}
               <div class="card-body">
-                <p class="card-text">{{ product.categories.first.name }}</p>
                 <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
                   <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                 <h5>£{{ product.retail_price }}</h5>
@@ -199,11 +172,12 @@
 
     <hr class="featurette-divider">
 
+    <!--Displays a row of four products selected at random from the Bestsellers category-->
 
     <div class="row featurette">
         <div class="col">
-            <h2 class="featurette-heading fw-normal lh-1 text-body-secondary">
-                Bestsellers</h2>
+            <h3 class="featurette-heading lh-1">
+                Bestsellers</h3>
             <p class="lead">Stuff you didn't come here to look for but will
                 definitely buy if we stick it right here on the homepage.</p>
         </div>
@@ -216,8 +190,11 @@
 
             <div class="col-md-3">
             <div class="card" style="width: 18rem;">
+              <h6 class="card-text m-3">{{ product.categories.first.name }}</h6>
+              {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="">
+              {% endif %}
               <div class="card-body">
-                <p class="card-text">{{ product.categories.first.name }}</p>
                 <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
                   <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                 <h5>£{{ product.retail_price }}</h5>
@@ -229,32 +206,6 @@
         {% endfor %}
 
     </div>
-
-<!--    <hr class="featurette-divider">-->
-
-    <!--    <div class="row featurette">-->
-    <!--      <div class="col-md-7 order-md-2">-->
-    <!--        <h2 class="featurette-heading fw-normal lh-1">Bestsellers <span class="text-body-secondary">See for yourself.</span></h2>-->
-    <!--        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>-->
-    <!--      </div>-->
-    <!--      <div class="col-md-5 order-md-1">-->
-    <!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>-->
-    <!--      </div>-->
-    <!--    </div>-->
-
-    <!--    <hr class="featurette-divider">-->
-
-    <!--    <div class="row featurette">-->
-    <!--      <div class="col-md-7">-->
-    <!--        <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>-->
-    <!--        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>-->
-    <!--      </div>-->
-    <!--      <div class="col-md-5">-->
-    <!--        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(&#45;&#45;bs-secondary-bg)"/><text x="50%" y="50%" fill="var(&#45;&#45;bs-secondary-color)" dy=".3em">500x500</text></svg>-->
-    <!--      </div>-->
-    <!--    </div>-->
-
-    <!--    <hr class="featurette-divider">-->
 
     <!-- /END THE FEATURETTES -->
 

@@ -25,8 +25,8 @@
 
 <body>
 
-<header data-bs-theme="light">
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light py-0">
+<header>
+    <nav class="navbar navbar-expand-xl fixed-top py-0 shadow">
         <div class="container-fluid top-nav">
 
             <a class="navbar-brand" href="/"><h1>VeganDirect</h1></a>
@@ -56,12 +56,11 @@
                 {% endif %}
             {% endfor %}
 
-                <div class="dropdown">
+                <div class="dropdown flex-grow-1">
                   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="nav-item fa-solid fa-magnifying-glass"></i>
                   </button>
-                    <div class="row">
-                        <div class="col">
+
                   <ul class="dropdown-menu">
                         <form method="GET" action="{% url 'search-results' %}" class="d-flex mx-2" role="search">
                            <input class="form-control me-2" id="search-box" type="text" name="q"
@@ -69,10 +68,10 @@
                         <button class="btn search" type="submit"><i class="fa-solid fa-angle-right"></i></button>
                         </form>
                   </ul>
-                        </div>
-                    </div>
+
                 </div>
 
+                <div>
                 <ul class="navbar-nav mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#"><i
@@ -87,6 +86,8 @@
                                 class="fa-solid fa-basket-shopping me-2"></i></a>
                     </li>
                 </ul>
+                </div>
+
             </div>
         </div>
     </nav>

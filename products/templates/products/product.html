@@ -5,10 +5,12 @@
 {% block main_content %}
 
 <div class="container mt-5">
-    <p><a href="{% url 'by-category' category.parent.slug %}">{{ category.parent }}</a> > <a href="{% url 'by-category' category.slug %}">{{ category.name }}</a> > {{ this_product.name }}</p>
+    {% if category.parent %}
+        <p><a class="breadcrumbs" href="{% url 'by-category' category.parent.slug %}">{{ category.parent }}</a> > <a class="breadcrumbs" href="{% url 'by-category' category.slug %}">{{ category.name }}</a> > {{ this_product.name }}</p>
+    {% endif %}
     <div class="row">
-        <div class="col-md-6">
-            <p>Product photo goes here</p>
+        <div class="col-md-6 product-photo my-2">
+            <img src="{{ this_product.image.url }}" alt="">
         </div>
         <div class="col-md-6">
             <h2>{{ this_product.name }}</h2>
@@ -16,8 +18,8 @@
             <h5>£{{ this_product.retail_price }}</h5>
             <p>Quantity selector goes here</p>
             <p class="btn buy-now">Add to basket</p>
-            <p>{% if this_product.is_organic %}<i class="fa-regular fa-circle-check mx-1"></i> Organic{% endif %}
-            {% if this_product.is_glutenfree %} <i class="fa-regular fa-circle-check mx-1"></i> Gluten-free{% endif %}
+            <p>{% if this_product.is_organic %}<i class="fa-regular fa-circle-check m-2"></i> Organic{% endif %}
+            {% if this_product.is_glutenfree %} <i class="fa-regular fa-circle-check m-2"></i> Gluten-free{% endif %}
             </p>
         </div>
     </div>
@@ -80,6 +82,9 @@
         {% for product in related_products %}
         <div class="col-md-3 mb-2">
                 <div class="card" style="width: 18rem;">
+                  {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="">
+                  {% endif %}
                   <div class="card-body">
                     <p class="card-text">{{ product.categories.first.name }}</p>
                     <a href="{% url 'single-product' category.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
