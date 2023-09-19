@@ -162,6 +162,7 @@ body {
   letter-spacing: -.05rem;
 }
 
+
 /* rtl:end:remove */
 
 /* RESPONSIVE CSS
@@ -275,6 +276,10 @@ so that style elements are not in the HTML file ***/
     font-family: rubikbold;
 }
 
+.page-title {
+    font-family: 'kaushan_scriptregular';
+}
+
 h2 {
     font-family: 'rubikmedium';
 }
@@ -351,21 +356,44 @@ menu {
     width: 200px;
 }
 
+
 #carousel-image-1 {
-    background-image: url('../media/homepage/new-vegan-products.png');
-    width: 100%;
+    background-image: url('../media/homepage/new-products-small.png');
+    max-height: 100%;
     overflow: hidden;
     background-repeat: no-repeat;
     background-position-x: center;
 }
 
+
+@media (min-width: 768px) {
+    #carousel-image-1 {
+        background-image: url('../media/homepage/new-vegan-products.png');
+        width: 100%;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-position-x: center;
+    }
+}
+
+#carousel-image-2 {
+    background-image: url('../media/homepage/cheese-banner-small.png');
+    max-height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    }
+
+@media (min-width: 768px) {
 #carousel-image-2 {
     background-image: url('../media/homepage/mouses-banner.png');
     width: 100%;
     overflow: hidden;
     background-repeat: no-repeat;
     background-position-x: center;
+    }
 }
+
 
 a {
     text-decoration: none;
@@ -379,4 +407,25 @@ a {
 .product-photo img {
     max-width: 100%;
     max-height: auto;
+}
+
+
+.carousel-header, .carousel-caption p {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+#carousel-image-1 .carousel-header, #carousel-image-1 .carousel-caption p {
+    text-align: right;
+    }
+}
+
+@media (min-width: 768px) {
+#carousel-image-2 .carousel-header, #carousel-image-2 .carousel-caption p {
+    text-align: left;
+    }
+}
+
+.card-title {
+    font-weight: bold;
 }

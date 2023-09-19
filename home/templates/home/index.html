@@ -14,8 +14,8 @@
                 aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
                 aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+<!--        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"-->
+<!--                aria-label="Slide 3"></button>-->
     </div>
 
     <div class="carousel-inner">
@@ -33,29 +33,27 @@
             </div>
         </div>
         <div class="carousel-item" id="carousel-image-2">
-<!--            <img class="bd-placeholder-img overflow-hidden" src="../static/media/homepage/mouses-favourite.png">-->
-
             <div class="container">
                 <div class="carousel-caption text-start">
                     <h1 class="carousel-header">Featured brand</h1>
-                    <p class="carousel-text">Mouse's Favourite cashew cheeses</p>
+                    <p class="carousel-text">Mouse's Favourite nut cheeses</p>
                     <p><a class="btn btn-lg btn-primary btn-more-details" href="{% url 'brand' 'mouses-favourite' %}">Explore the
                         range &raquo;</a></p>
                 </div>
             </div>
         </div>
-        <div class="carousel-item" id="carousel-image-3">
-            <img class="bd-placeholder-img">
-            <div class="container">
-                <div class="carousel-caption text-end px-3"">
-                    <h1 class="carousel-header">Christmas is coming!</h1>
-                    <p class="carousel-text">Seasonal goodies for you and your
-                        loved ones</p>
-                    <p><a class="btn btn-lg btn-primary btn-more-details" href="#">Take me there
-                        &raquo;</a></p>
-                </div>
-            </div>
-        </div>
+<!--        <div class="carousel-item" id="carousel-image-3">-->
+<!--            <img class="bd-placeholder-img">-->
+<!--            <div class="container">-->
+<!--                <div class="carousel-caption text-end px-3"">-->
+<!--                    <h1 class="carousel-header">Christmas is coming!</h1>-->
+<!--                    <p class="carousel-text">Seasonal goodies for you and your-->
+<!--                        loved ones</p>-->
+<!--                    <p><a class="btn btn-lg btn-primary btn-more-details" href="#">Take me there-->
+<!--                        &raquo;</a></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
     <button class="carousel-control-prev" type="button"
             data-bs-target="#myCarousel" data-bs-slide="prev">
@@ -130,6 +128,19 @@
     </div><!-- /.row -->
 
 
+    <hr class="featurette-divider">
+
+    <div class="row featurette justify-content-center">
+        <div class="col-9 text-center">
+            <h1 class="page-title mb-4">Welcome to VeganDirect!</h1>
+            <p class="lead">VeganDirect UK online vegan supermarket brings you a curated selection of the best vegan products from around the
+                UK and Europe, delivered to your door!</p>
+            <p class="lead">Our entire product range is 100% vegan,
+                plant-based and free from animal testing. <br>Happy browsing!</p>
+        </div>
+    </div>
+
+
     <!-- START THE FEATURETTES -->
 
     <hr class="featurette-divider">
@@ -137,33 +148,33 @@
     <div class="row featurette">
         <div class="col">
             <h3 class="featurette-heading lh-1">
-                New arrivals</h3>
-            <p class="lead">Check out the latest products to hit the (virtual)
+                New Products</h3>
+            <p class="lead">Check out the latest arrivals to hit the (virtual)
                 shelves!</p>
+            <p class="lead">
+                <a href="{% url 'by-category' 'new-products' %}">View all New Products &raquo;</a>
+            </p>
         </div>
     </div>
 
     <!--Displays a row of four products selected at random from the New Products category-->
 
     <div class="row">
-
         {% for product in new_products %}
-
-        <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
+        <div class="col-6 col-md-4 col-lg-3 my-3">
+            <div class="card" style="max-width: 16rem;">
               <h6 class="card-text m-4">{{ product.categories.first.name }}</h6>
               {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top" alt="">
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><img src="{{ product.image.url }}" class="card-img-top" alt=""></a>
               {% endif %}
               <div class="card-body">
-                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h6 class="card-title">{{ product.name }}</h6></a>
                   <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                 <h5>£{{ product.retail_price }}</h5>
                 <a href="#" class="btn buy-now">Add to basket</a>
               </div>
             </div>
         </div>
-
         {% endfor %}
     </div>
 
@@ -175,31 +186,29 @@
         <div class="col">
             <h3 class="featurette-heading lh-1">
                 Bestsellers</h3>
-            <p class="lead">Stuff you didn't come here to look for but will
-                definitely buy if we stick it right here on the homepage.</p>
+            <p class="lead">Discover our most popular products right now!<p>
+            <p class="lead">
+                <a href="{% url 'by-category' 'bestsellers' %}">View all Bestsellers &raquo;</a>
+            </p>
         </div>
     </div>
 
-
     <div class="row">
-
         {% for product in bestseller_products %}
-
-            <div class="col-md-3">
-            <div class="card" style="width: 18rem;">
+            <div class="col-6 col-md-4 col-lg-3 my-3">
+            <div class="card" style="max-width: 16rem;">
               <h6 class="card-text m-3">{{ product.categories.first.name }}</h6>
               {% if product.image %}
-                <img src="{{ product.image.url }}" class="card-img-top" alt="">
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><img src="{{ product.image.url }}" class="card-img-top" alt=""></a>
               {% endif %}
               <div class="card-body">
-                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5 class="card-title">{{ product.name }}</h5></a>
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h6 class="card-title">{{ product.name }}</h6></a>
                   <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                 <h5>£{{ product.retail_price }}</h5>
                 <a href="#" class="btn buy-now">Add to basket</a>
               </div>
             </div>
         </div>
-
         {% endfor %}
 
     </div>

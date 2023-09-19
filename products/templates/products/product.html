@@ -84,13 +84,13 @@
     <div class="row row-col mt-5">
         <h4>Products you might also like...</h4>
         {% for product in related_products %}
-        <div class="col-sm-12 col-md-6 col-lg-3 mb-2 mx-1">
-                <div class="card" style="width: 14rem;">
+        <div class="col-6 col-md-4 col-lg-3 my-3">
+                <div class="card" style="max-width: 15rem;">
+                <h6 class="card-text m-4">{{ product.categories.first.name }}</h6>
                   {% if product.image %}
-                    <img src="{{ product.image.url }}" class="card-img-top" alt="">
+                    <a href="{% url 'single-product' category.slug product.slug %}"><img src="{{ product.image.url }}" class="card-img-top" alt=""></a>
                   {% endif %}
                   <div class="card-body">
-                    <p class="card-text">{{ product.categories.first.name }}</p>
                     <a href="{% url 'single-product' category.slug product.slug %}"><h6 class="card-title">{{ product.name }}</h6></a>
                     <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
                     <h5>£{{ product.retail_price }}</h5>
