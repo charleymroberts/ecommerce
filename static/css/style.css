@@ -155,7 +155,7 @@ body {
 
   .featurette-heading {
     font-size: 50px;
-    font-family: rubikmedium;
+    font-family: rubikmedium, Helvetica, Arial, sans-serif;
   }
 }
 
@@ -242,26 +242,26 @@ so that style elements are not in the HTML file ***/
 /***Homepage-specific styling***/
 
 .navbar-brand {
-    font-family: 'kaushan_scriptregular';
+    font-family: 'kaushan_scriptregular', 'Times New Roman', cursive;
     color: #343231;
 }
 
 .carousel-header {
-    font-family: rubikbold;
+    font-family: rubikbold, Helvetica, Arial, sans-serif;
 }
 
 .page-title {
-    font-family: 'kaushan_scriptregular';
+    font-family: 'kaushan_scriptregular', 'Times New Roman', cursive;
 }
 
 .carousel-text {
-    font-family: rubikregular;
+    font-family: rubikregular, Helvetica, Arial, sans-serif;
 }
 
 /* 'View all' buttons, under the round images on homepage
 and on top of the carousel images */
 .btn-more-details {
-    font-family: rubikregular;
+    font-family: rubikregular, Helvetica, Arial, sans-serif;
     background-color: #fbb13c;
     border: none;
     color: #000;
@@ -353,7 +353,7 @@ li {
 }
 
 menu {
-    font-family: rubikmedium;
+    font-family: rubikmedium, Helvetica, Arial, sans-serif;;
     font-size: larger;
 }
 
@@ -383,7 +383,7 @@ shown on the 'all products in each category' pages */
 }
 
 h2 {
-    font-family: 'rubikmedium';
+    font-family: rubikmedium, Helvetica, Arial, sans-serif;;
 }
 
 /* Font Awesome icons */
