@@ -36,6 +36,7 @@
 </div>
 
 <!--buttons with links to subcategories from 'all products' pages of each category-->
+
 <div class="row">
     <div class="col">
     {% if category.parent is None %}
@@ -46,7 +47,7 @@
     </div>
 </div>
 
-<!--cards for pages displaying all products in a category-->
+<!--Card displaying product details-->
 
 <!---Card code from Bootstrap: https://getbootstrap.com/docs/5.3/components/card/-->
 
@@ -66,7 +67,6 @@
                 </div>
         </div>
     {% endfor %}
-
 
     </div>
 </div>

@@ -3,24 +3,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Category, Brand
 from django.db.models import Q
 
-'''
-View to render...something. Practice one. Delete? 
-Currently what's under products/. Get rid of that page?
-'''
-# def product_lists(request):
-#
-#     products = Product.objects.all()
-#     categories = Category.objects.all()
-#     top_level = Category.objects.filter(parent__isnull=True)
-#
-#     context = {
-#         'products': products,
-#         'categories': categories,
-#         'top_level': top_level,
-#     }
-#
-#     return render(request, 'products/product_lists.html', context)
-
 
 '''
 View to render the lists of products under each category
