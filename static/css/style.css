@@ -98,7 +98,7 @@
     font-style: normal;
 }
 
-/************** Styling from the Carousel Bootstrap template
+/******** Styling from the Carousel Bootstrap template
 (some has been adapted from the original) ******/
 
 /* GLOBAL STYLES
@@ -116,10 +116,6 @@ body {
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
-/*!* Carousel base class *!*/
-/*.carousel {*/
-/*  !*margin-bottom: 4rem;*!*/
-/*}*/
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
@@ -131,23 +127,6 @@ body {
   height: 32rem;
   background-color: #8f2d56;
 }
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the four columns below the carousel */
-
-/*.marketing .col-lg-3 {*/
-/*  text-align: center;*/
-/*}*/
-/* rtl:begin:ignore */
-/*.marketing .col-lg-3 p {*/
-/*  margin-right: .75rem;*/
-/*  margin-left: .75rem;*/
-/*}*/
-/* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
@@ -161,8 +140,6 @@ body {
 .featurette-heading {
   letter-spacing: -.05rem;
 }
-
-
 /* rtl:end:remove */
 
 /* RESPONSIVE CSS
@@ -182,13 +159,7 @@ body {
   }
 }
 
-/*@media (min-width: 62em) {*/
-/*  .featurette-heading {*/
-/*    !*margin-top: 7rem;*!*/
-/*  }*/
-/*}*/
-
-/**** Carousel styling copied over from index.html
+/**** Bootstrap Carousel styling copied over from index.html template
 so that style elements are not in the HTML file ***/
 
 /* carousel images */
@@ -265,7 +236,10 @@ so that style elements are not in the HTML file ***/
         z-index: 1500;
       }
 
-/************* Styling that didn't come with the Carousel template *******/
+/********* Styling that didn't come with the Carousel template *******/
+
+
+/***Homepage-specific styling***/
 
 .navbar-brand {
     font-family: 'kaushan_scriptregular';
@@ -280,14 +254,12 @@ so that style elements are not in the HTML file ***/
     font-family: 'kaushan_scriptregular';
 }
 
-h2 {
-    font-family: 'rubikmedium';
-}
-
 .carousel-text {
     font-family: rubikregular;
 }
 
+/* 'View all' buttons, under the round images on homepage
+and on top of the carousel images */
 .btn-more-details {
     font-family: rubikregular;
     background-color: #fbb13c;
@@ -299,26 +271,7 @@ h2 {
     background-color: #73d2de;
 }
 
-.buy-now {
-    background-color: #218380;
-    color: #ffffff;
-    display: block;
-    margin: auto;
-}
-
-.buy-now:hover {
-    background-color: #73d2de;
-}
-
-.search {
-    background-color: silver;
-    color: #333333;
-}
-
-.fa-regular, .fa-solid, .fa-brands {
-    font-size: 1.5rem;
-}
-
+/* Div immediately under the carousel photos */
 #info-banner {
     height: 2.5rem;
     background-color: #ff2b7c;
@@ -330,33 +283,9 @@ h2 {
     background-color: #ff2b7c;
 }
 
-.top-nav {
-    background-color: #fbb13c;
-}
+/*** Homepage image carousel banner ***/
 
-li {
-    display: inline;
-}
-
-menu {
-    font-family: rubikmedium;
-    font-size: larger;
-}
-
-.subcategory-link-button, .subcategory-link-button:hover {
-    background-color: #fbb13c;
-}
-
-.sort-by, .sort-by:hover {
-    background-color: #ffffff;
-    border: 1px black solid;
-}
-
-#search-box {
-    width: 200px;
-}
-
-
+/* Homepage carousel images for different screen sizes */
 #carousel-image-1 {
     background-image: url('../media/homepage/new-products-small.png');
     max-height: 100%;
@@ -364,7 +293,6 @@ menu {
     background-repeat: no-repeat;
     background-position-x: center;
 }
-
 
 @media (min-width: 768px) {
     #carousel-image-1 {
@@ -394,21 +322,8 @@ menu {
     }
 }
 
-
-a {
-    text-decoration: none;
-    color: #343231;
-}
-
-.card-title:hover, .card-subtitle:hover, .breadcrumbs:hover {
-    text-decoration: underline;
-}
-
-.product-photo img {
-    max-width: 100%;
-    max-height: auto;
-}
-
+/* Carousel text alignment - center for smaller screens
+and left or right for larger screens*/
 
 .carousel-header, .carousel-caption p {
     text-align: center;
@@ -426,6 +341,89 @@ a {
     }
 }
 
+
+/*** Navbar ***/
+
+.top-nav {
+    background-color: #fbb13c;
+}
+
+li {
+    display: inline;
+}
+
+menu {
+    font-family: rubikmedium;
+    font-size: larger;
+}
+
+#search-box {
+    width: 200px;
+}
+
+/* 'Go' button next to search box */
+.search {
+    background-color: silver;
+    color: #333333;
+}
+
+
+/***Across the site**/
+
+/* Yellow rounded buttons showing product subcategories,
+shown on the 'all products in each category' pages */
+.subcategory-link-button, .subcategory-link-button:hover {
+    background-color: #fbb13c;
+}
+
+/* 'sort by' box on category pages */
+.sort-by, .sort-by:hover {
+    background-color: #ffffff;
+    border: 1px black solid;
+}
+
+h2 {
+    font-family: 'rubikmedium';
+}
+
+/* Font Awesome icons */
+.fa-regular, .fa-solid, .fa-brands {
+    font-size: 1.5rem;
+}
+
+/* So link text is not underlined by default */
+a {
+    text-decoration: none;
+    color: #343231;
+}
+
+/* So that certain link text is underlined,
+ where it's not obvious it's a link*/
+.card-title:hover, .card-subtitle:hover, .breadcrumbs:hover {
+    text-decoration: underline;
+}
+
+
+/*** Product cards ***/
+
+/* Product photos in cards */
+.product-photo img {
+    max-width: 100%;
+    max-height: auto;
+}
+
 .card-title {
     font-weight: bold;
+}
+
+/* 'Add to basket' button in product cards */
+.buy-now {
+    background-color: #218380;
+    color: #ffffff;
+    display: block;
+    margin: auto;
+}
+
+.buy-now:hover {
+    background-color: #73d2de;
 }
