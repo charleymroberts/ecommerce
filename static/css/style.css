@@ -399,10 +399,9 @@ a {
 
 /* So that certain link text is underlined,
  where it's not obvious it's a link*/
-.card-title:hover, .card-subtitle:hover, .breadcrumbs:hover {
+.card-title:hover, .card-subtitle:hover, .breadcrumbs:hover, .underline-hover:hover {
     text-decoration: underline;
 }
-
 
 /*** Product cards ***/
 
@@ -427,3 +426,14 @@ a {
 .buy-now:hover {
     background-color: #73d2de;
 }
+
+
+/*** Mailchimp **/
+
+#mc_embed_signup {
+    background-color: #faf9f6;
+    font-size: medium;
+    font-family: rubikmedium, Helvetica, Arial, sans-serif;
+    max-width: 100%;
+}
+
