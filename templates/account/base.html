@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body>
+
+    {% block main_content %}
+    <div class="container mt-5">
+    {% block body %}
+
+    {% if messages %}
+    <div>
+      <strong>{% trans "Messages:" %}</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="text-center">
+        {% if user.is_authenticated %}
+        <i class="fa-solid fa-seedling mx-1"></i>
+        <a href="{% url 'account_email' %}" class="underline-hover">{% trans "Change Email" %} </a>
+        <i class="fa-solid fa-seedling mx-1"></i>
+        <a href="{% url 'account_logout' %}" class="underline-hover">{% trans "Sign Out" %}</a>
+        {% else %}
+        <i class="fa-solid fa-seedling mx-1"></i>
+        <a href="{% url 'account_login' %}" class="underline-hover">{% trans "Log In" %} </a>
+        <i class="fa-solid fa-seedling mx-1"></i>
+        <a href="{% url 'account_signup' %}" class="underline-hover">{% trans "Create Account" %}</a>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+    </div>
+    {% endblock %}
+
+  </body>
+</html>

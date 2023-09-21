@@ -383,7 +383,7 @@ shown on the 'all products in each category' pages */
 }
 
 h2 {
-    font-family: rubikmedium, Helvetica, Arial, sans-serif;;
+    font-family: rubikmedium, Helvetica, Arial, sans-serif;
 }
 
 /* Font Awesome icons */
@@ -397,9 +397,13 @@ a {
     color: #343231;
 }
 
-/* So that certain link text is underlined,
- where it's not obvious it's a link*/
+/* So that certain link text is underlined on hover */
 .card-title:hover, .card-subtitle:hover, .breadcrumbs:hover, .underline-hover:hover {
+    text-decoration: underline;
+}
+
+/* In case underline is needed */
+.underline {
     text-decoration: underline;
 }
 
@@ -436,4 +440,3 @@ a {
     font-family: rubikmedium, Helvetica, Arial, sans-serif;
     max-width: 100%;
 }
-
