@@ -21,25 +21,25 @@
       <strong>{% trans "Messages:" %}</strong>
       <ul>
         {% for message in messages %}
-        <li>{{message}}</li>
+        <li class="me-3">{{message}}</li>
         {% endfor %}
       </ul>
     </div>
     {% endif %}
 
-    <div class="text-center">
-        {% if user.is_authenticated %}
-        <i class="fa-solid fa-seedling mx-1"></i>
-        <a href="{% url 'account_email' %}" class="underline-hover">{% trans "Change Email" %} </a>
-        <i class="fa-solid fa-seedling mx-1"></i>
-        <a href="{% url 'account_logout' %}" class="underline-hover">{% trans "Sign Out" %}</a>
-        {% else %}
-        <i class="fa-solid fa-seedling mx-1"></i>
-        <a href="{% url 'account_login' %}" class="underline-hover">{% trans "Log In" %} </a>
-        <i class="fa-solid fa-seedling mx-1"></i>
-        <a href="{% url 'account_signup' %}" class="underline-hover">{% trans "Create Account" %}</a>
-        {% endif %}
-    </div>
+<!--    <div class="text-center">-->
+<!--        {% if user.is_authenticated %}-->
+<!--        <i class="fa-solid fa-seedling mx-1"></i>-->
+<!--        <a href="{% url 'account_email' %}" class="underline-hover">{% trans "Change Email" %} </a>-->
+<!--        <i class="fa-solid fa-seedling mx-1"></i>-->
+<!--        <a href="{% url 'account_logout' %}" class="underline-hover">{% trans "Log Out" %}</a>-->
+<!--        {% else %}-->
+<!--        <i class="fa-solid fa-seedling mx-1"></i>-->
+<!--        <a href="{% url 'account_login' %}" class="underline-hover">{% trans "Log In" %} </a>-->
+<!--        <i class="fa-solid fa-seedling mx-1"></i>-->
+<!--        <a href="{% url 'account_signup' %}" class="underline-hover">{% trans "Create Account" %}</a>-->
+<!--        {% endif %}-->
+<!--    </div>-->
     {% block content %}
     {% endblock %}
     {% endblock %}

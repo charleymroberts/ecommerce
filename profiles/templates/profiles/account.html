@@ -1,0 +1,16 @@
+{% extends 'account/base.html' %}
+
+{% block main_content %}
+
+<div class="container mt-5">
+    <a href="{% url 'account_logout' %}"><p class="underline text-end">Log out</p></a>
+    <h5>Hi, {{ user.username }}!</h5>
+    <h2>My Account</h2>
+    <i class="fa-solid fa-seedling mx-1"></i><a class="underline-hover">My shipping addresses</a><br>
+    <i class="fa-solid fa-seedling mx-1"></i><a class="underline-hover">My email addresses</a><br>
+    <i class="fa-solid fa-seedling mx-1"></i><a class="underline-hover">My order history</a><br>
+    <i class="fa-solid fa-seedling mx-1"></i><a class="underline-hover">My favourites/wishlist</a><br>
+    <i class="fa-solid fa-seedling mx-1"></i><a class="underline-hover">My loyalty points</a>
+
+</div>
+{% endblock %}

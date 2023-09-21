@@ -76,17 +76,20 @@
                 <div>
                 <ul class="navbar-nav mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><i
+                        <a class="nav-link" aria-label="favourites" href="#"><i
                                 class="fa-regular fa-heart me-2"></i></a>
                     </li>
                     <li class="nav-item">
-
-                        <a class="nav-link" href="{% url 'account_login' %}"><i
+                    {% if user.is_authenticated %}
+                        <a class="nav-link" aria-label="my account" href="{% url 'my-account' %}"><i
                                 class="fa-regular fa-user me-2"></i></a>
-
+                    {% else %}
+                        <a class="nav-link" aria-label="login" href="{% url 'account_login' %}"><i
+                                class="fa-regular fa-user me-2"></i></a>
+                    {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i
+                        <a class="nav-link" aria-label="basket" href="#"><i
                                 class="fa-solid fa-basket-shopping me-2"></i></a>
                     </li>
                 </ul>
@@ -95,9 +98,19 @@
             </div>
         </div>
     </nav>
+
 </header>
 
 <main>
+    {% if messages %}
+    <div class="mt-4 me-3 text-end">
+      <ul>
+        {% for message in messages %}
+        <li><strong>{{message}}</strong></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
 
     {% block main_content %}
     {% endblock %}
