@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load django_bootstrap5 %} <!--django_bootstrap5 provides form styling on this page-->
+
+{% block main_content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center mx-2">
+        <div class="col-md-9 col-lg-6">
+            <a href="{% url 'single-product' product.categories.first.slug product.slug %}">< Back to this product</a><br>
+            <a href="{% url 'view-products' %}">< Back to All products</a>
+            <h2 class="mt-3">Edit product</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% bootstrap_button button_type="submit" content="Save changes" %}
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

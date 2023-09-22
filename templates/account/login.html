@@ -38,7 +38,7 @@ Don't have an account yet? <a href="{{ signup_url }}" class="underline">Create a
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button class="primaryAction mb-2 btn-more-details" type="submit">{% trans "Log In" %}</button>
+  <button class="primaryAction mb-2 btn btn-sm btn-more-details" type="submit">{% trans "Log In" %}</button>
   <p><a class="button secondaryAction underline" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></p>
 </form>
 

@@ -382,7 +382,7 @@ shown on the 'all products in each category' pages */
     border: 1px black solid;
 }
 
-h2 {
+h2, h3 {
     font-family: rubikmedium, Helvetica, Arial, sans-serif;
 }
 
@@ -439,4 +439,13 @@ a {
     font-size: medium;
     font-family: rubikmedium, Helvetica, Arial, sans-serif;
     max-width: 100%;
+}
+
+
+.messages {
+    color: #2ca342;
+}
+
+#admin-navbar {
+    font-family: rubikmedium, Helvetica, Arial, sans-serif;
 }

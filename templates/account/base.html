@@ -15,7 +15,10 @@
   {% block main_content %}
 
     <div class="container mt-5">
-      <a href="{% url 'my-account' %}"><p class="underline-hover">< Back to My Account</p></a>
+      {% if user.is_authenticated %}
+      <p class="text-end">Currently logged in as {{ user.username }}<br>
+        <a href="{% url 'account_logout' %}" class="underline-hover"><strong>Log out</strong></a></p>
+      {% endif %}
 
       {% block content %}
       {% endblock %}

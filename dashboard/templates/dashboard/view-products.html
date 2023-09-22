@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<div class="container mt-5">
+
+    <h2 class="text-center">All Products</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+
+    <div class="row border th">
+        <div class="col-6"><strong>Name</strong></div>
+        <div class="col-2"><strong>Retail price</strong></div>
+        <div class="col-2"><strong>Wholesale price</strong></div>
+        <div class="col-2"></div>
+    </div>
+    {% for product in products %}
+    <div class="row border">
+        <div class="col-6"><a class="underline-hover" href="{% url 'single-product' product.categories.first.slug product.slug %}">{{ product.name }}</a></div>
+        <div class="col-2">{{ product.retail_price }}</div>
+        <div class="col-2">{{ product.wholesale_price }}</div>
+        <div class="col-2"><a class="underline-hover" href="{% url 'edit-product' product.slug %}">Edit</a></div>
+    </div>
+    {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -10,6 +10,9 @@
     {% if category.parent %}
         <p><a class="breadcrumbs" href="{% url 'by-category' category.parent.slug %}">{{ category.parent }}</a> > <a class="breadcrumbs" href="{% url 'by-category' category.slug %}">{{ category.name }}</a> > {{ this_product.name }}</p>
     {% endif %}
+    {% if user.is_superuser %}
+    <a href="{% url 'edit-product' this_product.slug %}"><button class="btn btn-more-details">Edit this product</button></a>
+    {% endif %}
     <div class="row">
         <div class="col-md-6 product-photo my-2">
           {% if this_product.image %}

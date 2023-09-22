@@ -2,17 +2,11 @@
 
 {% block content %}
 
-<div class="container mt-3">
-    <a href="{% url 'my-account' %}" class="underline-hover">< Back to My Account</a>
-    <div class="row mt-3">
-    <h2>My delivery addresses</h2>
-    <p>Here's where you can add, edit or remove your saved delivery addresses</p>
-    <p><a href="{% url 'add-address' %}" class="btn btn-more-details">Add new address</a></p>
-    </div>
-
-   <div class="row">
-
-        {% for address in user_addresses %}
+<div class="container mt-5">
+<a href="{% url 'addresses' %}" class="underline-hover">< Back to My delivery addresses</a>
+<div class="row mt-3">
+<h2>Delete this address?</h2>
+    <p>Are you sure you want to delete this address?  Choosing 'Delete' will remove it from 'My addresses' completely.</p>
         <div class="col col-lg-3">
            <div class="card" style="max-width: 16rem;">
              <div class="card-body">
@@ -22,16 +16,18 @@
                 <p class="card-text">{{ address.town_city_or_area }}</p>
                 <p class="card-text">{% if county %}{{ county }}{% endif %}</p>
                 <p class="card-text">{{ address.postcode }}</p>
-               <a href="{% url 'edit-address' address.id %}" class="btn btn-sm btn-more-details">Edit</a>
-               <a href="{% url 'delete-address' address.id %}" class="btn btn-sm btn-danger">Delete</a>
              </div>
            </div>
+          <form method="post">
+            {% csrf_token %}
+            <button name="confirm_delete" class="btn btn-sm btn-danger mt-2" value="yes">
+            Yes, delete this address</button>
+          </form>
+          <a href="{% url 'addresses' %}" class="btn btn-sm btn-secondary mt-2">Cancel</a>
         </div>
-       {% endfor %}
-   </div>
+
+    </div>
 
 
 </div>
-
 {% endblock %}
-

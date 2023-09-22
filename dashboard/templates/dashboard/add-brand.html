@@ -1,24 +1,20 @@
-{% extends 'account/base.html' %}
+{% extends 'base.html' %}
 
 {% load django_bootstrap5 %} <!--django_bootstrap5 provides form styling on this page-->
 
-{% block content %}
+{% block main_content %}
 
 <div class="container mt-5">
-    <a href="{% url 'addresses' %}" class="underline-hover">< Back to My delivery addresses</a>
-    <div class="row justify-content-center mx-2 mt-2">
+    <div class="row justify-content-center mx-2">
         <div class="col-md-9 col-lg-6">
-
-            <h2>Add new address</h2>
+            <h2>Add new brand</h2>
             <form method="POST">
                 {% csrf_token %}
                 {% bootstrap_form form %}
-                {% bootstrap_button button_type="submit" content="Add address" %}
+                {% bootstrap_button button_type="submit" content="Add brand" %}
             </form>
-
         </div>
     </div>
-
 </div>
 
 {% endblock %}

@@ -2,13 +2,21 @@
 
 {% load django_bootstrap5 %} <!--django_bootstrap5 provides form styling on this page-->
 
+{% block content %}
+
 <div class="container mt-5">
-
-    <div class="row">
-        <div class="col">
-
-
-        </div>
+    <a href="{% url 'addresses' %}" class="underline-hover">< Back to My delivery addresses</a>
+    <div class="row justify-content-center">
+    <div class="col-md-9 col-lg-6 px-2">
+        <h2>Edit address</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% bootstrap_button button_type="submit" content="Save changes" %}
+        </form>
     </div>
+</div>
 
 </div>
+
+{% endblock %}

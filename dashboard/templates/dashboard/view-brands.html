@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<div class="container mt-5">
+
+    <h2 class="text-center">All Brands</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+
+    <div class="row border th">
+        <div class="col-3"><strong>Name</strong></div>
+        <div class="col-7"><strong>Description</strong></div>
+        <div class="col-2"></div>
+    </div>
+    {% for brand in brands %}
+    <div class="row border">
+        <div class="col-3"><a class="underline-hover" href="{% url 'brand' brand.name %}">{{ brand.name }}</a></div>
+        <div class="col-7">{{ brand.description }}</div>
+        <div class="col-2"><a class="underline-hover" href="{% url 'edit-brand' brand.slug %}">Edit</a></div>
+    </div>
+    {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

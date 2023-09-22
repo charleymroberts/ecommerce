@@ -12,6 +12,9 @@ class ShippingAddress(models.Model):
     county = models.CharField(max_length=100, blank=True, null=True)
     postcode = models.CharField(max_length=8)
 
+    def __str__(self):
+        return self.line_one, self.postcode
+
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
