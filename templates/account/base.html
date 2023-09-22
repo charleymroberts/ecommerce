@@ -12,20 +12,23 @@
   </head>
   <body>
 
-    {% block main_content %}
-    <div class="container mt-5">
-    {% block body %}
+  {% block main_content %}
 
-    {% if messages %}
-    <div>
-      <strong>{% trans "Messages:" %}</strong>
-      <ul>
-        {% for message in messages %}
-        <li class="me-3">{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
+    <div class="container mt-5">
+      <a href="{% url 'my-account' %}"><p class="underline-hover">< Back to My Account</p></a>
+
+      {% block content %}
+      {% endblock %}
+<!--    {% if messages %}-->
+<!--    <div>-->
+<!--      <strong>{% trans "Messages:" %}</strong>-->
+<!--      <ul>-->
+<!--        {% for message in messages %}-->
+<!--        <li class="me-3">{{message}}</li>-->
+<!--        {% endfor %}-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    {% endif %}-->
 
 <!--    <div class="text-center">-->
 <!--        {% if user.is_authenticated %}-->
@@ -40,13 +43,15 @@
 <!--        <a href="{% url 'account_signup' %}" class="underline-hover">{% trans "Create Account" %}</a>-->
 <!--        {% endif %}-->
 <!--    </div>-->
-    {% block content %}
+    </div>
+
     {% endblock %}
-    {% endblock %}
+
+
+
     {% block extra_body %}
     {% endblock %}
-    </div>
-    {% endblock %}
+
 
   </body>
 </html>

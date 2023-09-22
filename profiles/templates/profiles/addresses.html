@@ -1,0 +1,36 @@
+{% extends 'account/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+    <h2>My delivery addresses</h2>
+    <p>Here's where you can add, edit or remove your saved delivery addresses</p>
+    <p><a href="{% url 'add-address' %}" class="btn btn-more-details">Add new address</a></p>
+    </div>
+
+   <div class="row">
+
+        {% for address in user_addresses %}
+        <div class="col col-lg-3">
+           <div class="card" style="max-width: 16rem;">
+             <div class="card-body">
+               <p class="card-text">{{ address.line_one }}</p>
+                <p class="card-text">{% if address.line_two %}{{ address.line_two }}{% endif %}</p>
+                <p class="card-text">{% if address.line_three %}{{ address.line_three }}{% endif %}</p>
+                <p class="card-text">{{ address.town_city_or_area }}</p>
+                <p class="card-text">{% if county %}{{ county }}{% endif %}</p>
+                <p class="card-text">{{ address.postcode }}</p>
+               <a href="#" class="card-link underline-hover"><em>Edit</em></a>
+               <a href="#" class="card-link underline-hover"><em>Remove</em></a>
+             </div>
+           </div>
+        </div>
+       {% endfor %}
+   </div>
+
+
+</div>
+
+{% endblock %}
+
