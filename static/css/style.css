@@ -424,7 +424,7 @@ a {
     background-color: #218380;
     color: #ffffff;
     display: block;
-    margin: auto;
+    /*margin: auto;*/
 }
 
 .buy-now:hover {

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bag_tools %}
+
+{% block main_content %}
+
+<div class="container mt-5">
+
+    <div class="row">
+        <div class="col">
+        <h2 class="text-center mb-4">Shopping basket</h2>
+
+        {% if bag_items %}
+            <table class="table table-borderless">
+                <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Each</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+                </thead>
+                {% for item in bag_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>£{{ item.product.retail_price }}</td>
+                    <td>
+                        <form class="form update-form" method="POST" action="{% url 'edit-bag' item.product_id %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                           <button type="button" class="decrement-qty btn"
+                                   data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                               <span class="icon"><i class="fas fa-minus"></i></span>
+                           </button>
+                           <input class="form-control qty_input" type="number"
+                                  name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                  data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                           <button type="button" class="increment-qty btn"
+                                   data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                            <span class="icon"><i class="fas fa-plus"></i></span>
+                           </button>
+                        </div>
+
+                        <input type="submit" class="btn btn-sm btn-info" value="Update">
+
+                        </form>
+
+                        <a class="update-link text-info"><small>Update</small></a>
+                        <a class="remove-item text-danger float-right" id="remove_{{ item.product_id }}"><small>Remove</small></a>
+
+
+                    </td>
+                    <td>£{{ item.product.retail_price | calc_subtotal:item.quantity }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-end"><strong>Total:</strong></td>
+                    <td><strong>£{{ total }}</strong></td>
+                </tr>
+            </table>
+
+
+
+        {% else %}
+            <h4 class="text-center mt-4">Your basket is empty</h4>
+        {% endif %}
+
+        </div>
+    </div>
+
+</div>
+
+{% include 'bag/includes/quantity_input_script.html' %}
+
+{% endblock %}
+
