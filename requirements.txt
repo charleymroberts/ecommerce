@@ -4,3 +4,5 @@ django-allauth
 django-bootstrap5
 boto3
 django-storages
+dj_database_url
+psycopg2
