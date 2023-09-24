@@ -5,8 +5,11 @@ from .forms import ProductForm, BrandForm
 from products.models import Product, Brand
 
 
+# All views on this page are for functionality only available to store owners
+
 # Create your views here.
-# needs permission required decorator. login also or just permission?
+@login_required()
+@permission_required()
 def dashboard(request):
     '''
     A view to render the store owner's admin dashboard
@@ -15,6 +18,8 @@ def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
 
 
+@login_required()
+@permission_required()
 def add_product(request):
     '''
     A view to render the 'Add product' form
@@ -33,6 +38,8 @@ def add_product(request):
     return render(request, 'dashboard/add-product.html', context)
 
 
+@login_required()
+@permission_required()
 def view_products(request):
     '''
     Displays a list of all products in alphabetical order
@@ -46,6 +53,8 @@ def view_products(request):
     return render(request, 'dashboard/view-products.html', context)
 
 
+@login_required()
+@permission_required()
 def edit_product(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
     if request.method == 'POST':
@@ -63,6 +72,8 @@ def edit_product(request, product_slug):
     return render(request, 'dashboard/edit-product.html', context)
 
 
+@login_required()
+@permission_required()
 def add_brand(request):
     '''
     A view to render the 'Add brand' form
@@ -81,6 +92,8 @@ def add_brand(request):
     return render(request, 'dashboard/add-brand.html', context)
 
 
+@login_required()
+@permission_required()
 def edit_brand(request, brand_slug):
     '''
     View to render the 'edit brand' form
@@ -101,6 +114,8 @@ def edit_brand(request, brand_slug):
     return render(request, 'dashboard/edit-brand.html', context)
 
 
+@login_required()
+@permission_required()
 def view_brands(request):
     '''
     Displays a list of all brands in alphabetical order
