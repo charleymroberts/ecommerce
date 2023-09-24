@@ -22,7 +22,7 @@
                 </thead>
                 {% for item in bag_items %}
                 <tr>
-                    <td>{{ item.product.name }}</td>
+                    <td><a class="underline-hover" href="{% url 'single-product' item.product.categories.first.slug item.product.slug %}">{{ item.product.name }}</a></td>
                     <td>£{{ item.product.retail_price }}</td>
                     <td>
                         <form class="form update-form" method="POST" action="{% url 'edit-bag' item.product_id %}">
@@ -40,15 +40,11 @@
                             <span class="icon"><i class="fas fa-plus"></i></span>
                            </button>
                         </div>
-
-                        <input type="submit" class="btn btn-sm btn-info" value="Update">
-
+                        <div class="text-center mt-1">
+                            <input type="submit" class="btn btn-sm btn-warning" name="update" value="Update">
+                            <input type="submit" class="btn btn-sm btn-danger" name="remove" value="Delete">
+                        </div>
                         </form>
-
-                        <a class="update-link text-info"><small>Update</small></a>
-                        <a class="remove-item text-danger float-right" id="remove_{{ item.product_id }}"><small>Remove</small></a>
-
-
                     </td>
                     <td>£{{ item.product.retail_price | calc_subtotal:item.quantity }}</td>
                 </tr>

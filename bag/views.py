@@ -44,31 +44,13 @@ def edit_bag(request, product_id):
 
     bag = request.session.get('bag', {})
 
-    if quantity > 0:
+    if quantity == 0 or "remove" in request.POST:
+        bag.pop(product_id)
+        messages.success(request, f'Removed {product.name} from your bag')
+    else:
         bag[product_id] = quantity
         messages.success(request,
                          f'Updated {product.name} to {bag[product_id]}')
-    else:
-        bag.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your basket')
 
     request.session['bag'] = bag
     return redirect(reverse('view-bag'))
-
-
-def remove_from_bag(request, product_id):
-    """ Remove the item from the shopping bag """
-
-    try:
-        product = get_object_or_404(Product, pk=product_id)
-        bag = request.session.get('bag', {})
-
-        bag.pop(product_id)
-        messages.success(request, f'Removed {product.name} from your basket')
-
-        request.session['bag'] = bag
-        return HttpResponse(status=200)
-    except Exception as e:
-        messages.error(request, f'Error removing item: {e}')
-        return HttpResponse(status=500)
-

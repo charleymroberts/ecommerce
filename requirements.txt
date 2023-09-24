@@ -2,3 +2,5 @@ django==4.2.1
 Pillow
 django-allauth
 django-bootstrap5
+boto3
+django-storages
