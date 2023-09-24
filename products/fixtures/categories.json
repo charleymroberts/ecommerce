@@ -1,0 +1,167 @@
+[
+  {
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+      "name": "Chilled",
+      "parent": null,
+      "description": "Just the tastiest vegan cheeses, vegan meat alternatives, plant milks and more!",
+      "slug": "chilled",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+      "name": "Food Cupboard",
+      "parent": null,
+      "description": "All your favourite essential foods and ingredients!",
+      "slug": "food-cupboard",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+      "name": "Snacks & Treats",
+      "parent": null,
+      "description": "The best vegan chocolate, sweets and savoury snacks!",
+      "slug": "snacks-treats",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+      "name": "Body & Home",
+      "parent": null,
+      "description": "Plant-based and cruelty-free bodycare and home cleaning products",
+      "slug": "body-home",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+      "name": "Vegan Cheese",
+      "parent": 1,
+      "description": "Check out our hand-picked selection of delicious vegan cheeses! Including nut cheese, cashew cheese, vegan blue cheese and more.",
+      "slug": "vegan-cheese",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+      "name": "Nut Butters",
+      "parent": 2,
+      "description": "Nut butters are an essential item in any vegan kitchen! Not just peanut butter - why not try cashew butter or almond butter too?",
+      "slug": "nut-butter",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 7,
+    "fields": {
+      "name": "Vegan chocolate",
+      "parent": 3,
+      "description": "Everyone deserves some delicious vegan chocolate - fortunately there are plenty to choose from!",
+      "slug": "vegan-chocolate",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 8,
+    "fields": {
+      "name": "Filled Pasta",
+      "parent": 1,
+      "description": "Fresh vegan tortellini, ravioli and more!",
+      "slug": "vegan-filled-pasta",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 9,
+    "fields": {
+      "name": "Vegan meat alternatives",
+      "parent": 1,
+      "description": "The best vegan and plant-based bacon, sausages and more!",
+      "slug": "vegan-meats",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 10,
+    "fields": {
+      "name": "Vegan ready meals",
+      "parent": 2,
+      "description": "Healthy, tasty and quick meals to keep in the cupboard - great for any occasion!",
+      "slug": "vegan-ready-meals",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 11,
+    "fields": {
+      "name": "Bestsellers",
+      "parent": null,
+      "description": "Discover a selection of the most popular vegan products!",
+      "slug": "bestsellers",
+      "show_in_menu": false
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 12,
+    "fields": {
+      "name": "New products",
+      "parent": null,
+      "description": "Check out the latest new vegan products!",
+      "slug": "new-products",
+      "show_in_menu": false
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 13,
+    "fields": {
+      "name": "Savoury snacks",
+      "parent": 3,
+      "description": "Crisps, pretzels, jerky... it's all here!",
+      "slug": "savoury-snacks",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 14,
+    "fields": {
+      "name": "Bodycare",
+      "parent": 4,
+      "description": "Skincare and haircare that's vegan, plant-based and free from animal testing - and great for you!",
+      "slug": "bodycare",
+      "show_in_menu": true
+    }
+  },
+  {
+    "model": "products.category",
+    "pk": 15,
+    "fields": {
+      "name": "Homecare",
+      "parent": 4,
+      "description": "Household cleaning products that are free from animal ingredients, not tested on animals, and will help keep your home sparkly clean!",
+      "slug": "homecare",
+      "show_in_menu": true
+    }
+  }
+]
