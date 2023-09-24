@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DJANGO_DEBUG') == 'yes')
 
-ALLOWED_HOSTS = ['vegandirect.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['vegandirect-2d439acd3be5.herokuapp.com/', 'localhost']
 
 
 # Application definition
