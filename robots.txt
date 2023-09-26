@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://vegandirect-2d439acd3be5.herokuapp.com/sitemap.xml
