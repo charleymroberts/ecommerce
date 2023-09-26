@@ -8,8 +8,18 @@
 
     <div class="row">
         <div class="col">
-        <h2 class="text-center mb-4">Shopping basket</h2>
-
+            <h2 class="text-center mb-4">Shopping basket</h2>
+            <hr>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h5>Free delivery on orders over £{{ free_delivery_threshold }}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <p class="red-text">{% if total > 20 and total < free_delivery_threshold %} Spend £{{ free_delivery_delta }} more to get free delivery{% endif %}</p>
+            </div>
+        </div>
         {% if bag_items %}
             <table class="table table-borderless">
                 <thead>
@@ -52,12 +62,40 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td class="text-end"><strong>Total:</strong></td>
-                    <td><strong>£{{ total }}</strong></td>
+                    <td class="text-end">Basket total:</td>
+                    <td>£{{ total }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-end">{% if has_chilled %}Cool box (required for orders with chilled items):</td>
+                    <td>£{{ cool_box | floatformat:2 }}</td>
+                    {% else %}<td></td>{% endif %}
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-end"><strong>Total (excl. delivery):</strong></td>
+                    <td>£{% if has_chilled %}{{ chilled_total }}{% else %}{{ total }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-end">{% if total > free_delivery_threshold%}Delivery:</td>
+                    <td>FREE</td>
+                    {% else %}<td></td>{% endif %}
                 </tr>
             </table>
+            <div class="row text-end">
+                <p>{% if total < free_delivery_threshold%}
+                        <strong>Delivery will be calculated on the next page</strong>
+                    {% endif %}</p>
+            </div>
 
 
+        <div class="d-flex justify-content-end">
+            <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+        </div>
 
         {% else %}
             <h4 class="text-center mt-4">Your basket is empty</h4>

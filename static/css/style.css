@@ -449,3 +449,7 @@ a {
 #admin-navbar {
     font-family: rubikmedium, Helvetica, Arial, sans-serif;
 }
+
+.red-text {
+    color: #ff0000;
+}

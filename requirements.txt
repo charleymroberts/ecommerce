@@ -7,3 +7,4 @@ django-storages
 dj_database_url
 psycopg2
 gunicorn
+stripe

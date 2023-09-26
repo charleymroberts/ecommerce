@@ -26,7 +26,14 @@
     <!--JQuery-->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <!--Stripe-->
+    <script src="https://js.stripe.com/v3/"></script>
 
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
 </head>
 
 <body>
@@ -96,24 +103,26 @@
 
                 </div>
 
+
+
                 <div>
                 <ul class="navbar-nav mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link text-center" aria-label="favourites" href="#"><i
-                                class="fa-regular fa-heart me-2"></i><br>Wishlist</a>
+                        <a class="nav-link d-inline-flex flex-column align-items-center" aria-label="favourites" href="#"><i
+                                class="fa-regular fa-heart me-2"></i><span>Wishlist</span></a>
                     </li>
                     <li class="nav-item">
                     {% if user.is_authenticated %}
-                        <a class="nav-link text-center" aria-label="my account" href="{% url 'my-account' %}"><i
-                                class="fa-regular fa-user me-2"></i><br>Account</a>
+                        <a class="nav-link d-inline-flex flex-column align-items-center" aria-label="my account" href="{% url 'my-account' %}"><i
+                                class="fa-regular fa-user me-2"></i><span>Account</span></a>
                     {% else %}
-                        <a class="nav-link text-center" aria-label="login" href="{% url 'account_login' %}"><i
-                                class="fa-regular fa-user me-2"></i><br>Login</a>
+                        <a class="nav-link d-inline-flex flex-column align-items-center" aria-label="login" href="{% url 'account_login' %}"><i
+                                class="fa-regular fa-user me-2"></i><span>Login</span></a>
                     {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-center" aria-label="basket" href="{% url 'view-bag' %}"><i
-                                class="fa-solid fa-basket-shopping me-2"></i><br>({{ product_count }})</a>
+                        <a class="nav-link d-inline-flex flex-column align-items-center" aria-label="basket" href="{% url 'view-bag' %}"><i
+                                class="fa-solid fa-basket-shopping me-2"></i><span>({{ product_count }})</span></a>
                     </li>
                 </ul>
                 </div>
@@ -212,6 +221,12 @@
 
 <!--Mailchimp JS-->
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $('.toast').toast('show');
+</script>
+{% endblock %}
 
 </body>
 </html>

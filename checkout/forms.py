@@ -1,21 +1,15 @@
 from django import forms
+from .models import Order
 
-from .models import ShippingAddress
 
-
-class AddressForm(forms.ModelForm):
-
+class OrderForm(forms.ModelForm):
     class Meta:
-        model = ShippingAddress
-        fields = [
-            'full_name',
-            'line_one',
-            'line_two',
-            'line_three',
-            'town_city_or_area',
-            'county',
-            'postcode',
-        ]
+        model = Order
+        fields = ('email', 'full_name',
+                  'line_one', 'line_two',
+                  'line_three', 'town_city_or_area',
+                  'county', 'postcode',
+                  )
 
     def __init__(self, *args, **kwargs):
         """
@@ -24,7 +18,8 @@ class AddressForm(forms.ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            'full_name': 'Name',
+            'full_name': 'Full Name',
+            'email': 'Email Address',
             'line_one': 'Street Address 1',
             'line_two': 'Street Address 2',
             'line_three': 'Street Address 3',
@@ -33,10 +28,12 @@ class AddressForm(forms.ModelForm):
             'county': 'County',
         }
 
+        self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
+            # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = ""

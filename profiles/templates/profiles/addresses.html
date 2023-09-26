@@ -10,25 +10,37 @@
     <p><a href="{% url 'add-address' %}" class="btn btn-more-details">Add new address</a></p>
     </div>
 
-   <div class="row">
 
+
+       <form method="POST" action="{% url 'set-default-address' %}">
+            <div class="row d-flex">
+        {% csrf_token %}
         {% for address in user_addresses %}
-        <div class="col col-lg-3">
-           <div class="card" style="max-width: 16rem;">
+            <div class="col-lg-3">
+           <div class="card my-1">
              <div class="card-body">
-               <p class="card-text"><strong>{{ address.line_one }}</strong></p>
-                <p class="card-text">{% if address.line_two %}{{ address.line_two }}{% endif %}</p>
-                <p class="card-text">{% if address.line_three %}{{ address.line_three }}{% endif %}</p>
-                <p class="card-text">{{ address.town_city_or_area }}</p>
-                <p class="card-text">{% if county %}{{ county }}{% endif %}</p>
-                <p class="card-text">{{ address.postcode }}</p>
-               <a href="{% url 'edit-address' address.id %}" class="btn btn-sm btn-more-details">Edit</a>
-               <a href="{% url 'delete-address' address.id %}" class="btn btn-sm btn-danger">Delete</a>
+               <p class="card-text my-0">{{ address.full_name }}</p>
+               <p class="card-text my-0"><strong>{{ address.line_one }}</strong></p>
+                {% if address.line_two %}<p class="card-text my-0">{{ address.line_two }}</p>{% endif %}
+                {% if address.line_three %}<p class="card-text my-0">{{ address.line_three }}</p>{% endif %}
+                <p class="card-text my-0">{{ address.town_city_or_area }}</p>
+                {% if county %}<p class="card-text my-0">{{ county }}</p>{% endif %}
+                <p class="card-text my-0">{{ address.postcode }}</p>
+               <a href="{% url 'edit-address' address.id %}" class="btn btn-sm btn-more-details mb-2">Edit</a>
+               <a href="{% url 'delete-address' address.id %}" class="btn btn-sm btn-danger mb-2">Delete</a>
+               {% if address.default_address %}
+                 <h6>Preferred address</h6>
+               {% else %}
+               <button class="btn btn-sm" name="address_id" value="{{ address.id }}">Make this my preferred address</button>
+               {% endif %}
              </div>
            </div>
-        </div>
+       </div>
+
        {% endfor %}
-   </div>
+     </div>
+   </form>
+
 
 
 </div>

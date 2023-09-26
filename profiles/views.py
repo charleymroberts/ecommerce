@@ -86,3 +86,19 @@ def delete_address(request, address_id):
     }
 
     return render(request, 'profiles/delete-address.html', context)
+
+
+@login_required()
+def set_default_address(request):
+
+    user = request.user
+    new_default = int(request.POST['address_id'])
+
+    for address in ShippingAddress.objects.filter(user=user):
+        if address.id == new_default:
+            address.default_address = True
+        else:
+            address.default_address = False
+        address.save()
+
+    return redirect('addresses')

@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DJANGO_DEBUG') == 'yes')
 
-ALLOWED_HOSTS = ['vegandirect-2d439acd3be5.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['vegandirect-2d439acd3be5.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'checkout',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -207,3 +208,12 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+
+# Stripe
+FREE_DELIVERY_THRESHOLD = 40
+COOL_BOX = 5
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
