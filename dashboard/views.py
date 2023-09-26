@@ -9,7 +9,7 @@ from products.models import Product, Brand
 
 # Create your views here.
 @login_required()
-@permission_required()
+@permission_required('products.view_product', raise_exception=True)
 def dashboard(request):
     '''
     A view to render the store owner's admin dashboard
@@ -19,7 +19,7 @@ def dashboard(request):
 
 
 @login_required()
-@permission_required()
+@permission_required('products.add_product', raise_exception=True)
 def add_product(request):
     '''
     A view to render the 'Add product' form
@@ -39,7 +39,7 @@ def add_product(request):
 
 
 @login_required()
-@permission_required()
+@permission_required('products.view_product', raise_exception=True)
 def view_products(request):
     '''
     Displays a list of all products in alphabetical order
@@ -54,7 +54,7 @@ def view_products(request):
 
 
 @login_required()
-@permission_required()
+@permission_required('products.change_product', raise_exception=True)
 def edit_product(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
     if request.method == 'POST':
@@ -73,7 +73,7 @@ def edit_product(request, product_slug):
 
 
 @login_required()
-@permission_required()
+@permission_required('products.add_brand', raise_exception=True)
 def add_brand(request):
     '''
     A view to render the 'Add brand' form
@@ -93,7 +93,7 @@ def add_brand(request):
 
 
 @login_required()
-@permission_required()
+@permission_required('products.change_brand', raise_exception=True)
 def edit_brand(request, brand_slug):
     '''
     View to render the 'edit brand' form
@@ -115,7 +115,7 @@ def edit_brand(request, brand_slug):
 
 
 @login_required()
-@permission_required()
+@permission_required('products.view_brand', raise_exception=True)
 def view_brands(request):
     '''
     Displays a list of all brands in alphabetical order
