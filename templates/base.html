@@ -1,4 +1,5 @@
 {% load static %}
+{% load django_bootstrap5 %}
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -6,7 +7,12 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="UK online vegan supermarket for vegan and
+    plant-based foods and cruelty-free products">
+    <meta name="keywords" content="vegan supermarket, vegan shop, vegan food,
+    vegankind, vegan cheese, vegan chocolate, vegan bacon, plant-based food,
+    cruelty-free, animal-free, vegan shampoo, vegan cleaning products,
+    vegan laundry liquid, vegan diet">
     <meta name="author"
           content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.112.5">
@@ -141,15 +147,11 @@
 </header>
 
 <main>
-    {% if messages %}
-    <div class="messages mt-4 mx-3 text-center">
-      <ul>
-        {% for message in messages %}
-        <li><strong>{{message}}</strong></li>
-        {% endfor %}
-      </ul>
+
+    <!--messages displayed here as Bootstrap Alerts-->
+    <div class="container-md">
+        {% bootstrap_messages %}
     </div>
-    {% endif %}
 
     {% block main_content %}
     {% endblock %}

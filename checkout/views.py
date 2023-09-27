@@ -64,6 +64,9 @@ def checkout(request):
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
+                    if product.categories.filter(parent__slug='chilled').exists():
+                        order.cool_box_included = True
+                        order.save()
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
@@ -148,9 +151,8 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
-        profile = User.objects.get(username=request.user)
         # Attach the user's profile to the order
-        order.user_profile = profile
+        order.user = request.user
         order.save()
 
     messages.success(request, f'Order successfully processed! \

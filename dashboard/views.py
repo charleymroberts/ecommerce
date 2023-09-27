@@ -73,6 +73,15 @@ def edit_product(request, product_slug):
 
 
 @login_required()
+@permission_required("products.delete_product", raise_exception=True)
+def delete_product(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+    product.delete()
+    messages.success(request, "Product deleted")
+    return redirect('view-products')
+
+
+@login_required()
 @permission_required('products.add_brand', raise_exception=True)
 def add_brand(request):
     '''

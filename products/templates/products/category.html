@@ -20,6 +20,8 @@
     <div class="col-md-10">
         <h2>{{ category.name }}</h2>
     </div>
+
+    <!--'Sort by' dropdown-->
      <div class="col-md-2 justify-content-end">
         <div class="dropdown-center mb-3">
           <button class="btn dropdown-toggle sort-by" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,6 +36,10 @@
         </div>
     </div>
 </div>
+
+<!--descriptive text for each category-->
+
+<div class="row ms-2 mb-3">{{ category.description }}</div>
 
 <!--buttons with links to subcategories from 'all products' pages of each category-->
 

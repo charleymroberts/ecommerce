@@ -5,16 +5,16 @@ This is a confirmation of your order at VeganDirect. Your order information is b
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
-Order Total: ${{ order.order_total }}
-Delivery: ${{ order.delivery_cost }}
-Grand Total: ${{ order.grand_total }}
+Order Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total }} (includes a cool box at £5.00 if your order contains chilled items)
 
-Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, United Kingdom.
+Your order will be shipped to {{ order.line_1 }} in {{ order.town_city_or_area }}, United Kingdom.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 
 Thank you for your order!
 
-Sincerely,
+With best wishes,
 
-VeganDirect
+The team at VeganDirect

@@ -4,6 +4,7 @@ from django.contrib import messages
 
 from .forms import AddressForm
 from .models import ShippingAddress
+from checkout.models import Order
 
 @login_required()
 def my_account(request):
@@ -102,3 +103,17 @@ def set_default_address(request):
         address.save()
 
     return redirect('addresses')
+
+
+@login_required()
+def order_history(request):
+
+    user = request.user
+    orders = Order.objects.filter(user=request.user)
+
+    context = {
+        'user': user,
+        'orders': orders,
+    }
+
+    return render(request, 'profiles/order-history.html', context)

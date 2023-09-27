@@ -53,6 +53,8 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
+        if self.cool_box_included:
+            self.grand_total += settings.COOL_BOX
         self.save()
 
     def save(self, *args, **kwargs):

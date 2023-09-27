@@ -44,7 +44,7 @@
                 {% endif %}
                 <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5
                         class="card-title">{{ product.name }}</h5></a>
-                <h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6>
+                <a class="underline-hover" href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                 <h5>£{{ product.retail_price }}</h5>
 
                 <!--quantity selector and 'Add to basket' button copied and modified from Boutique Ado-->
