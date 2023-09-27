@@ -9,27 +9,16 @@
 
 <h2>{% trans "Log In" %}</h2>
 
-
-{% get_providers as socialaccount_providers %}
+<!--{% get_providers as socialaccount_providers %}-->
 
 {% if socialaccount_providers %}
 <p>{% blocktrans %}
-Don't have an account yet? <a href="{{ signup_url }}" class="underline">Create an account here</a> or sign in with one of your existing third party accounts
+Don't have an account yet? <a href="{{ signup_url }}" class="underline">Create an account here</a>
 {% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-</div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
 <p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<a class="underline" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 {% endif %}
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -42,6 +31,7 @@ Don't have an account yet? <a href="{{ signup_url }}" class="underline">Create a
   <p><a class="button secondaryAction underline" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a></p>
 </form>
 
-Or <a href="{% provider_login_url 'google' %}">Sign in with Google</a>
+<p>&mdash; Or &mdash;</p>
+<p><a href="{% provider_login_url 'google' %}" class="btn btn-more-details"><i class="fa-brands fa-google"></i> Sign in with Google</a></p>
 
 {% endblock %}

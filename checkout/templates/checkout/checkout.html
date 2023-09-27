@@ -79,7 +79,7 @@
                 {% endif %}
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
-                    {% bootstrap_form order_form %}
+                    {% bootstrap_form order_form show_label=False %}
                 <a href="#" id="clear_form" class="underline">Clear form</a>
 <!--                        <div class="form-check form-check-inline float-right mr-0">-->
 <!--							{% if user.is_authenticated %}-->

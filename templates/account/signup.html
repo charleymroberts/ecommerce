@@ -12,6 +12,7 @@
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
+
   {{ form.as_p }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -19,6 +20,7 @@
   <button type="submit" class="btn btn-sm btn-more-details">{% trans "Create account" %} &raquo;</button>
 </form>
 
-Or <a href="{% provider_login_url 'google' %}">Sign up with Google</a>
+<p>&mdash; Or &mdash;</p>
+<p><a href="{% provider_login_url 'google' %}" class="btn btn-more-details"><i class="fa-brands fa-google"></i> Sign up with Google</a></p>
 
 {% endblock %}

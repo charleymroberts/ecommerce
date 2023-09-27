@@ -18,3 +18,33 @@ def index(request):
 
     return render(request, 'home/index.html', context)
 
+def privacy(request):
+    '''
+    A view to render the privacy policy page
+    '''
+
+    return render(request, 'home/privacy.html')
+
+
+def terms(request):
+    '''
+    A view to render the terms page
+    '''
+
+    return render(request, 'home/terms.html')
+
+
+def delivery(request):
+    '''
+    A view to render the delivery page
+    '''
+
+    return render(request, 'home/delivery.html')
+
+
+def contact(request):
+    '''
+    A view to render the contact page
+    '''
+
+    return render(request, 'home/contact.html')
