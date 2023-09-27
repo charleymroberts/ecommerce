@@ -2,15 +2,16 @@
 {% load static %}
 {% block main_content %}
 
-<div class="container mt-5">
+<div class="container">
     <div class="row">
         <div class="col">
-            <h1>
-                The page you are looking for isn't available
+            <h1 class="display-4 logo-font text-black">
+                There was an error
             </h1>
             <div>
                 <h4>
-                    <a href="{% url 'home' %}">
+                    <a href="{% url '/' %}"
+                        class="btn btn-buy-now btn-lg rounded-0 py-3">
                             Back to homepage
                     </a>
                 </h4>
