@@ -1,0 +1,4 @@
+***Credits***
+
+The code in the 'checkout' app was copied from Code Institute's Boutique Ado
+walkthrough project to use as boilerplate and then modified in places.
