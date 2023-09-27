@@ -1,6 +1,7 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% load account socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
@@ -17,5 +18,7 @@
   {% endif %}
   <button type="submit" class="btn btn-sm btn-more-details">{% trans "Create account" %} &raquo;</button>
 </form>
+
+Or <a href="{% provider_login_url 'google' %}">Sign up with Google</a>
 
 {% endblock %}
