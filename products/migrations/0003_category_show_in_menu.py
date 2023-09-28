@@ -4,15 +4,17 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0002_alter_product_barcode_alter_product_categories_and_more'),
+        (
+            "products",
+            "0002_alter_product_barcode_alter_product_categories_and_more",
+        ),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='category',
-            name='show_in_menu',
+            model_name="category",
+            name="show_in_menu",
             field=models.BooleanField(default=True),
         ),
     ]

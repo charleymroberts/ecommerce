@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,43 +14,112 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Brand',
+            name="Brand",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=254)),
-                ('description', models.TextField()),
-                ('slug', models.SlugField(unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=254)),
+                ("description", models.TextField()),
+                ("slug", models.SlugField(unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=254)),
-                ('description', models.TextField()),
-                ('slug', models.SlugField(unique=True)),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='children', to='products.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=254)),
+                ("description", models.TextField()),
+                ("slug", models.SlugField(unique=True)),
+                (
+                    "parent",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="children",
+                        to="products.category",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('slug', models.SlugField(unique=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('wholesale_price', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('retail_price', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('vat_rate', models.CharField(choices=[('Z', 'Zero rated'), ('S', 'Standard rated'), ('R', 'Reduced rated')], default='Z', max_length=1)),
-                ('barcode', models.CharField(max_length=50, unique=True)),
-                ('ingredients', models.TextField()),
-                ('nutrition_info', models.TextField()),
-                ('description', models.TextField()),
-                ('is_organic', models.BooleanField()),
-                ('is_glutenfree', models.BooleanField()),
-                ('brand', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='products.brand')),
-                ('categories', models.ManyToManyField(related_name='products', to='products.category')),
-                ('liked_by', models.ManyToManyField(related_name='favourites', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("slug", models.SlugField(unique=True)),
+                (
+                    "image",
+                    models.ImageField(blank=True, null=True, upload_to=""),
+                ),
+                (
+                    "wholesale_price",
+                    models.DecimalField(decimal_places=2, max_digits=5),
+                ),
+                (
+                    "retail_price",
+                    models.DecimalField(decimal_places=2, max_digits=5),
+                ),
+                (
+                    "vat_rate",
+                    models.CharField(
+                        choices=[
+                            ("Z", "Zero rated"),
+                            ("S", "Standard rated"),
+                            ("R", "Reduced rated"),
+                        ],
+                        default="Z",
+                        max_length=1,
+                    ),
+                ),
+                ("barcode", models.CharField(max_length=50, unique=True)),
+                ("ingredients", models.TextField()),
+                ("nutrition_info", models.TextField()),
+                ("description", models.TextField()),
+                ("is_organic", models.BooleanField()),
+                ("is_glutenfree", models.BooleanField()),
+                (
+                    "brand",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="products.brand",
+                    ),
+                ),
+                (
+                    "categories",
+                    models.ManyToManyField(
+                        related_name="products", to="products.category"
+                    ),
+                ),
+                (
+                    "liked_by",
+                    models.ManyToManyField(
+                        related_name="favourites", to=settings.AUTH_USER_MODEL
+                    ),
+                ),
             ],
         ),
     ]

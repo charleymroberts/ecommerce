@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,25 +14,62 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='UserInfo',
+            name="UserInfo",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('loyalty_points', models.IntegerField()),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("loyalty_points", models.IntegerField()),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ShippingAddress',
+            name="ShippingAddress",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('default_address', models.BooleanField(default=False)),
-                ('line_one', models.CharField(max_length=100)),
-                ('line_two', models.CharField(blank=True, max_length=100, null=True)),
-                ('line_three', models.CharField(blank=True, max_length=100, null=True)),
-                ('town_city_or_area', models.CharField(max_length=100)),
-                ('county', models.CharField(blank=True, max_length=100, null=True)),
-                ('postcode', models.CharField(max_length=8)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("default_address", models.BooleanField(default=False)),
+                ("line_one", models.CharField(max_length=100)),
+                (
+                    "line_two",
+                    models.CharField(blank=True, max_length=100, null=True),
+                ),
+                (
+                    "line_three",
+                    models.CharField(blank=True, max_length=100, null=True),
+                ),
+                ("town_city_or_area", models.CharField(max_length=100)),
+                (
+                    "county",
+                    models.CharField(blank=True, max_length=100, null=True),
+                ),
+                ("postcode", models.CharField(max_length=8)),
+                (
+                    "user",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

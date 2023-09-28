@@ -5,41 +5,48 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('products', '0001_initial'),
+        ("products", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='barcode',
-            field=models.CharField(blank=True, max_length=50, null=True, unique=True),
+            model_name="product",
+            name="barcode",
+            field=models.CharField(
+                blank=True, max_length=50, null=True, unique=True
+            ),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='categories',
-            field=models.ManyToManyField(blank=True, related_name='products', to='products.category'),
+            model_name="product",
+            name="categories",
+            field=models.ManyToManyField(
+                blank=True, related_name="products", to="products.category"
+            ),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='description',
+            model_name="product",
+            name="description",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='ingredients',
+            model_name="product",
+            name="ingredients",
             field=models.TextField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='liked_by',
-            field=models.ManyToManyField(blank=True, related_name='favourites', to=settings.AUTH_USER_MODEL),
+            model_name="product",
+            name="liked_by",
+            field=models.ManyToManyField(
+                blank=True,
+                related_name="favourites",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='product',
-            name='nutrition_info',
+            model_name="product",
+            name="nutrition_info",
             field=models.TextField(blank=True, null=True),
         ),
     ]

@@ -21,16 +21,16 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('home.urls')),
-    path('products/', include('products.urls')),
-    path('accounts/', include('allauth.urls')),
-    path('accounts/', include('allauth.socialaccount.urls')),
-    path('profiles/', include('profiles.urls')),
-    path('dashboard/', include('dashboard.urls')),
-    path('bag/', include('bag.urls')),
-    path('checkout/', include('checkout.urls')),
+    path("admin/", admin.site.urls),
+    path("", include("home.urls")),
+    path("products/", include("products.urls")),
+    path("accounts/", include("allauth.urls")),
+    path("accounts/", include("allauth.socialaccount.urls")),
+    path("profiles/", include("profiles.urls")),
+    path("dashboard/", include("dashboard.urls")),
+    path("bag/", include("bag.urls")),
+    path("checkout/", include("checkout.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-handler404 = 'ecommerce.views.handler404'
-handler500 = 'ecommerce.views.handler500'
+handler404 = "ecommerce.views.handler404"
+handler500 = "ecommerce.views.handler500"
