@@ -338,6 +338,10 @@ a {
     background-color: #73d2de;
 }
 
+/*** Basket page ***/
+.qty-column {
+    min-width: 9em;
+}
 
 /*** Mailchimp **/
 

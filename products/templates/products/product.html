@@ -40,7 +40,7 @@
                 <label for="id_qty_{{ this_product.id }}"
                                class="visually-hidden">Quantity</label>
                 {% csrf_token %}
-                <div class="input-group w-25">
+                <div class="input-group w-50">
                     <button type="button" class="decrement-qty btn"
                             data-item_id="{{ this_product.id }}"
                             id="decrement-qty_{{ this_product.id }}" aria-label="Decrement">

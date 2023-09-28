@@ -39,7 +39,7 @@
                            href="{% url 'single-product' item.product.categories.first.slug item.product.slug %}">
                         {{ item.product.name }}</a></td>
                     <td>£{{ item.product.retail_price }}</td>
-                    <td>
+                    <td class="qty-column">
                         <form class="form update-form" method="POST"
                               action="{% url 'edit-bag' item.product_id %}">
                             <label for="id_qty_{{ item.product.id }}"
@@ -47,7 +47,7 @@
                             {% csrf_token %}
                             <div class="input-group">
                                 <button type="button" class="decrement-qty btn"
-                                        data-item_id="{{ product.id }}"
+                                        data-item_id="{{ item.product.id }}"
                                         id="decrement-qty_{{ item.product.id }}"
                                         aria-label="Decrement">
                                     <span class="icon"><i
@@ -83,35 +83,26 @@
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="text-end">Basket total:</td>
+                    <td class="text-end" colspan="3">Basket total:</td>
                     <td>£{{ total }}</td>
                 </tr>
+                {% if has_chilled %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="text-end">{% if has_chilled %}Cool box (required
+                    <td class="text-end" colspan="3">Cool box (required
                         for orders with chilled items):
                     </td>
                     <td>£{{ cool_box | floatformat:2 }}</td>
-                    {% else %}
-                    <td></td>
-                    {% endif %}
                 </tr>
+                {% endif %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="text-end"><strong>Total (excl.
+                    <td class="text-end" colspan="3"><strong>Total (excl.
                         delivery):</strong></td>
                     <td>£{% if has_chilled %}{{ chilled_total }}{% else %}
                         {{ total }}{% endif %}
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="text-end">{% if total > free_delivery_threshold%}
+                    <td class="text-end" colspan="3">{% if total > free_delivery_threshold%}
                         Delivery:
                     </td>
                     <td>FREE</td>
