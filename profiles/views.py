@@ -37,7 +37,11 @@ def add_address(request):
         form = AddressForm(request.POST)
         if form.is_valid:
             address = form.save(commit=False)
-            address.user = request.user # checks that the person whose address is being edited is actually the user who is currently logged in
+            '''
+            checks that the user whose address is being edited 
+            is the same as the user who is currently logged in
+            '''
+            address.user = request.user
             address.save()
             messages.success(request, "Address added successfully")
             return redirect('addresses')
@@ -59,7 +63,11 @@ def edit_address(request, address_id):
         form = AddressForm(request.POST, instance=address)
         if form.is_valid():
             address = form.save(commit=False)
-            address.user = request.user # checks that the person whose address is being edited is actually the user who is currently logged in
+            '''
+            checks that the user whose address is being edited 
+            is the same as the user who is currently logged in
+            '''
+            address.user = request.user
             address.save()
             messages.success(request, "Address edited successfully")
             return redirect('addresses')

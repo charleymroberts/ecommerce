@@ -4,7 +4,6 @@ from .models import Product, Category, Brand
 from django.db.models import Q
 
 
-
 def by_category(request, category_slug):
     '''
     View to render the lists of products under each category
@@ -42,7 +41,6 @@ def by_category(request, category_slug):
     return render(request, 'products/category.html', context)
 
 
-
 def single_product(request, category_slug, product_slug):
     '''
     View to render the page for an individual product
@@ -70,7 +68,8 @@ def single_product(request, category_slug, product_slug):
 
 def brand(request, brand_slug):
     '''
-    View to render a page containing brand info and a list of products by that brand
+    View to render a page containing brand info
+    and a list of products by that brand
     '''
     current_brand = get_object_or_404(Brand, slug=brand_slug)
     products = current_brand.product_set.all()
