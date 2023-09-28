@@ -286,5 +286,48 @@ Based on these observations, the next step was to create some wireframes to plan
 
 ### Wireframes
 
+![Wireframes](doc/wireframes.png)
 
+- Homepage: with large banner image, then images and links to product categories below
+- Category page: products listed by category in card form
+- Product page: with individual product details - name, photo, price and 'add to basket' at the top of the page,
+and further details below
 
+### Visual design choices
+
+**Colour scheme**
+
+Colour scheme
+
+The colour palette was chosen using the colour scheme generator [coolors.co](https://coolors.co/d81159-8f2d56-218380-fbb13c-73d2de), with the aim of achieving a modern but friendly feel.
+
+The site primarily uses black text and off-white background to add a modern feel, with colours added to the navbar, buttons and info banner across the homepage to attract the user's attention.  
+
+Colours used:
+- #fbb13c Hunyadi yellow: Navbar and ‘more info/action’ buttons
+- #218380 Teal: ‘Add to basket’ buttons
+- #73d2de Non Photo blue: info banner on homepage (changed from raspberry #ee3378 to meet usability contrast requirements), and hover colour for ‘add to basket’ buttons
+- #8F2D56 Quinacridone Magenta: combined with images in the carousel banner on the homepage
+
+Care was taken to make sure sufficient contrast between text and background for accessibility purposes.
+
+As a personal preference, I chose not to go with the stereotypical green which is often associated with vegan and vegetarian food. I personally find that association a bit old-fashioned as it has been in use for so long, so it feels harder to convey a modern, exciting feel using green colours.  Green also has connotations of 'healthy/vegetables', which is not necessarily accurate for much of the product range of this store.
+
+**Fonts**
+
+Fonts used were Kaushan Script regular for the site’s logo/h1 and Rubik 
+(various styles) for the other headings, buttons and menu bars.
+
+- Logo/Page heading: Kaushan Script
+
+- Carousel headings: Rubik bold
+
+- Carousel text: Rubik regular
+
+- Homepage subheadings (above the circular images): Rubik Medium
+
+- Menu bar: Rubik medium
+
+- Buttons: Rubik medium
+
+I kept the font as Bootstrap’s default native font stack (https://getbootstrap.com/docs/5.0/content/reboot/#native-font-stack) which chooses apple system on Mac, Roboto on Android and Segoe UI for Windows. This already looked in keeping with the overall feel of the site and the fonts have been pre-selected for optimum readability on various devices.
