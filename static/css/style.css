@@ -317,7 +317,6 @@ a {
 /* Product photos in cards */
 .product-photo img {
     max-width: 100%;
-    max-height: auto;
 }
 
 .card-title {
@@ -329,7 +328,6 @@ a {
     background-color: #218380;
     color: #ffffff;
     display: block;
-    /*margin: auto;*/
 }
 
 .buy-now:hover {
