@@ -45,32 +45,33 @@
     </div>
     <div class="row">
         {% for product in products %}
-        <div class="col-md-3 mb-2">
-            <div class="card" style="max-width: 16rem;">
+        <div class="col-6 col-md-4 col-lg-3 mb-2">
+            <div class="card">
+                <p class="card-text m-4">{{ product.categories.first.name }}</p>
+                {% if product.image %}
+                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"
+                   aria-hidden="true" tabindex="-1"><img
+                        src="{{ product.image.url }}" class="card-img-top"
+                        alt=""></a>
+                {% endif %}
                 <div class="card-body">
-                    <p class="card-text">{{ product.categories.first.name }}</p>
-                    {% if product.image %}
-                    <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><img
-                            src="{{ product.image.url }}" class="card-img-top"
-                            alt=""></a>
-                    {% endif %}
                     <a href="{% url 'single-product' product.categories.first.slug product.slug %}">
-                        <h5
-                                class="card-title">{{ product.name }}</h5></a>
-                    <a class="underline-hover"
-                       href="{% url 'brand' product.brand.slug %}"><h6
-                            class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
-                    <h5>£{{ product.retail_price }}</h5>
+                        <p class="card-title">{{ product.name }}</p></a>
+                    <a href="{% url 'brand' product.brand.slug %}"><p
+                            class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</p></a>
+                    <p>£{{ product.retail_price }}</p>
 
                     <!--quantity selector and 'Add to basket' button copied and modified from Boutique Ado-->
                     <form class="form"
                           action="{% url 'add-to-bag' product.id %}"
                           method="POST">
+                        <label for="id_qty_{{ product.id }}"
+                               class="visually-hidden">Quantity</label>
                         {% csrf_token %}
                         <div class="input-group">
                             <button type="button" class="decrement-qty btn"
                                     data-item_id="{{ product.id }}"
-                                    id="decrement-qty_{{ product.id }}">
+                                    id="decrement-qty_{{ product.id }}" aria-label="Decrement">
                                 <span class="icon"><i class="fas fa-minus"></i></span>
                             </button>
                             <input class="form-control qty_input" type="number"
@@ -79,7 +80,7 @@
                                    id="id_qty_{{ product.id }}">
                             <button type="button" class="increment-qty btn"
                                     data-item_id="{{ product.id }}"
-                                    id="increment-qty_{{ product.id }}">
+                                    id="increment-qty_{{ product.id }}" aria-label="Increment">
                                 <span class="icon"><i class="fas fa-plus"></i></span>
                             </button>
                         </div>

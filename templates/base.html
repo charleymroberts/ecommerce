@@ -126,7 +126,7 @@
 
                 <li class="dropdown flex-grow-1">
                     <button class="btn dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                            data-bs-toggle="dropdown" aria-label="search" aria-expanded="false">
                         <i class="nav-item fa-solid fa-magnifying-glass"></i>
                     </button>
 
@@ -137,7 +137,7 @@
                                 <input class="form-control me-2" id="search-box"
                                        type="text" name="q"
                                        placeholder="Search" aria-label="Search">
-                                <button class="btn search" type="submit"><i
+                                <button class="btn search" aria-label="search" type="submit"><i
                                         class="fa-solid fa-angle-right"></i>
                                 </button>
                             </form>
@@ -149,11 +149,6 @@
 
                 <li class="nav-item">
                     <ul class="navbar-nav mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link d-inline-flex flex-column align-items-center"
-                               aria-label="favourites" href="#"><i
-                                    class="fa-regular fa-heart me-2"></i><span>Wishlist</span></a>
-                        </li>
                         <li class="nav-item">
                             {% if user.is_authenticated %}
                             <a class="nav-link d-inline-flex flex-column align-items-center"
@@ -259,8 +254,8 @@
                                 <div class="optionalParent">
                                     <div class="clear foot">
                                         <input type="submit" name="subscribe"
-                                               id="mc-embedded-subscribe"
                                                class="button"
+                                               id="mailchimp-subscribe-button"
                                                value="Subscribe">
                                         <p style="margin: 0px auto;"><a
                                                 href="http://eepurl.com/iz8GSk"

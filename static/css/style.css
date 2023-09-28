@@ -179,13 +179,13 @@ and on top of the carousel images */
 /* Div immediately under the carousel photos */
 #info-banner {
     height: 2.5rem;
-    background-color: #ff2b7c;
+    background-color: #73d2de;
     font-weight: bold;
 }
 
 .info-banner-segment {
     height: 2.5rem;
-    background-color: #ff2b7c;
+    background-color: #73d2de;
 }
 
 /*** Homepage image carousel banner ***/
@@ -281,6 +281,10 @@ shown on the 'all products in each category' pages */
     background-color: #fbb13c;
 }
 
+.vegandirect {
+    font-family: 'kaushan_scriptregular', 'Times New Roman', cursive;
+}
+
 /* 'sort by' box on category pages */
 .sort-by, .sort-by:hover {
     background-color: #ffffff;
@@ -344,10 +348,16 @@ a {
     max-width: 100%;
 }
 
+/* This needs to be more specific than the mailchimp CSS rule */
+#mc_embed_signup input#mailchimp-subscribe-button {
+    background-color: #343231;
+    color: #faf9f6;
+}
+
 #admin-navbar {
     font-family: rubikmedium, Helvetica, Arial, sans-serif;
 }
 
 .red-text {
-    color: #ff0000;
+    color: #b00230;
 }
