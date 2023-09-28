@@ -54,6 +54,13 @@ This could include:
 
 In designing any product, we must always bear in mind, who are our end users and what will be useful to them?
 
+This section addresses the first two planes of UX design: Strategy and Scope.
+
+The Strategy plane of UX design tells us that the product we’re designing should be useful, useable and valuable.
+
+The product goals come under the Strategy plane of UX design: what we are aiming to achieve in the first place and for whom?  The features based on these goals are within the Scope plane of UX design: based on the goals of the business, what features should the design include?
+
+
 The goals of the customer and the retailer are summarised here under the five Epics used in the development of this product.
 
 Some are only relevant to retailers, and some are relevant to both groups.
@@ -205,6 +212,79 @@ Relationship to other models:
 
 Includes ForeignKey of Product (one product can be included in multiple orders) 
 Includes ForeignKey of Order (multiple lines can be in one order)
+
+Database design is related to the Structure plane of UX Design: how we structure and present our information.  Further aspects of Structure are covered below under the user interface design.
+
+## UX/UI design
+
+An excellent user interface design and user experience are particularly crucial for a retail business, as their customers have a choice about where they buy products from and can easily choose to go elsewhere (unlike, say, interacting with the Government or the NHS online where you have no choice but to use whatever interface is presented to you). 
+
+### First of all
+
+**Some guiding principles of retail that were used in the planning of this design:**
+
+- If online customers can’t quickly find what they want, they will navigate away and look elsewhere 
+
+Address by: making sure search, filters and category layout are effective and make it easy to find information
+
+- If you offer customers too much choice, it can get overwhelming and they might not make a purchase 
+
+Address by: Don’t over-clutter things. Online supermarkets tend to be bad for this, especially on home pages.
+
+- There are two main ways to increase sales: increase the number of customers, and increase the amount of items each customer buys per visit 
+
+Incresing the number of customers: consider SEO at all stages. 
+
+Increasing the spend per visit: 
+find ways to upsell, such as the 'similar products you might like' section suggesting 
+additional products at the bottom of product pages
+
+### Market research
+
+I began my planning by visiting other similar online shops and supermarkets, to
+familiarise myself with UI conventions and likely customer expectations.
+
+These included:
+- [Holland and Barrett](https://www.hollandandbarrett.com/) (UK-based 'health store' chain)
+- [VeganStore.co.uk](https://www.veganstore.co.uk/) (the UK's original vegan online shop)
+- [AlternativeStores.co.uk](https://alternativestores.com/) (another well-known vegan online store)
+- [Morrisons.com](https://groceries.morrisons.com/webshop/startWebshop.do) and [Sainsburys.co.uk](https://www.sainsburys.co.uk/) for the conventional supermarket experience
+
+Design features that are common across these online food shops/supermarkets include:
+
+Header:
+-	Company's name/logo
+-	Modern-looking icons in the top right corner for favourites, account, basket etc.
+-	Search box (or sometimes this is lower down the page under the banner image)
+
+Homepage:
+-	Big colourful banner image on homepage (could be carousel or static)
+-	Extra info banner: e.g. saying how much to order for free delivery
+-	Lists of products underneath the homepage banner (often too many in my opinion, the customer is unlikely to scroll that far down below the fold. Amazon does it though, so it’s expected.)
+Menu bar (on all pages):
+- Top level menu items which group products in an obvious way, including ‘new’, ‘sale/clearance’ as well as product categories
+
+Individual product pages:
+- Breadcrumb menu trail across the top on some
+- Key info at top: usually half a row for product photo and the other half for name/price/add to basket
+- Other info below that, sometimes with accordion sections or tabs
+(there’s a lot that has to be provided, especially with food products, so it’s a good idea to make it more manageable)
+
+Product list pages:
+
+- Banner across the top displaying the name of the category, or the category name in bold
+- Either above or below banner image: dropdown menu for 'sort by' a-z, price low-high
+- ‘Filter by’ box on left hand side: e.g. category, brand, price, allergens
+- Products displayed in a grid layout contained in the style of Bootstrap Cards or similar, (photo above, text below) between three and five to a row (or up to seven for supermarkets)
+
+Footer:
+
+- Links to delivery information/terms and conditions/privacy policy
+- Marketing links: mailing list signup box, social media links. Often using friendly-sounding headings such as: 'Join the community', 'Keep in touch', 'Become part of the family' (rather than 'Sign up to our newsletter'/’Follow us on social media’)
+
+Based on these observations, the next step was to create some wireframes to plan my design.
+
+### Wireframes
 
 
 
