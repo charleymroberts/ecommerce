@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from products.models import Category, Product
 
+
 def index(request):
     """ a view to return the index page """
 
@@ -17,6 +18,7 @@ def index(request):
     }
 
     return render(request, 'home/index.html', context)
+
 
 def privacy(request):
     '''

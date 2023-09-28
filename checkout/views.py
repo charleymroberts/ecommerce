@@ -104,7 +104,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form a default shipping address if the user has one
+        # Attempt to prefill the form a default shipping address
+        # if the user has one
         if request.user.is_authenticated:
             default_address = ShippingAddress.objects.filter(user=request.user, default_address=True).first()
             if default_address:

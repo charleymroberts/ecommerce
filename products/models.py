@@ -43,14 +43,17 @@ class Product(models.Model):
         choices=VatRate.choices,
         default=VatRate.ZERO,
     )
-    barcode = models.CharField(max_length=50, unique=True, null=True, blank=True)
+    barcode = models.CharField(max_length=50, unique=True,
+                               null=True, blank=True)
     ingredients = models.TextField(null=True, blank=True)
     nutrition_info = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     is_organic = models.BooleanField()
     is_glutenfree = models.BooleanField()
-    liked_by = models.ManyToManyField(User, related_name='favourites', blank=True)
-    categories = models.ManyToManyField('Category', related_name='products', blank=True)
+    liked_by = models.ManyToManyField(User, related_name='favourites',
+                                      blank=True)
+    categories = models.ManyToManyField('Category', related_name='products',
+                                        blank=True)
 
     def __str__(self):
         return self.name

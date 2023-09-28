@@ -20,17 +20,19 @@ def add_to_bag(request, product_id):
     redirect_url = request.POST.get('redirect_url')
 
     '''
-    Fetches bag from session or creates new bag dict 
+    Fetches bag from session or creates new bag dict
     if there wasn't one there before
     '''
     bag = request.session.get('bag', {})
 
     if product_id in bag:
         bag[product_id] += quantity
-        messages.success(request, f'Updated {product.name} to {bag[product_id]}')
+        messages.success(request,
+                         f'Updated {product.name} to {bag[product_id]}')
     else:
         bag[product_id] = quantity
-        messages.success(request, f'Added {product.name} x {quantity} to your basket')
+        messages.success(request,
+                         f'Added {product.name} x {quantity} to your basket')
 
     '''
     Adds the bag back to the session in case it wasn't there before

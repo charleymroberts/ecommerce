@@ -1,15 +1,15 @@
-from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
 
 '''
-This file copied from Boutique Ado walkthrough project (with references
+This file is copied from Boutique Ado walkthrough project (with references
 to sizes removed as they are not needed for this project)
 '''
-def bag_contents(request):
 
+
+def bag_contents(request):
     bag_items = []
     total = 0
     product_count = 0
@@ -22,7 +22,7 @@ def bag_contents(request):
         product_count += quantity
         '''
         checks if any of the products are in the chilled category
-        e.g. can use this information to only display the next-day delivery 
+        e.g. can use this information to only display the next-day delivery
         option on the basket page if the basket contains any chilled products
         '''
         if product.categories.filter(parent__slug='chilled').exists():

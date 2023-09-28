@@ -26,7 +26,7 @@ class StripeWH_Handler:
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_body.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL,
-            'cool_box': settings.COOL_BOX})
+                'cool_box': settings.COOL_BOX})
 
         send_mail(
             subject,
@@ -50,7 +50,6 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
-        save_info = intent.metadata.save_info
 
         charge_id = intent.latest_charge
         charge = stripe.Charge.retrieve(charge_id)

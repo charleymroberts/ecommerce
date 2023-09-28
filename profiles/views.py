@@ -6,6 +6,7 @@ from .forms import AddressForm
 from .models import ShippingAddress
 from checkout.models import Order
 
+
 @login_required()
 def my_account(request):
     '''
@@ -28,6 +29,7 @@ def addresses(request):
 
     return render(request, 'profiles/addresses.html', context)
 
+
 @login_required()
 def add_address(request):
     '''
@@ -38,7 +40,7 @@ def add_address(request):
         if form.is_valid:
             address = form.save(commit=False)
             '''
-            checks that the user whose address is being edited 
+            checks that the user whose address is being edited
             is the same as the user who is currently logged in
             '''
             address.user = request.user
@@ -64,7 +66,7 @@ def edit_address(request, address_id):
         if form.is_valid():
             address = form.save(commit=False)
             '''
-            checks that the user whose address is being edited 
+            checks that the user whose address is being edited
             is the same as the user who is currently logged in
             '''
             address.user = request.user
