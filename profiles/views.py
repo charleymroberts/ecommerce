@@ -58,7 +58,9 @@ def edit_address(request, address_id):
     """
     A view for editing existing saved addresses
     """
-    address = get_object_or_404(ShippingAddress, id=address_id)
+    address = get_object_or_404(
+        ShippingAddress, id=address_id, user=request.user
+    )
     if request.method == "POST":
         form = AddressForm(request.POST, instance=address)
         if form.is_valid():
