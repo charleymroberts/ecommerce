@@ -116,3 +116,95 @@ Ability to:
 1. Be able to upsell, by highlighting specific products on the homepage and through a 'products you may also like' section at the bottom of individual product pages
 2. Encourage customers to sign up for their social media feeds and email list
 3. Encourage return visits through loyalty points and favourites lists
+
+## User Stories
+
+These epics and goals were then broken down into User Stories, which each have 
+tasks and acceptance criteria, which were used to guide the development of this
+project.  
+
+The User Stories (plus their tasks and acceptance criteria) can be viewed on the 
+project's [GitHub Project Board](https://github.com/users/charleymroberts/projects/4/views/1).
+
+The User Stories, including those which did not make it into this iteration of the development cycle,
+can also be [viewed on a Google Sheet here](https://docs.google.com/spreadsheets/d/1NterIj0KVUP2ewTUQz0VWNVGJCWMlNIqcNa3cIOfBlU/edit?usp=sharing).
+
+(To avoid duplication, the user stories are written from the perspective of the person 
+primarily carrying out the action, which in some cases is the retail customer and 
+in some cases is the webshop owner, even though many actions are relevant to both groups.)
+
+## Database design
+
+The database models were planned using an Entity Relationship Diagram:
+
+![entity relationship diagram for VeganDirect](doc/database-er-diagram-vegandirect.png)
+
+**Apps and Models**
+
+| Django App                    | Model |
+|-------------------------------|--------------|
+| Checkout                      | Order, OrderLineItem |
+| Products                      | Product, Category, Brand |
+| Profiles (customer accounts)  | ShippingAddress, UserInfo 
+
+The 'User' model is the standard model already provided by Django. The rest are custom models created for this project.
+
+(UserInfo was not yet used by the time of deployment of the MVP - in future this could be used to store customer loyalty points earned with each purchase.)
+
+**More detail about the ERD**
+
+**User** 
+
+The standard user model provided by Django
+
+Relationships to other models:
+
+OneToOne with UserInfo to extend User (UserInfo is currently only used to store loyalty points data,  but could have other information added to it in future)
+
+**ShippingAddress**
+
+Included as its own model so that each user can save multiple shipping addresses (home, work, etc)
+
+Relationships to other models:
+
+Includes ForeignKey (i.e. one to many) of User (one user can have multiple addresses)
+
+**Product**
+
+Information about each individual product
+
+Relationships to other models:
+
+ForeignKey to Brand (one brand can have many products)
+ManyToMany between ‘liked’ and User (so that each user can have a list of favourite products)
+ManyToMany to Category (each category contains multiple products, and each product can be assigned to multiple categories)
+
+**Brand**
+
+The name of each brand plus an optional description to appear on the webshop
+
+**Category**
+
+Determines where the product appears in the site’s navigation menus.
+The name of each category plus an optional description to appear on the webshop
+‘Parent’ is used to assign the category as the parent category of a subcategory (e.g. Chilled > Dairy Alternatives > Vegan Cheese – Chilled is the parent category of Dairy Alternatives, which itself is the parent of Vegan Cheese)
+
+**Order**
+
+Information about each order placed by a user, which is saved as an order history (i.e. so if the price of a product changes or the user changes their address, the information in their order history is not altered)
+
+Relationship to other models:
+
+Includes ForeignKey of User (one user can have multiple orders)
+
+**OrderLineItem**
+
+Each item (or multiple quantites of the same item) in a customer’s order
+
+Relationship to other models:
+
+Includes ForeignKey of Product (one product can be included in multiple orders) 
+Includes ForeignKey of Order (multiple lines can be in one order)
+
+
+
