@@ -331,3 +331,86 @@ Fonts used were Kaushan Script regular for the site’s logo/h1 and Rubik
 - Buttons: Rubik medium
 
 I kept the font as Bootstrap’s default native font stack (https://getbootstrap.com/docs/5.0/content/reboot/#native-font-stack) which chooses apple system on Mac, Roboto on Android and Segoe UI for Windows. This already looked in keeping with the overall feel of the site and the fonts have been pre-selected for optimum readability on various devices.
+
+## Features
+
+The structure of the webshop comprises:
+
+### Main pages (no log in required)
+
+- Homepage
+
+- Categories page (lists of products by category)
+
+- Product page (individual product details)
+
+- Brand page (name and description of each brand, plus all the products
+available by that brand)
+
+- Basket
+
+- Checkout page
+
+- Checkout success page (confirming the customer's order details)
+
+**Features include**:
+
+- Browse product categories
+
+- View individual product details
+
+- Search box for free text search
+
+- Order product lists A-Z, Z-A, price low-high, price high-low
+
+- Select product quantity and add to basket
+
+
+### Customer account pages
+
+- Create account / Login / Logout
+
+- 'My account' section
+ 
+  - My addresses
+    - Add address
+    - Edit address
+  - Email addresses
+  - Order history
+
+**Features include**:
+
+- Create a customer account
+- Log in and out
+- Sign in using Google account
+- Add new delivery address
+- Select preferred address (which pre-populates) the checkout page if the user is logged in
+- Edit or remove addresses
+- Add a new email address
+- Select primary email address
+- Remove email address if customer has more than one
+- View customer's order history
+
+### Retailer dashboard pages
+
+- Dashboard panel
+  - View all products 
+  - Add product
+  - Edit product
+  - Add brand
+  - Edit brand
+
+**Feature include:**
+- Custom forms for retailers to add, edit and delete products and brands
+without using the Django admin panel
+- View a list of all products in the database with their wholesale and retail prices
+- 'Edit this product' button on individual product pages, so logged-in store 
+owners can quickly edit a product if they are browsing the site and find something that needs updating
+  
+### Footer 
+- Privacy policy
+- Terms of service
+- Delivery info
+- Contact us
+- Links to social media
+- Mailing list signup box
