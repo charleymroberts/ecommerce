@@ -6,10 +6,11 @@ Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
 Order Total: £{{ order.order_total }}
+{% if order.cool_box_included %}Cool box: £{{ cool_box | floatformat:2 }}{% endif %}
 Delivery: £{{ order.delivery_cost }}
 Grand Total: £{{ order.grand_total }} (includes a cool box at £5.00 if your order contains chilled items)
 
-Your order will be shipped to {{ order.line_1 }} in {{ order.town_city_or_area }}, United Kingdom.
+Your order will be shipped to {{ order.line_one }} in {{ order.town_city_or_area }}, United Kingdom.
 
 If you have any questions, feel free to contact us at {{ contact_email }}.
 

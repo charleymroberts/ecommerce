@@ -11,91 +11,111 @@
 <div class="container mt-5">
     <div class="row">
 
-<!--breadcrumb menu for subcategories-->
+        <!--breadcrumb menu for subcategories-->
 
-{% if category.parent %}
-    <p><a href="{% url 'by-category' category.parent.slug %}" class="breadcrumbs">{{ category.parent }}</a> > {{ category.name }}</p>
-{% endif %}
+        {% if category.parent %}
+        <p><a href="{% url 'by-category' category.parent.slug %}"
+              class="breadcrumbs">{{ category.parent }}</a> > {{ category.name }}</p>
+        {% endif %}
 
-<!--page title-->
-<div class="row">
-    <div class="col-md-10">
-        <h2>{{ category.name }}</h2>
-    </div>
+        <!--page title-->
+        <div class="row">
+            <div class="col-md-10">
+                <h2>{{ category.name }}</h2>
+            </div>
 
-    <!--'Sort by' dropdown-->
-     <div class="col-md-2 justify-content-end">
-        <div class="dropdown-center mb-3">
-          <button class="btn dropdown-toggle sort-by" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort by
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./?sort=name">Name A-Z</a></li>
-            <li><a class="dropdown-item" href="./?sort=-name">Name Z-A</a></li>
-            <li><a class="dropdown-item" href="./?sort=retail_price">Price low-high</a></li>
-            <li><a class="dropdown-item" href="./?sort=-retail_price">Price high-low</a></li>
-          </ul>
+            <!--'Sort by' dropdown-->
+            <div class="col-md-2 justify-content-end">
+                <div class="dropdown-center mb-3">
+                    <button class="btn dropdown-toggle sort-by" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Sort by
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./?sort=name">Name
+                            A-Z</a></li>
+                        <li><a class="dropdown-item" href="./?sort=-name">Name
+                            Z-A</a></li>
+                        <li><a class="dropdown-item"
+                               href="./?sort=retail_price">Price low-high</a>
+                        </li>
+                        <li><a class="dropdown-item"
+                               href="./?sort=-retail_price">Price high-low</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<!--descriptive text for each category-->
+        <!--descriptive text for each category-->
 
-<div class="row ms-2 mb-3">{{ category.description }}</div>
+        <div class="row ms-2 mb-3">{{ category.description }}</div>
 
-<!--buttons with links to subcategories from 'all products' pages of each category-->
+        <!--buttons with links to subcategories from 'all products' pages of each category-->
 
-<div class="row">
-    <div class="col">
-    {% if category.parent is None %}
-        {% for category in children %}
-            <a href="{% url 'by-category' category.slug %}"><p type="button" class="btn rounded-pill subcategory-link-button">{{ category.name }}</p></a>
-        {% endfor %}
-    {% endif %}
-    </div>
-</div>
+        <div class="row">
+            <div class="col">
+                {% if category.parent is None %}
+                {% for category in children %}
+                <a href="{% url 'by-category' category.slug %}"><p
+                        type="button"
+                        class="btn rounded-pill subcategory-link-button">{{ category.name }}</p></a>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
 
-<!--Card displaying product details-->
+        <!--Card displaying product details-->
 
-<!---Card code from Bootstrap: https://getbootstrap.com/docs/5.3/components/card/-->
+        <!---Card code from Bootstrap: https://getbootstrap.com/docs/5.3/components/card/-->
 
-    {% for product in products %}
+        {% for product in products %}
         <div class="col-6 col-md-4 col-lg-3 mb-2">
-                <div class="card">
+            <div class="card">
                 <h6 class="card-text m-4">{{ product.categories.first.name }}</h6>
-                  {% if product.image %}
-                    <a href="{% url 'single-product' category.slug product.slug %}"><img src="{{ product.image.url }}" class="card-img-top" alt=""></a>
-                  {% endif %}
-                  <div class="card-body">
-                    <a href="{% url 'single-product' category.slug product.slug %}"><h6 class="card-title">{{ product.name }}</h6></a>
-                      <a href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
+                {% if product.image %}
+                <a href="{% url 'single-product' category.slug product.slug %}"><img
+                        src="{{ product.image.url }}" class="card-img-top"
+                        alt=""></a>
+                {% endif %}
+                <div class="card-body">
+                    <a href="{% url 'single-product' category.slug product.slug %}">
+                        <h6 class="card-title">{{ product.name }}</h6></a>
+                    <a href="{% url 'brand' product.brand.slug %}"><h6
+                            class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
                     <h5>£{{ product.retail_price }}</h5>
 
                     <!--quantity selector and 'Add to basket' button copied and modified from Boutique Ado-->
-                    <form class="form" action="{% url 'add-to-bag' product.id %}" method="POST">
-                    {% csrf_token %}
+                    <form class="form"
+                          action="{% url 'add-to-bag' product.id %}"
+                          method="POST">
+                        {% csrf_token %}
                         <div class="input-group">
-                           <button type="button" class="decrement-qty btn"
-                                   data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                               <span class="icon"><i class="fas fa-minus"></i></span>
-                           </button>
-                           <input class="form-control qty_input" type="number"
-                                  name="quantity" value="1" min="1" max="99"
-                                  data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                           <button type="button" class="increment-qty btn"
-                                   data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                            <span class="icon"><i class="fas fa-plus"></i></span>
-                           </button>
+                            <button type="button" class="decrement-qty btn"
+                                    data-item_id="{{ product.id }}"
+                                    id="decrement-qty_{{ product.id }}">
+                                <span class="icon"><i class="fas fa-minus"></i></span>
+                            </button>
+                            <input class="form-control qty_input" type="number"
+                                   name="quantity" value="1" min="1" max="99"
+                                   data-item_id="{{ product.id }}"
+                                   id="id_qty_{{ product.id }}">
+                            <button type="button" class="increment-qty btn"
+                                    data-item_id="{{ product.id }}"
+                                    id="increment-qty_{{ product.id }}">
+                                <span class="icon"><i class="fas fa-plus"></i></span>
+                            </button>
                         </div>
-                        <input type="submit" class="btn buy-now my-3" value="Add to basket">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="submit" class="btn buy-now my-3"
+                               value="Add to basket">
+                        <input type="hidden" name="redirect_url"
+                               value="{{ request.path }}">
                     </form>
 
-
-                  </div>
                 </div>
+            </div>
         </div>
-    {% endfor %}
+        {% endfor %}
 
     </div>
 </div>

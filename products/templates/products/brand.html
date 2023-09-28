@@ -11,69 +11,89 @@
 <div class="container mt-5">
     <div class="row">
 
-<div class="col">
-    <h2>{{ current_brand.name }}</h2>
-    <p>{{ current_brand.description }}</p>
-</div>
-
-    <div class="col-md-2 justify-content-end">
-        <div class="dropdown-center mb-3">
-          <button class="btn dropdown-toggle sort-by" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort by
-          </button>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="./?sort=name">Name A-Z</a></li>
-            <li><a class="dropdown-item" href="./?sort=-name">Name Z-A</a></li>
-            <li><a class="dropdown-item" href="./?sort=retail_price">Price low-high</a></li>
-            <li><a class="dropdown-item" href="./?sort=-retail_price">Price high-low</a></li>
-          </ul>
+        <!--brand name and description-->
+        <div class="col">
+            <h2>{{ current_brand.name }}</h2>
+            <p>{{ current_brand.description }}</p>
         </div>
-    </div>
-</div>
 
-    <div class="row mb-2">
-        <h3 class="text-center">All products by {{ current_brand.name }}</h3>
-        <hr>
-    </div>
-<div class="row">
-{% for product in products %}
-    <div class="col-md-3 mb-2">
-        <div class="card" style="max-width: 16rem;">
-            <div class="card-body">
-                <p class="card-text">{{ product.categories.first.name }}</p>
-                {% if product.image %}
-                    <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><img src="{{ product.image.url }}" class="card-img-top" alt=""></a>
-                {% endif %}
-                <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><h5
-                        class="card-title">{{ product.name }}</h5></a>
-                <a class="underline-hover" href="{% url 'brand' product.brand.slug %}"><h6 class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
-                <h5>£{{ product.retail_price }}</h5>
-
-                <!--quantity selector and 'Add to basket' button copied and modified from Boutique Ado-->
-                <form class="form" action="{% url 'add-to-bag' product.id %}" method="POST">
-                {% csrf_token %}
-                    <div class="input-group">
-                       <button type="button" class="decrement-qty btn"
-                               data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                           <span class="icon"><i class="fas fa-minus"></i></span>
-                       </button>
-                       <input class="form-control qty_input" type="number"
-                              name="quantity" value="1" min="1" max="99"
-                              data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                       <button type="button" class="increment-qty btn"
-                               data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                        <span class="icon"><i class="fas fa-plus"></i></span>
-                       </button>
-                    </div>
-                    <input type="submit" class="btn buy-now my-3" value="Add to basket">
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </form>
-
+        <!--'Sort by' button-->
+        <div class="col-md-2 justify-content-end">
+            <div class="dropdown-center mb-3">
+                <button class="btn dropdown-toggle sort-by" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort by
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./?sort=name">Name
+                        A-Z</a></li>
+                    <li><a class="dropdown-item" href="./?sort=-name">Name
+                        Z-A</a></li>
+                    <li><a class="dropdown-item" href="./?sort=retail_price">Price
+                        low-high</a></li>
+                    <li><a class="dropdown-item" href="./?sort=-retail_price">Price
+                        high-low</a></li>
+                </ul>
             </div>
         </div>
     </div>
 
-{% endfor %}
+    <!--List of all products by this brand-->
+    <div class="row mb-2">
+        <h3 class="text-center">All products by {{ current_brand.name }}</h3>
+        <hr>
+    </div>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-3 mb-2">
+            <div class="card" style="max-width: 16rem;">
+                <div class="card-body">
+                    <p class="card-text">{{ product.categories.first.name }}</p>
+                    {% if product.image %}
+                    <a href="{% url 'single-product' product.categories.first.slug product.slug %}"><img
+                            src="{{ product.image.url }}" class="card-img-top"
+                            alt=""></a>
+                    {% endif %}
+                    <a href="{% url 'single-product' product.categories.first.slug product.slug %}">
+                        <h5
+                                class="card-title">{{ product.name }}</h5></a>
+                    <a class="underline-hover"
+                       href="{% url 'brand' product.brand.slug %}"><h6
+                            class="card-subtitle mb-2 text-body-secondary">{{ product.brand }}</h6></a>
+                    <h5>£{{ product.retail_price }}</h5>
+
+                    <!--quantity selector and 'Add to basket' button copied and modified from Boutique Ado-->
+                    <form class="form"
+                          action="{% url 'add-to-bag' product.id %}"
+                          method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <button type="button" class="decrement-qty btn"
+                                    data-item_id="{{ product.id }}"
+                                    id="decrement-qty_{{ product.id }}">
+                                <span class="icon"><i class="fas fa-minus"></i></span>
+                            </button>
+                            <input class="form-control qty_input" type="number"
+                                   name="quantity" value="1" min="1" max="99"
+                                   data-item_id="{{ product.id }}"
+                                   id="id_qty_{{ product.id }}">
+                            <button type="button" class="increment-qty btn"
+                                    data-item_id="{{ product.id }}"
+                                    id="increment-qty_{{ product.id }}">
+                                <span class="icon"><i class="fas fa-plus"></i></span>
+                            </button>
+                        </div>
+                        <input type="submit" class="btn buy-now my-3"
+                               value="Add to basket">
+                        <input type="hidden" name="redirect_url"
+                               value="{{ request.path }}">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
 
 
     </div>

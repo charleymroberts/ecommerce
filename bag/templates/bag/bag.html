@@ -5,22 +5,25 @@
 {% block main_content %}
 
 <div class="container mt-5">
-
+    <!--Displays the shopping basket and items within it to the customer-->
     <div class="row">
         <div class="col">
             <h2 class="text-center mb-4">Shopping basket</h2>
             <hr>
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <h5>Free delivery on orders over £{{ free_delivery_threshold }}</h5>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h5>Free delivery on orders over
+                        £{{ free_delivery_threshold }}</h5>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col d-flex justify-content-center">
-                <p class="red-text">{% if total > 20 and total < free_delivery_threshold %} Spend £{{ free_delivery_delta }} more to get free delivery{% endif %}</p>
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <p class="red-text">{% if total > 20 and total < free_delivery_threshold %}
+                        Spend £{{ free_delivery_delta }}
+                        more to get free delivery{% endif %}</p>
+                </div>
             </div>
-        </div>
-        {% if bag_items %}
+            {% if bag_items %}
             <table class="table table-borderless">
                 <thead>
                 <tr>
@@ -32,31 +35,47 @@
                 </thead>
                 {% for item in bag_items %}
                 <tr>
-                    <td><a class="underline-hover" href="{% url 'single-product' item.product.categories.first.slug item.product.slug %}">{{ item.product.name }}</a></td>
+                    <td><a class="underline-hover"
+                           href="{% url 'single-product' item.product.categories.first.slug item.product.slug %}">
+                        {{ item.product.name }}</a></td>
                     <td>£{{ item.product.retail_price }}</td>
                     <td>
-                        <form class="form update-form" method="POST" action="{% url 'edit-bag' item.product_id %}">
-                        {% csrf_token %}
-                        <div class="input-group">
-                           <button type="button" class="decrement-qty btn"
-                                   data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                               <span class="icon"><i class="fas fa-minus"></i></span>
-                           </button>
-                           <input class="form-control qty_input" type="number"
-                                  name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                  data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                           <button type="button" class="increment-qty btn"
-                                   data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                            <span class="icon"><i class="fas fa-plus"></i></span>
-                           </button>
-                        </div>
-                        <div class="text-center mt-1">
-                            <input type="submit" class="btn btn-sm btn-warning" name="update" value="Update">
-                            <input type="submit" class="btn btn-sm btn-danger" name="remove" value="Delete">
-                        </div>
+                        <form class="form update-form" method="POST"
+                              action="{% url 'edit-bag' item.product_id %}">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <button type="button" class="decrement-qty btn"
+                                        data-item_id="{{ product.id }}"
+                                        id="decrement-qty_{{ product.id }}">
+                                    <span class="icon"><i
+                                            class="fas fa-minus"></i></span>
+                                </button>
+                                <input class="form-control qty_input"
+                                       type="number"
+                                       name="quantity"
+                                       value="{{ item.quantity }}" min="1"
+                                       max="99"
+                                       data-item_id="{{ product.id }}"
+                                       id="id_qty_{{ product.id }}">
+                                <button type="button" class="increment-qty btn"
+                                        data-item_id="{{ product.id }}"
+                                        id="increment-qty_{{ product.id }}">
+                                    <span class="icon"><i
+                                            class="fas fa-plus"></i></span>
+                                </button>
+                            </div>
+                            <div class="text-center mt-1">
+                                <input type="submit"
+                                       class="btn btn-sm btn-warning"
+                                       name="update" value="Update">
+                                <input type="submit"
+                                       class="btn btn-sm btn-danger"
+                                       name="remove" value="Remove">
+                            </div>
                         </form>
                     </td>
-                    <td>£{{ item.product.retail_price | calc_subtotal:item.quantity }}</td>
+                    <td>£{{ item.product.retail_price | calc_subtotal:item.quantity }}
+                    </td>
                 </tr>
                 {% endfor %}
                 <tr>
@@ -68,38 +87,51 @@
                 <tr>
                     <td></td>
                     <td></td>
-                    <td class="text-end">{% if has_chilled %}Cool box (required for orders with chilled items):</td>
+                    <td class="text-end">{% if has_chilled %}Cool box (required
+                        for orders with chilled items):
+                    </td>
                     <td>£{{ cool_box | floatformat:2 }}</td>
-                    {% else %}<td></td>{% endif %}
+                    {% else %}
+                    <td></td>
+                    {% endif %}
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td class="text-end"><strong>Total (excl. delivery):</strong></td>
-                    <td>£{% if has_chilled %}{{ chilled_total }}{% else %}{{ total }}{% endif %}</td>
+                    <td class="text-end"><strong>Total (excl.
+                        delivery):</strong></td>
+                    <td>£{% if has_chilled %}{{ chilled_total }}{% else %}
+                        {{ total }}{% endif %}
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
-                    <td class="text-end">{% if total > free_delivery_threshold%}Delivery:</td>
+                    <td class="text-end">{% if total > free_delivery_threshold%}
+                        Delivery:
+                    </td>
                     <td>FREE</td>
-                    {% else %}<td></td>{% endif %}
+                    {% else %}
+                    <td></td>
+                    {% endif %}
                 </tr>
             </table>
             <div class="row text-end">
-                <p>{% if total < free_delivery_threshold%}
-                        <strong>Delivery will be calculated on the next page</strong>
+                <p>{% if total < free_delivery_threshold %}
+                    <strong>Delivery will be calculated on the next
+                        page</strong>
                     {% endif %}</p>
             </div>
 
 
-        <div class="d-flex justify-content-end">
-            <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
-        </div>
+            <div class="d-flex justify-content-end">
+                <a href="{% url 'checkout' %}"
+                   class="btn btn-success">Checkout</a>
+            </div>
 
-        {% else %}
+            {% else %}
             <h4 class="text-center mt-4">Your basket is empty</h4>
-        {% endif %}
+            {% endif %}
 
         </div>
     </div>

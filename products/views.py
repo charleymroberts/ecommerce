@@ -4,11 +4,11 @@ from .models import Product, Category, Brand
 from django.db.models import Q
 
 
-'''
-View to render the lists of products under each category
-'''
-def by_category(request, category_slug):
 
+def by_category(request, category_slug):
+    '''
+    View to render the lists of products under each category
+    '''
     category = get_object_or_404(Category, slug=category_slug)
 
     categories = Category.objects.all()
@@ -42,10 +42,11 @@ def by_category(request, category_slug):
     return render(request, 'products/category.html', context)
 
 
-'''
-View to render the page for an individual product
-'''
+
 def single_product(request, category_slug, product_slug):
+    '''
+    View to render the page for an individual product
+    '''
 
     products = Product.objects.all()
     this_product = get_object_or_404(Product, slug=product_slug)
@@ -75,7 +76,6 @@ def brand(request, brand_slug):
     products = current_brand.product_set.all()
     products = products.order_by('name')
 
-
     brands = Brand.objects.all()
 
     categories = Category.objects.all()
@@ -102,16 +102,17 @@ def brand(request, brand_slug):
 
 
 def search_results(request):
+    """
+    A view to return and display search results
+    """
 
     products = Product.objects.all()
-    # category = get_object_or_404(Category, slug=category_slug)
 
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                # return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
