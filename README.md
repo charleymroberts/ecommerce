@@ -769,9 +769,11 @@ Code Institute Boutique Ado walkthrough videos (within CodeInstitute course mate
 
 ### Code
 
+I have included comments in my code to show where I have copied code or found solutions from other sources.  These are also listed below.
+
 **Code copied from the Boutique walkthrough project:**
 
-The ‘checkout’ app was copied from Boutique Ado and modified. Some code in the ‘Bag’ app was copied from Boutique Ado (with comments). 
+The ‘checkout’ app was copied from Boutique Ado and modified. Some code in the ‘Bag’ app, and the code for the quantity selector, was copied from Boutique Ado (comments in the code). 
 
 **Bootstrap templates:** 
 
@@ -797,13 +799,18 @@ In particular the following pages:
 
 [Django default User model](https://docs.djangoproject.com/en/4.2/ref/contrib/auth/)
 
-[Selecting the first item in a field (e.g. to display the first category a product belongs to, not all of them)](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#first)
+[Selecting the first item in a field](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#first) (e.g. to display the first category a product belongs to, not all of them)
 
 [QuerySet .exists()](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#django.db.models.query.QuerySet.exists) (used in context.py in the Bag app to determine whether or not the basket contains any chilled products)
 
 [Django Allauth documentation](https://django-allauth.readthedocs.io/en/latest/index.html)
 
 [Django-bootstrap5 form field styling](https://django-bootstrap5.readthedocs.io/en/latest/templatetags.html#bootstrap-field)
+
+[JQuery documentation](https://api.jquery.com/) for help with constructing event handlers allowing users to select a saved address on the checkout page
+
+A helpful [Stack Overflow post](https://stackoverflow.com/a/50099708/592139) with details of how to use "order" classes to keep the login and basket icons visible in the
+ navbar even when categories collapse on small screens.
 
 ### Media
 
@@ -816,7 +823,7 @@ Most are borrowed from [Suma Wholesale](https://wholesale.suma.coop/) and some f
 
 Cheese banner photo from [Mouse's Favourite](https://mousesfavourite.com/)
 
-Banner product images from [Suma Wholesale](https://wholesale.suma.coop/) (and compiled by me)
+Banner individual product images from [Suma Wholesale](https://wholesale.suma.coop/) (overall image created by me in Figma)
 
 Circle images from: 
 1.	Mouse’s Favourite 
