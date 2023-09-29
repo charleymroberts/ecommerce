@@ -1,6 +1,6 @@
 # VeganDirect
 
-Vegan Direct is an online retail shop selling innovative, high-quality vegan food products to individual consumers (B2C) from brands and producers which are not commonly stocked in supermarkets.  
+VeganDirect is an online retail shop selling innovative, high-quality vegan food products to individual consumers (B2C) from brands and producers which are not commonly stocked in supermarkets.  
 
 ![homepage screenshot on desktop](doc/desktop-homepage-screenshot.png)
 
@@ -28,7 +28,7 @@ Because many of the products are produced in small batches and do not have to co
 
 **Help achieving lifestyle goals**
 
-People who have decided to become vegan, or are considering becoming vegan, often seek out alternatives to a particular favourite food that they are worried about missing. Vegan Direct enables them to find a wider selection of good-quality vegan food products than in their local supermarket, and locate specific alternatives to a favourite non-vegan food or ingredient, helping them to achieve their goal of maintaining a vegan lifestyle without having to ‘give up’ favourite foods.
+People who have decided to become vegan, or are considering becoming vegan, often seek out alternatives to a particular favourite food that they are worried about missing. VeganDirect enables them to find a wider selection of good-quality vegan food products than in their local supermarket, and locate specific alternatives to a favourite non-vegan food or ingredient, helping them to achieve their goal of maintaining a vegan lifestyle without having to ‘give up’ favourite foods.
 
 ### Target audience
 
@@ -54,13 +54,6 @@ This could include:
 
 In designing any product, we must always bear in mind, who are our end users and what will be useful to them?
 
-This section addresses the first two planes of UX design: Strategy and Scope.
-
-The Strategy plane of UX design tells us that the product we’re designing should be useful, useable and valuable.
-
-The product goals come under the Strategy plane of UX design: what we are aiming to achieve in the first place and for whom?  The features based on these goals are within the Scope plane of UX design: based on the goals of the business, what features should the design include?
-
-
 The goals of the customer and the retailer are summarised here under the five Epics used in the development of this product.
 
 Some are only relevant to retailers, and some are relevant to both groups.
@@ -74,26 +67,24 @@ Some are only relevant to retailers, and some are relevant to both groups.
 
 **Customer**
 
-2. Easily find their way around an Intuitive interface
-3. Enjoy using a visually attractive interface that makes the site feel trustworthy
-4. Easy to find the products they want and view information about those products
+2. Easily find their way around an intuitive interface
+3. Enjoy using a visually attractive interface that also makes the site feel trustworthy
+4. Easily find the products they want and view information about those products
 
 ### Epic 2: User Authentication and Accounts
 
 **Retailer**
 
-1. User has an account for the back end of the application which they can log into to add, edit and delete products from their database
-2. Differing levels of permissions for the store owner and for any employees if required
-3. User can clearly see who is logged in, or whether or not they are logged in, at any given time
+1. User has an account for the back end of the application which they can log into to add, edit and delete products from their database (without using the Django admin panel)
+2. User can clearly see who is logged in, or whether or not they are logged in, at any given time
 
 **Customer**
 
-4. User can sign up for an account which they can log in and out of
-5. User can input all the details needed for shipping
-6. Account should save their shipping details for next time if requested by the user
-7. Account could allow for extended features such as loyalty points and favourite products lists
-8. User can check out without creating an account
-9. User can create an account by signing in with their social media account
+3. User can sign up for an account which they can log in and out of
+4. User can input all the details needed for delivery
+5. Users can save their delivery details for future use
+6. User can make a purchase and enter their delivery details without creating an account
+7. User can create an account by signing in with their social media account
 
 ### Epic 3: CRUD (create, view, update and delete) functionality
 
@@ -102,25 +93,32 @@ Some are only relevant to retailers, and some are relevant to both groups.
 1. Ability to add new product information
 2. Ability to edit and delete existing products
 
+**Customer**
+
+3. Ability to add, save, edit and delete their delivery address(es) and email address(es)
+
 ### Epic 4: Basket/Purchasing
 
 **Retailer**
 
-1. Set shipping costs and communicate these to the customer before they make a purchase (especially if there are different rates for chilled products etc).
+1. Set dellivery charges and communicate these to the customer before they make a purchase (especially if there are different rates for chilled products etc).
 2. Communicate to the customer that their shipping address needs to be in the UK to make a purchase. 
 
 **Customer**
 
 Ability to:
+
 3. Add products to their shopping basket
-4. Provide all the details needed for shipping
+
+4. Provide all the details required for delivery
+
 5. Submit their order and pay securely
 
 ### Epic 5: Marketing
 
 **Retailer**
 
-1. Be able to upsell, by highlighting specific products on the homepage and through a 'products you may also like' section at the bottom of individual product pages
+1. Be able to upsell, such as by highlighting specific products on the homepage and through a 'products you may also like' section at the bottom of individual product pages
 2. Encourage customers to sign up for their social media feeds and email list
 3. Encourage return visits through loyalty points and favourites lists
 
@@ -213,8 +211,6 @@ Relationship to other models:
 Includes ForeignKey of Product (one product can be included in multiple orders) 
 Includes ForeignKey of Order (multiple lines can be in one order)
 
-Database design is related to the Structure plane of UX Design: how we structure and present our information.  Further aspects of Structure are covered below under the user interface design.
-
 ## UX/UI design
 
 An excellent user interface design and user experience are particularly crucial for a retail business, as their customers have a choice about where they buy products from and can easily choose to go elsewhere (unlike, say, interacting with the Government or the NHS online where you have no choice but to use whatever interface is presented to you). 
@@ -225,19 +221,18 @@ An excellent user interface design and user experience are particularly crucial 
 
 - If online customers can’t quickly find what they want, they will navigate away and look elsewhere 
 
-Address by: making sure search, filters and category layout are effective and make it easy to find information
+    - Address by: making sure search functions, filters and category layout are effective and make it easy to find information
 
 - If you offer customers too much choice, it can get overwhelming and they might not make a purchase 
 
-Address by: Don’t over-clutter things. Online supermarkets tend to be bad for this, especially on home pages.
+  -   Address by: Don’t over-clutter things. Online supermarkets tend to be bad for this, especially on home pages.
 
 - There are two main ways to increase sales: increase the number of customers, and increase the amount of items each customer buys per visit 
 
-Incresing the number of customers: consider SEO at all stages. 
+    - Increasing the number of customers: consider SEO at all stages. 
 
-Increasing the spend per visit: 
-find ways to upsell, such as the 'similar products you might like' section suggesting 
-additional products at the bottom of product pages
+    - Increasing the spend per visit: find ways to upsell, such as the 'Products you might also like...' section suggesting 
+    additional products at the bottom of product pages
 
 ### Market research
 
@@ -262,14 +257,15 @@ Homepage:
 -	Extra info banner: e.g. saying how much to order for free delivery
 -	Lists of products underneath the homepage banner (often too many in my opinion, the customer is unlikely to scroll that far down below the fold. Amazon does it though, so it’s expected.)
 
+
 Menu bar (on all pages):
 - Top level menu items which group products in an obvious way, including ‘new’, ‘sale/clearance’ as well as product categories
 
 Individual product pages:
 - Breadcrumb menu trail across the top on some
-- Key info at top: usually half a row for product photo and the other half for name/price/add to basket
-- Other info below that, sometimes with accordion sections or tabs
-(there’s a lot that has to be provided, especially with food products, so it’s a good idea to make it more manageable)
+- Main information higher up the page: usually half a row for product photo and the other half for name/price/add to basket
+- Other information below that, sometimes with accordion sections or tabs
+(there’s a lot of information that has to be provided by law, especially with food products, so it’s a good idea to make it more manageable to navigate)
 
 Product list pages:
 
@@ -297,8 +293,6 @@ and further details below
 ### Visual design choices
 
 **Colour scheme**
-
-Colour scheme
 
 The colour palette was chosen using the colour scheme generator [coolors.co](https://coolors.co/d81159-8f2d56-218380-fbb13c-73d2de), with the aim of achieving a modern but friendly feel.
 
@@ -332,6 +326,10 @@ Fonts used were Kaushan Script regular for the site’s logo/h1 and Rubik
 - Buttons: Rubik medium
 
 I kept the font as Bootstrap’s default native font stack (https://getbootstrap.com/docs/5.0/content/reboot/#native-font-stack) which chooses apple system on Mac, Roboto on Android and Segoe UI for Windows. This already looked in keeping with the overall feel of the site and the fonts have been pre-selected for optimum readability on various devices.
+
+**Icons**
+
+I used Fontawesome to add modern-looking icons to the site, mainly used for the Account/Login and Basket links in the navbar, plus the 'leaf' bullet points in the footer and the My Account and Retailer dashboard sections
 
 ## Features
 
@@ -394,7 +392,8 @@ ingredients, description, nutrition information, brand info
 
 - At the bottom of the page is a 'products you might also like' section, which shows four randomly selected products
 which belong to one of the same categories as the product the user is viewing. (The products in the screenshot are all also in the 'Bestsellers' category,
-but I have chosen to only display one of the product's categories on the product card to avoid clutter.)
+which is why they appear together, but I have chosen to only display one of the product's categories on the product card to avoid clutter.)
+- Confirmation messages are displayed throughout the site when a user adds an item to their basket, updates quantities or removes items from their basket
 
 **Product page:**
 
@@ -417,7 +416,7 @@ but I have chosen to only display one of the product's categories on the product
 - Items appear to the basket as the customer adds them.
 - Includes the product name (which is a link back to the product page), price per item, quantity added, and subtotal for each item (for if the customer has ordered more than one)
 - Customer can update the quantity by using the quantity selectors and then clicking 'update', or remove products using the 'remove' button
-  (I have not added a confirmation message here as I expect customers will want to remove the product without any extra steps or popups in this case)
+  (I have not added an 'are you sure?' popup here as I expect customers will want to remove the product without any extra steps or popups in this case)
 - A dynamically updated message appears once the order total goes over £20, showing how much more the customer would need to spend to qualify for free delivery (in red to imply urgency).
 The free delivery threshold is also included prominently as a prompt.
 - The basket totals are updated as the customer adds products or edits their basket contents
@@ -445,6 +444,7 @@ The free delivery threshold is also included prominently as a prompt.
 
 The customer arrives at this page to confirm to them that their order has been sent and confirm the details.
 The customer also receives an automated email containing the same details.  
+
 If the customer has already created an account and was logged in to make the purchase, they can view the same details in the 'order history' section under 'My account'
 
 **Order confirmation page:**
@@ -455,30 +455,36 @@ If the customer has already created an account and was logged in to make the pur
 
 Pages include:
 
-- Create account
-- Login
-- Logout
+Visible before account creation:
 
-- 'My account' section
+- Create an account
+- Login
+
+Visible after account creation:
+
+- 'My account' landing page
  
-  - My addresses
-    - Add address
-    - Edit address
-  - Email addresses
-  - Order history
+- My addresses
+  - Add address
+  - Edit address
+- Email addresses
+- Order history
+- Logout
 
 **Features include**:
 
 - Create a customer account
-- Log in and out
+- Log in and out (text under account/login icon changes to reflect login status)
 - Sign in using Google account
 - Add new delivery address
-- Select preferred address (which pre-populates) the checkout page if the user is logged in
+- Select preferred address (which pre-populates the checkout page if the user is logged in)
 - Edit or remove addresses
 - Add a new email address
 - Select primary email address
 - Remove email address if customer has more than one
 - View customer's order history
+- Pop up messages to confirm that a user has logged in/out or added/edited/removed an address
+- An 'are you sure?' popup confirmation message if a user tries to delete an address
 
 ### Retailer dashboard pages
 
@@ -492,9 +498,10 @@ Pages include:
 **Features include:**
 - Custom forms for retailers to add, edit and delete products and brands
 without using the Django admin panel
-- View a list of all products in the database with their wholesale and retail prices
+- View a list of all products in the database with their wholesale and retail prices, with a link to edit each product
 - 'Edit this product' button on individual product pages, so logged-in store 
 owners can quickly edit a product if they are browsing the site and find something that needs updating
+- Popup messages to confirm edit actions, and an 'are you sure?' confirmation triggered by clicking the 'delete product' button
 
 **Retailer dashboard landing page:**
 
@@ -517,7 +524,7 @@ as sometimes reviews are more trouble than they're worth to business owners!)
 
 **For retailers:**
 
-- Statistics dashboard showing information such as:
+- Statistics dashboard showing sales information such as:
   - number of each product sold
   - products ranked by popularity (by numbers sold, total income or margin)
   - sales data that could be transferred into the business's bookkeeping software
@@ -527,7 +534,7 @@ as sometimes reviews are more trouble than they're worth to business owners!)
 - Ability to switch individual products between 'published' and 'draft' mode, so the store owner can remove
 products from the webshop without needing to delete the information 
 (e.g. seasonal products the retailer might want to sell again next year)
-- Easier access to adjust other pricing information such as the free shipping threshold and delivery costs
+- Easier access to adjust other pricing information such as the free delivery threshold and delivery charges
 - Pagination on the 'view all products' page, to make page loading and navigation quicker as more products are added to the database
 
 ## Marketing 
@@ -538,7 +545,7 @@ page titles, meta tags in the header, without drifting into 'keyword stuffing'.
 
 ### Vegan (or similar term) + type of product = search result
 
-Customers are likely to be searching for terms such as (obviously) vegan, and similar equivalents including
+Customers are likely to be searching for terms such as 'vegan' (obviously), and similar equivalents including
 'plant-based', 'cruelty-free', 'animal-free' - usually in conjunction with the type of product they're searching for,
 so 'vegan chocolate', 'plant-based ready meals', 'cruelty-free shampoo', 'animal-free laundry liquid'.
 Including plenty of keywords for the types of products found on the site is helpful, such as including a descriptive paragraph
@@ -556,7 +563,7 @@ are allowed to say on their packaging, so descriptions added by webshops become 
 An additional approach would be to give each category an "FAQ" section, where the 'questions' take the form of
 suggested Google searches: for instance, 'why isn't dark chocolate vegan?', 'does vegan cheese melt?', 
 'what do vegans eat instead of bacon'. This seems to be a fairly common approach with various online shops I viewed
-in the preparation for this project.  'Questions' can be generated by entering a relevant search into Google and 
+in preparation for this project.  'Questions' can be generated by entering a relevant search into Google and 
 looking at the alternative searches it suggests.
 
 Google Shopping results:
@@ -606,7 +613,7 @@ Log in: https://vegandirect-2d439acd3be5.herokuapp.com/accounts/login/
 
 After some reformatting, the only remaining warning the HTML checker produces is 
 that it doesn't like me using h1 tags for the name of my page (on the top left of the navbar). 
-As this is effectively the heading for all pages, I consider that h1 tags are suitable here.
+As this is effectively the main heading for all pages, I consider that h1 tags are suitable here.
 
 ![HTML checker](doc/html-checker.png)
 
@@ -628,13 +635,13 @@ and run using the command `flake8 --exclude=venv,migrations`
 After some editing, the remaining errors were related to files which were automatically generated by
 Django when apps were created that hadn't been used in this project (which I chose not to delete in case 
 they might be needed in future) and some single lines of code such as secret keys which cannot be broken into 
-smaller parts without risking breaking the site: [View flake8 messages](doc/flake8.txt)
+smaller parts without risking breaking the site: [View remaining flake8 messages](doc/flake8.txt)
 
 ### Accessibility checking
 
-The Lighthouse checker was also used for accessibility scores, please see the 
-'testing' spreadsheet below for pages tested and results (in summary: all 
-public pages scored between 98 and 100).
+The Lighthouse checker was also used for accessibility scores. See the 
+'testing' spreadsheet below for details of pages tested and results. In summary: all 
+public pages scored between 98 and 100.
 
 ## Testing
 
@@ -663,7 +670,7 @@ The tests and results can be [viewed in this spreadsheet](https://docs.google.co
 
 
 3. The 'Products you might also like...' section on the individual product page sometimes includes the same product the user is looking at. This could either be eliminated through code or would become less likely to occur once more products were added to the database.
-It also currently uses all categories a product belongs to, which in some cases includes 'New Products' or 'Bestsellers', so it is not always immediately obvious why particular products have been selected for inclusion in this section.
+It also currently selects product from all categories a product belongs to, which in some cases includes 'New Products' or 'Bestsellers', so it is not always immediately obvious why particular products have been selected for inclusion in this section.
 
 
 4. The individual product cards only display one category that the product belongs to (as more than one looks too cluttered), which is currently the first category found in its record.  Which category comes first depends on the order in which the categories were created.
@@ -751,7 +758,9 @@ https://www.xml-sitemaps.com/ for sitemaps
 
 **Design tools:**
 
-[Balsamiq](https://balsamiq.cloud/) to create wireframes
+[Balsamiq](https://balsamiq.com/) to create wireframes
+
+[LucidChart](https://www.lucidchart.com/) to create the Entity Relationship Diagram
 
 [Coolors.co](https://coolors.co/) to select the colour scheme
 
@@ -775,7 +784,7 @@ I have included comments in my code to show where I have copied code or found so
 
 **Code copied from the Boutique walkthrough project:**
 
-The ‘checkout’ app was copied from Boutique Ado and modified. Some code in the ‘Bag’ app, and the code for the quantity selector, was copied from Boutique Ado (comments in the code). 
+The ‘Checkout’ app was copied from Boutique Ado and modified. Some code in the ‘Bag’ app, and the code for the quantity selector, was copied from Boutique Ado (comments in the code). 
 
 **Bootstrap templates:** 
 
