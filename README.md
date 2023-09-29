@@ -651,6 +651,24 @@ I carried out a range of manual testing covering:
 
 The tests and results can be [viewed in this spreadsheet](https://docs.google.com/spreadsheets/d/1Hpw9LP2QTGu5egdi-UiwWGQVMrsxtEennVOvIz3wpPA/edit#gid=0).
 
+### Unfixed bugs
+
+1. The default 'up/down' arrows are still present in the quantity field, even though we do not want them as we have increment/decrement buttons either side of it for the user to change the quantity.  These arrows have proved difficult to remove so far.
+
+
+2. Each view only has one redirect url. Some pages with edit functionality can be navigated to from several places - notably the 'create an account' page, which can be accessed from the navbar and from a link on the checkout page, and the 'edit product' link for store owners, which can be accessed from a list of all products within the retailer dashboard or through an 'edit this product' button on the individual page.
+
+    The result of this is that the user is not in all cases redirected back to the page from which they arrived.  In particular, users accessing the 'create an account' feature from the link on the checkout page are then redirected to the 'my account' page rather than back to their checkout page, meaning they have to navigate themselves back to the checkout via the basket.  Allowing multiple redirects depending on where the user arrived from is something to look at in a future iteration.
+
+
+3. The 'Products you might also like...' section on the individual product page sometimes includes the same product the user is looking at. This could either be eliminated through code or would become less likely to occur once more products were added to the database.
+It also currently uses all categories a product belongs to, which in some cases includes 'New Products' or 'Bestsellers', so it is not always immediately obvious why particular products have been selected for inclusion in this section.
+
+
+4. The individual product cards only display one category that the product belongs to (as more than one looks too cluttered), which is currently the first category found in its record.  Which category comes first depends on the order in which the categories were created.
+So some products show 'bestsellers' as their category rather than 'savoury snacks', for instance. I decided there was no harm in mentioning that a product was New or a Bestseller, so have left it as is, but a neater solution could be identified in future to allow for more 
+consistency in the way product information is displayed across different sections of the site.
+
 ## Deployment steps
 
 Prerequisites: Python (version 3.11 used for this project)
@@ -745,14 +763,9 @@ https://www.xml-sitemaps.com/ for sitemaps
 
 ## References and Credits
 
-References and credits
-
-Tutorials:
+### Tutorials
 
 Code Institute Boutique Ado walkthrough videos (within CodeInstitute course material)
-
-Code Institute JavaScript tutorials for event handlers 
-
 
 ### Code
 
@@ -811,8 +824,15 @@ Circle images from:
 3.	[Vego](https://vego-chocolate.com/) 
 4.	[Faith in Nature](https://www.faithinnature.co.uk/)
 
+**Privacy policy text**
 
-### And finally
+This was taken from one of the webshops I used to manage when I owned a retail business (site no longer active)
+
+**Terms and conditions of service text**
+
+This was borrowed from [VeganStore.co.uk](https://www.veganstore.co.uk/)
+
+### And finally...
 
 This project was aided by my previous experience from six years as an 
 independent retail business owner, including the use of two different software 
