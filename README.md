@@ -718,8 +718,6 @@ There are a couple of final steps:
 
 Python (3.11)
 
-Django (4.2.1)
-
 HTML
 
 CSS
@@ -727,6 +725,8 @@ CSS
 JavaScript
 
 [Bootstrap 5](https://getbootstrap.com/)
+
+Django (4.2.1)
 
 [django-bootstrap5](https://pypi.org/project/django-bootstrap5/)
 
@@ -750,6 +750,10 @@ https://www.xml-sitemaps.com/ for sitemaps
 
 **Design tools:**
 
+[Balsamiq](https://balsamiq.cloud/) to create wireframes
+
+[Coolors.co](https://coolors.co/) to select the colour scheme
+
 [Fontawesome](https://fontawesome.com/) for icons
 
 [Font Squirrel](https://www.fontsquirrel.com/) for fonts
@@ -757,9 +761,6 @@ https://www.xml-sitemaps.com/ for sitemaps
 [Favicon.io](https://favicon.io/) to generate the favicon
 
 [Figma](https://www.figma.com/) to create the homepage banner images
-
-[Coolors.co](https://coolors.co/) to select the colour scheme
-
 
 ## References and Credits
 
