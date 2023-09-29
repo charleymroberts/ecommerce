@@ -9,41 +9,54 @@ In the Dashboard, click New to create a new app. Give it a name and select your 
 
 Select GitHub as Deployment method, and choose the repository you want to deploy. Select Enable automatic deploys if you wish.
 
-Database setup:
+**Database setup:**
 
 Select a database plan in Heroku.
 
 In Datastores > Settings, copy the URI and add it to Config Vars with the key DATABASE_URL
 
-In settings.py change the Databases line to:
+In your IDE, add dj_database_url and psycopg2 to your requirements.txt file and install them
+
+In settings.py, add
+
+    import dj_database_url
+
+at the top of the file, and change the Databases line to:
+
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
- }
- to fetch the local or the deployed database from the environment
+}
 
-Connecting the database to your local development web server
+to fetch the local or the deployed database from the environment.  Configure the local database in env.py so your local version still works
 
-In your IDE, in env.py, comment out the os.environ['DATABASE_URL'] line, copy this key, and replace its value with the Heroku database url
+os.environ['DATABASE_URL'] = 'sqlite:///db.sqlite3'
 
-In your IDE, add dj_database_url and psycopg2 to your requirements.txt file
+**Connecting the database to your local development web server**
 
-In settings.py, import dj_database_url underneath the import for os
+In your IDE, in env.py, temporarily replace the os.environ['DATABASE_URL'] setting with the Heroku database url.  The simplest option is to keep both versions in the file with one commented out, so you can easily swap between them.
+
 
 In the terminal, run python manage.py showmigrations. If there are no errors, enter python manage.py migrate
 
-Create superuser for the Heroku version
+Create superuser for the Heroku version with python manage.py createsuperuser
+
+Switch env.py back to the local database
 
 **Category fixtures**
 
-In products app, create fixtures folder
+A fixture file is included in the products app for the standard set of categories, this was created from the development database using
 
-In the Terminal, enter python manage.py dumpdata products.Category > products/fixtures/categories.json
+  python manage.py dumpdata products.Category > products/fixtures/categories.json
+
+The categories must be loaded into the production database as several templates rely on certain specific category names and slugs.  To do this:
 
 switch to production database in env.py
 
-In the Terminal, enter python manage.py loaddata categories. This copies the categories from the local database to the production database.
+In the Terminal, enter python manage.py loaddata categories
 
 switch back to local database in env.py
+
+There are also fixtures for example brands and products that can be loaded in the same way.
 
 **Deploying to Heroku**
 
@@ -60,7 +73,7 @@ Add the name of your Heroku app, and 'localhost', to Allowed Hosts in settings.p
 
 In Heroku Settings, add config vars for DJANGO_SECRET_KEY (generate a random one), USE_AWS, AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY using the values from S3, and remove DISABLE_COLLECTSTATIC
 
-Upload media files (product images) to S3
+Upload media files (product images) to S3 if you have used the brands and products fixture data
 
 Go to your bucket > Objects > Upload
 

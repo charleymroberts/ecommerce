@@ -6,7 +6,7 @@ Open S3
 
 Click 'create new bucket'
 
-Give it the same name as your Heroku app
+Give it the same name as your Heroku app, or another name of your choice if that is unavailable (S3 bucket names must be globally unique)
 
 Select the region closest to you
 
@@ -34,7 +34,7 @@ In the Access Control List tab, set the List Objects permission for 'everyone' t
 
 Make sure that by the time you have finished the process, access to the bucket (under Permissions overview) is set to 'public' - this may not set until you have changed the above setting in the ACL tab.
 
-**Create an IAM user to access the bucket**
+**Create an IAM user with permission to write to the bucket**
 
 In the Services menu, go to IAM
 
@@ -81,7 +81,7 @@ if 'USE_AWS' in os.environ:
     AWS_S3_REGION_NAME = (name goes here)
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 In your Heroku app:
 add AWS keys to Config Vars
@@ -99,7 +99,7 @@ class StaticStorage (S3Boto3Storage):
 class MediaStorage (S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 
-In settings.py, with the AWS code you just added:
+In settings.py, again inside the "if 'USE_AWS' ..." block you just added:
 
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -107,12 +107,12 @@ In settings.py, with the AWS code you just added:
         'CacheControl': 'max-age=94608000',
     }
 
-#Static and media files
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-STATICFILES_LOCATION = 'static'
-DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-MEDIAFILESLOCATION = 'media'
+    #Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILESLOCATION = 'media'
 
-#Override static and media URLs in production
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    #Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
