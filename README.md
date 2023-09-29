@@ -415,6 +415,44 @@ owners can quickly edit a product if they are browsing the site and find somethi
 - Links to social media
 - Mailing list signup box
 
+### Screenshots of the deployed site
+
+**Home page**
+
+![homepage](doc/desktop-homepage-screenshot.png)
+
+**Category page**
+
+![category-page.png](..%2F..%2FDesktop%2Fcategory-page.png)
+
+**Product page**
+
+![product-page.png](..%2F..%2FDesktop%2Fproduct-page.png)
+
+**Products you might also like... section of product page**
+
+![products-you-might-like.png](..%2F..%2FDesktop%2Fproducts-you-might-like.png)
+
+**Brand page**
+
+![brand.png](..%2F..%2FDesktop%2Fbrand.png)
+
+**Shopping basket**
+
+![basket.png](..%2F..%2FDesktop%2Fbasket.png)
+
+**Checkout**
+
+![checkout.png](..%2F..%2FDesktop%2Fcheckout.png)
+
+**Order confirmation page**
+
+![checkout-success.png](..%2F..%2FDesktop%2Fcheckout-success.png)
+
+**Retailer dashboard**
+
+![retailer-dashboard.png](..%2F..%2FDesktop%2Fretailer-dashboard.png)
+
 ### Features for future iterations
 
 As this was only the first release of the MVP (minimum viable product), there are 
@@ -655,4 +693,3 @@ https://www.xml-sitemaps.com/ for sitemaps
 
 ## Credits
 
-**screenshots**
