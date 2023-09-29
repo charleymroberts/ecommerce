@@ -1,0 +1,118 @@
+**Set up an S3 bucket on Amazon Web Services**
+
+(Create an AWS account if you don't have one already)
+
+Open S3
+
+Click 'create new bucket'
+
+Give it the same name as your Heroku app
+
+Select the region closest to you
+
+Uncheck 'block all public access' and acknowledge that the bucket will be public
+
+Click 'create bucket'
+
+Edit some settings:
+
+In properties, turn on static web hosting
+
+In the permissions tab, Paste in a CORS configuration
+
+In the bucket policy tab:
+
+Select policy generator, s3 bucket policy, allow all principals by using a star, select action 'get object'.
+
+Copy the ARN (Amazon resource name) from the CORS configuration and paste into the ARN box.
+
+Click 'add statement' and then 'generate policy'
+
+Copy the policy into the bucket policy editor. Add /* onto the end of the resource key to allow access to all resources in the bucket.  Click 'save'.
+
+In the Access Control List tab, set the List Objects permission for 'everyone' to 'public'
+
+Make sure that by the time you have finished the process, access to the bucket (under Permissions overview) is set to 'public' - this may not set until you have changed the above setting in the ACL tab.
+
+**Create an IAM user to access the bucket**
+
+In the Services menu, go to IAM
+
+Create a group
+
+Go to 'User groups' and click 'Create group'. Give the group a name. Click 'Create group'.
+
+Create a policy
+
+Create a policy used to access the bucket by clicking 'Policies > Create policy'
+
+Under the JSON tab select 'import policy', search for S3 and import the AmazonS3FullAccess policy.
+
+Then get the bucket ARN from the bucket you just created and paste it into the policy editor that is currently open under 'Resource'. Then paste it in again and add /* on the end. Click 'Next'.
+
+If you get error messages, delete the first statement that was already in the editor.
+
+Give the policy a name and description, then click 'create policy'.
+
+Attach the policy to the group
+
+Next the policy needs to be attached to the group you created earlier.  Go to your group, under Permissions select Add permissions > Attach policies. Search for the policy you just created, select it and click 'attach policies'.
+
+Create a user to put in the group
+
+On the 'Users' page, click 'Create user'. Give the user a name and click Next.
+
+With 'add user to group' selected, select your group, scroll down and click 'next'.
+
+Within this user, go to Create access key, select 'Application running outside AWS', and click 'Create access key'. Download the csv file with the access key and secret access key (you can't retrive the secret key later so save it now). Click create.
+
+**Connect Django to S3**
+
+In your IDE, add boto3 and django-storages to your requirements.txt file
+
+In settings.py:
+
+Add 'storages' to the 'installed apps' list
+
+Add:
+
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = (name goes here)
+    AWS_S3_REGION_NAME = (name goes here)
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+In your Heroku app:
+add AWS keys to Config Vars
+add USE_AWS = True (also in Config Vars)
+remove disable collectstatic variable if it's in there
+
+In your IDE, create a top-level file called 'custom_storages.py'. Add:
+
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+class StaticStorage (S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage (S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+
+In settings.py, with the AWS code you just added:
+
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+#Static and media files
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILESLOCATION = 'media'
+
+#Override static and media URLs in production
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'

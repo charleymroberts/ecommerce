@@ -1,0 +1,23 @@
+Remaining Flake8 messages:
+
+./bag/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./bag/models.py:1:1: F401 'django.db.models' imported but unused
+./bag/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./checkout/apps.py:8:9: F401 'checkout.signals' imported but unused
+./checkout/webhooks.py:41:80: E501 line too long (86 > 79 characters)
+./dashboard/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./dashboard/models.py:1:1: F401 'django.db.models' imported but unused
+./dashboard/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./ecommerce/settings.py:17:5: F401 'env' imported but unused
+./ecommerce/settings.py:113:80: E501 line too long (91 > 79 characters)
+./ecommerce/settings.py:116:80: E501 line too long (81 > 79 characters)
+./ecommerce/settings.py:119:80: E501 line too long (82 > 79 characters)
+./ecommerce/settings.py:122:80: E501 line too long (83 > 79 characters)
+./env.py:13:80: E501 line too long (194 > 79 characters)
+./env.py:17:80: E501 line too long (113 > 79 characters)
+./env.py:20:80: E501 line too long (113 > 79 characters)
+./home/admin.py:1:1: F401 'django.contrib.admin' imported but unused
+./home/models.py:1:1: F401 'django.db.models' imported but unused
+./home/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./products/tests.py:1:1: F401 'django.test.TestCase' imported but unused
+./profiles/tests.py:1:1: F401 'django.test.TestCase' imported but unused

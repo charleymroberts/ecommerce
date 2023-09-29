@@ -1,0 +1,48 @@
+Deployment steps part 1
+
+Prerequisites: Python (version 3.11 was used for this project. PyCharm was used as the IDE.
+
+**Creating the initial files in GitHub and IDE**
+
+For deployment using (local copy of) PyCharm as IDE:
+
+In GitHub:
+- go to 'Repositories'
+- click 'New'
+
+On the 'Create a new repository' page
+- give the repository a name
+- under 'Initialize this repository with:' tick 'Add a README file' and add gitignore
+- click 'Create repository'
+
+In PyCharm:
+Close any existing projects already open
+On the 'Welcome to PyCharm' page, click 'Get from VCS'
+
+In your newly created GitHub repository, go to Code and copy the line of code under SSH
+
+Go back to PyCharm and paste this into the URL box on the Get from Version Control page, and click 'Clone'
+
+Click 'Trust Project' to open it in PyCharm
+
+**Adding files to .gitignore**
+
+Add .idea/ and /env.py to .gitignore
+(check that *.sqlite3, *.pyc and __pycache__ are also included)
+
+**Creating venv folder**
+
+Find and click on 'configure a Python interpreter' > Add new interpreter > Add local interpreter
+
+Click OK to select default settings (should be Virtualenv Environment, New environment, in venv folder inside this project). This creates venv folder.
+
+**Adding requirements**
+
+Create requirements.txt file (at top level)
+type in django==4.2.1 and click Install Requirement
+
+**Creating the project**
+
+Create the project using the command django-admin startproject [name of your project] .
+
+Push initial commit to GitHub

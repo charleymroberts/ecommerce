@@ -1,0 +1,67 @@
+Instructions here are using Heroku's database rather than ElephantSQL
+as this is what I have done with this project
+
+**Heroku**
+
+Log into Heroku (create an account first if you don't have one already)
+
+In the Dashboard, click New to create a new app. Give it a name and select your region, and click Create app.
+
+Select GitHub as Deployment method, and choose the repository you want to deploy. Select Enable automatic deploys if you wish.
+
+Database setup:
+
+Select a database plan in Heroku.
+
+In Datastores > Settings, copy the URI and add it to Config Vars with the key DATABASE_URL
+
+In settings.py change the Databases line to:
+DATABASES = {
+     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+ }
+ to fetch the local or the deployed database from the environment
+
+Connecting the database to your local development web server
+
+In your IDE, in env.py, comment out the os.environ['DATABASE_URL'] line, copy this key, and replace its value with the Heroku database url
+
+In your IDE, add dj_database_url and psycopg2 to your requirements.txt file
+
+In settings.py, import dj_database_url underneath the import for os
+
+In the terminal, run python manage.py showmigrations. If there are no errors, enter python manage.py migrate
+
+Create superuser for the Heroku version
+
+**Category fixtures**
+
+In products app, create fixtures folder
+
+In the Terminal, enter python manage.py dumpdata products.Category > products/fixtures/categories.json
+
+switch to production database in env.py
+
+In the Terminal, enter python manage.py loaddata categories. This copies the categories from the local database to the production database.
+
+switch back to local database in env.py
+
+**Deploying to Heroku**
+
+In your IDE, install gunicorn to act as our web server by adding 'gunicorn' to requirements.txt
+
+Create a new top level file called Procfile. Inside this file, add the line: web: gunicorn name of your app.wsgi:application
+
+In the terminal, enter heroku login to open the Heroku CLI
+
+Then enter heroku config:set DISABLE_COLLECTSTATIC=1
+(temporarily, so that Heroku doesn't try to collect static files when we deploy).  (Heroku asked for an app name at this point, so the command is heroku config:set DISABLE_COLLECTSTATIC=1 -a (name of your app))
+
+Add the name of your Heroku app, and 'localhost', to Allowed Hosts in settings.py: ['yourappname.herokuapp.com', 'localhost']
+
+In Heroku Settings, add config vars for DJANGO_SECRET_KEY (generate a random one), USE_AWS, AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY using the values from S3, and remove DISABLE_COLLECTSTATIC
+
+Upload media files (product images) to S3
+
+Go to your bucket > Objects > Upload
+
+Select your media file from your IDE and upload to S3.
