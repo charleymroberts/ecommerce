@@ -660,6 +660,8 @@ JavaScript
 
 [Bootstrap 5](https://getbootstrap.com/)
 
+[django-bootstrap5](https://pypi.org/project/django-bootstrap5/)
+
 **Tools:**
 
 [Stripe](https://stripe.com/gb) for payment processing
@@ -691,5 +693,78 @@ https://www.xml-sitemaps.com/ for sitemaps
 [Coolors.co](https://coolors.co/) to select the colour scheme
 
 
-## Credits
+## References and Credits
+
+References and credits
+
+Tutorials:
+
+Code Institute Boutique Ado walkthrough videos (within CodeInstitute course material)
+
+Code Institute JavaScript tutorials for event handlers 
+
+
+### Code
+
+**Code copied from the Boutique walkthrough project:**
+
+The ‘checkout’ app was copied from Boutique Ado and modified. Some code in the ‘Bag’ app was copied from Boutique Ado (with comments). 
+
+**Bootstrap templates:** 
+
+[Carousel template](https://getbootstrap.com/docs/5.3/examples/carousel/) (used on homepage with modifications, and some code taken from this for the base template)
+
+[Cards](https://getbootstrap.com/docs/5.3/components/card/) (to display product info in categories) 
+
+[Dropdown Navbar](https://getbootstrap.com/docs/5.3/components/navbar/) 
+
+[Accordion](https://getbootstrap.com/docs/5.3/components/accordion/) (on individual product pages)
+
+**[Mailchimp](https://www.mailchimp.com)** for the mailing list sign up form template code (adapted)
+
+**[django-bootstrap5](https://pypi.org/project/django-bootstrap5/)** for form styling 
+
+### Documentation 
+
+**[The Django documentation](https://docs.djangoproject.com/en/4.2/)** was frequently referred to throughout the development of this project
+
+In particular the following pages:
+
+[Model fields](https://docs.djangoproject.com/en/4.2/ref/models/fields/)
+
+[Django default User model](https://docs.djangoproject.com/en/4.2/ref/contrib/auth/)
+
+[Selecting the first item in a field (e.g. to display the first category a product belongs to, not all of them)](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#first)
+
+[QuerySet .exists()](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#django.db.models.query.QuerySet.exists) (used in context.py in the Bag app to determine whether or not the basket contains any chilled products)
+
+[Django Allauth documentation](https://django-allauth.readthedocs.io/en/latest/index.html)
+
+[Django-bootstrap5 form field styling](https://django-bootstrap5.readthedocs.io/en/latest/templatetags.html#bootstrap-field)
+
+### Media
+
+**Product data/images**
+
+All images and data used  in the product listings are made publicly available by the manufacturers for stockists to use.
+Most are borrowed from [Suma Wholesale](https://wholesale.suma.coop/) and some from [veganwholesaler.com](https://veganwholesaler.com/)
+
+**Homepage images**
+
+Cheese banner photo from [Mouse's Favourite](https://mousesfavourite.com/)
+
+Banner product images from [Suma Wholesale](https://wholesale.suma.coop/) (and compiled by me)
+
+Circle images from: 
+1.	Mouse’s Favourite 
+2.	Suma Wholesale
+3.	[Vego](https://vego-chocolate.com/) 
+4.	[Faith in Nature](https://www.faithinnature.co.uk/)
+
+
+### And finally
+
+This project was aided by my previous experience from six years as an 
+independent retail business owner, including the use of two different software 
+packages (Airpos and Foodcommerce) for managing in-store, click & collect and home delivery purchases.
 
