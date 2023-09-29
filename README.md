@@ -478,6 +478,17 @@ Google Shopping results:
 Another possibility for online shops is to get some of their individual products listed in Google's shopping results, 
 so that the shop's name appears in the search results when users search for a specific product.
 
+**Facebook page**
+
+Social media is undoubtedly an essential tool for getting the word out about small businesses such
+as VeganDirect, connecting with their community and attracting customers to the store.  I created a Facebook page which (at the time of 
+writing) is live at [www.facebook.com/vegandirectuk](https://www.facebook.com/vegandirectuk), or see screenshots below:
+
+[Facebook screenshot (public view)](doc/Facebook-page-public-view.pdf)
+
+[Facebook screenshot (admin view)](doc/Facebook-page-admin-view.pdf)
+
+
 ## Checkers (HTML/CSS/Python)
 
 ### HTML
@@ -589,13 +600,57 @@ IDE: PyCharm was used for this project
 chosen to use Heroku's database service for my project as I would have had to pay for
 ElephantSQL anyway)
 
-There are a couple of final steps: setting up Stripe webhooks, and configuring the 
-sending of automated configuration emails:
+There are a couple of final steps: 
+- Registering Stripe webhooks
+- Configuring the sending of automated confirmation emails
 
 [Final deployment steps details](final-deployment-steps.txt)
 
 ## Technologies used
 
+**Languages and frameworks:**
+
+Python (3.11)
+
+Django (4.2.1)
+
+HTML
+
+CSS
+
+JavaScript
+
+[Bootstrap 5](https://getbootstrap.com/)
+
+**Tools:**
+
+[Stripe](https://stripe.com/gb) for payment processing
+
+[AWS S3](https://aws.amazon.com/) for image hosting
+
+Gmail app passwords to enable email sending
+
+[Heroku](https://www.heroku.com) to host the deployed version
+
+[Github](https://github.com/) for version control and Github Projects for Agile development
+
+Local version created in PyCharm (IDE)
+
+https://www.xml-sitemaps.com/ for sitemaps
+
+[Mailchimp](https://mailchimp.com/) for the mailing list sign up form
+
+**Design tools:**
+
+[Fontawesome](https://fontawesome.com/) for icons
+
+[Font Squirrel](https://www.fontsquirrel.com/) for fonts
+
+[Favicon.io](https://favicon.io/) to generate the favicon
+
+[Figma](https://www.figma.com/) to create the homepage banner images
+
+[Coolors.co](https://coolors.co/) to select the colour scheme
 
 
 ## Credits
