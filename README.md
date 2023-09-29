@@ -4,7 +4,7 @@ Vegan Direct is an online retail shop selling innovative, high-quality vegan foo
 
 ![homepage screenshot on desktop](doc/desktop-homepage-screenshot.png)
 
-![homepage screenshots on mobile](doc/homepage-mobile-screenshots.png)
+![homepage screenshots on mobile](doc/site-screenshots/homepage-screenshots-mobile.png)
 
 The deployed site can be accessed on Heroku: [VeganDirect on Heroku](https://vegandirect-2d439acd3be5.herokuapp.com/)
 
@@ -513,6 +513,7 @@ or to create a shortlist of products to choose from for the customer's current o
 - The ability to filter products or search results by property such as gluten-free, organic, free from certain allergens
 - A facility to leave product reviews (possibly one which store owners can choose whether to enable or disable, 
 as sometimes reviews are more trouble than they're worth to business owners!)
+- A range of delivery options for customers to choose from (currently delivery is set at a flat fee, or free for orders over a set amount)
 
 **For retailers:**
 
@@ -527,7 +528,7 @@ as sometimes reviews are more trouble than they're worth to business owners!)
 products from the webshop without needing to delete the information 
 (e.g. seasonal products the retailer might want to sell again next year)
 - Easier access to adjust other pricing information such as the free shipping threshold and delivery costs
-- Adding a greater range of delivery options for customers to choose from
+- Pagination on the 'view all products' page, to make page loading and navigation quicker as more products are added to the database
 
 ## Marketing 
 
