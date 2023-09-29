@@ -335,41 +335,129 @@ I kept the font as Bootstrap’s default native font stack (https://getbootstrap
 
 ## Features
 
-The structure of the webshop comprises:
+The webshop comprises the following pages and features:
 
 ### Main pages (no log in required)
 
-- Homepage
+**Homepage and Navbar (navbar is consistent across the whole site)**
 
-- Categories page (lists of products by category)
+  First impressions:
+  - User is welcomed to the site with eye-catching carousel banner images directing them to 
+the New Products section and a featured brand (these would be changed regularly according to where the retailer
+  wishes to direct the customers' attention)
+  - Site name/logo clearly visible in the top left so visitors know where they are
+  - Attractive circular photos and headings guiding customers to the main categories to browse
+  - Brightly coloured buttons and navbar to draw the user's attention to where to go next
+  - Extra homepage banner drawing the customer's attention to important information that acts as additional selling points for this site (free delivery threshold, 100% vegan product range, vegan-owned business)
+  
+  Navbar:
+  
+  - Drop-down menus with the main categories and subcategories of products (all products on the site are included in at least
+  one of these main categories)
+  - Search box for free text search across the whole site
+  - 'Login/Account' icon (which changes text depending on whether or not the user is logged in)
+  - 'Basket' icon (the number of items in the basket is shown underneath - another option would be to show a running total here
+  but I felt it might discourage customers from adding more items to their basket)
 
-- Product page (individual product details)
+  Below the fold:
+  - 'Welcome' text with a brief description of what the webshop is/does (including appropriate keywords for SEO)
+  - 'New Products' and 'Bestsellers' section to guide the user towards selections of popular products if they need a
+  starting point. Both these sections are populated by four randomly chosen products from each section (which changes on each
+  reload of the page) and link through to a page showing all products in the category.  These sections could also be changed over time
+  depending on which products the store owner wishes to bring to the attention of customers (for example seasonal products could be added as needed).
 
-- Brand page (name and description of each brand, plus all the products
-available by that brand)
+**Homepage:**
 
-- Basket
+![homepage](doc/desktop-homepage-screenshot.png)
 
-- Checkout page
+**Categories page (lists of products by category)**
+  - Category name as page header, plus a helpful descriptive paragraph incorporating some SEO keywords
+  - Products belonging to each category (either top level or subcategory) are displayed using Cards, with
+  product photo (and category) above and name, price, brand, quantity selector and add to basket button below.
+  - Users can click through to see more detail about an individual product, click the 'brand' to view all products by that brand
+  or quick-add the product to their basket
+  - The 'sort by' button on the right allows users to sort the products lists A-Z, Z-A, price low-high and price high-low
+  - The top-level category pages (not shown here) include yellow buttons linking to the subcategories to help the customer narrow down their browsing if wished
+  - A small breadcrumb menu on subcategory pages tells the user which main category they are currently within
 
-- Checkout success page (confirming the customer's order details)
+**Category page (subcategory):**
 
-**Features include**:
+![category-page.png](doc/site-screenshots/category-page.png)
 
-- Browse product categories
+**Product page (individual product details)**
 
-- View individual product details
+- The top half of the page includes the main information: product photo, name, brand, price,
+quantity selector, add to basket button, labels which appear if the product is organic or gluten-free
 
-- Search box for free text search
+- Lower down the page, the additional details are contained in accordions for the customer to view if they wish:
+ingredients, description, nutrition information, brand info
 
-- Order product lists A-Z, Z-A, price low-high, price high-low
+- At the bottom of the page is a 'products you might also like' section, which shows four randomly selected products
+which belong to one of the same categories as the product the user is viewing. (The products in the screenshot are all also in the 'Bestsellers' category,
+but I have chosen to only display one of the product's categories on the product card to avoid clutter.)
 
-- Select product quantity and add to basket
+**Product page:**
 
+![product-page.png](doc/site-screenshots/product-page.png)
+
+**Products you might also like... section of product page:**
+
+![products-you-might-like.png](doc/site-screenshots/products-you-might-like.png)
+
+**Brand page**
+
+- This page displays the name of each brand, a descriptive paragraph, and a list of all products available by that brand
+
+**Brand page:**
+
+![brand.png](doc/site-screenshots/brand.png)
+
+**Basket**
+
+- Items appear to the basket as the customer adds them.
+- Includes the product name (which is a link back to the product page), price per item, quantity added, and subtotal for each item (for if the customer has ordered more than one)
+- Customer can update the quantity by using the quantity selectors and then clicking 'update', or remove products using the 'remove' button
+  (I have not added a confirmation message here as I expect customers will want to remove the product without any extra steps or popups in this case)
+- A dynamically updated message appears once the order total goes over £20, showing how much more the customer would need to spend to qualify for free delivery (in red to imply urgency).
+The free delivery threshold is also included prominently as a prompt.
+- The basket totals are updated as the customer adds products or edits their basket contents
+- A cool box is automatically added to any order containing a chilled item (as these would need to be sent out with insulation/ice packs, which costs the retailer more to post)
+- 'Checkout' button clearly visible in a different colour to the rest of the page
+
+**Shopping basket:**
+
+![basket.png](doc/site-screenshots/basket.png)
+
+**Checkout page**
+
+- Address form: this is pre-populated if the customer is logged in and has a preferred address saved, if not the form is blank for customers to fill in
+- Logged-in customers can select another of their saved addresses if they have more than one. There is also a 'clear form' link for if the customer wishes to add a new address.
+- Customers who are not logged in are shown a links to 'Login to use your saved addresses, or Create an account to save your details' to show users the benefits of creating an account and encourage them to do so
+- Order summary shows the customer what they are about to buy, and the delivery cost, cool box charge if there is one, and total amount 
+- The Payment box is provided by Stripe, which means the payment is taken securely and the card details do not come into contact with the webshop itself 
+(this has the added benefit that the retailer does not have to comply with the associated security requirements needed to handle card details, as Stripe takes care of this)
+
+**Checkout:**
+
+![checkout.png](doc/site-screenshots/checkout.png)
+
+**Order confirmation page**
+
+The customer arrives at this page to confirm to them that their order has been sent and confirm the details.
+The customer also receives an automated email containing the same details.  
+If the customer has already created an account and was logged in to make the purchase, they can view the same details in the 'order history' section under 'My account'
+
+**Order confirmation page:**
+
+![checkout-success.png](doc/site-screenshots/checkout-success.png)
 
 ### Customer account pages
 
-- Create account / Login / Logout
+Pages include:
+
+- Create account
+- Login
+- Logout
 
 - 'My account' section
  
@@ -401,58 +489,16 @@ available by that brand)
   - Add brand
   - Edit brand
 
-**Feature include:**
+**Features include:**
 - Custom forms for retailers to add, edit and delete products and brands
 without using the Django admin panel
 - View a list of all products in the database with their wholesale and retail prices
 - 'Edit this product' button on individual product pages, so logged-in store 
 owners can quickly edit a product if they are browsing the site and find something that needs updating
-  
-### Footer 
-- Privacy policy
-- Terms of service
-- Delivery info
-- Contact us
-- Links to social media
-- Mailing list signup box
 
-### Screenshots of the deployed site
+**Retailer dashboard landing page:**
 
-**Home page**
-
-![homepage](doc/desktop-homepage-screenshot.png)
-
-**Category page**
-
-![category-page.png](..%2F..%2FDesktop%2Fcategory-page.png)
-
-**Product page**
-
-![product-page.png](..%2F..%2FDesktop%2Fproduct-page.png)
-
-**Products you might also like... section of product page**
-
-![products-you-might-like.png](..%2F..%2FDesktop%2Fproducts-you-might-like.png)
-
-**Brand page**
-
-![brand.png](..%2F..%2FDesktop%2Fbrand.png)
-
-**Shopping basket**
-
-![basket.png](..%2F..%2FDesktop%2Fbasket.png)
-
-**Checkout**
-
-![checkout.png](..%2F..%2FDesktop%2Fcheckout.png)
-
-**Order confirmation page**
-
-![checkout-success.png](..%2F..%2FDesktop%2Fcheckout-success.png)
-
-**Retailer dashboard**
-
-![retailer-dashboard.png](..%2F..%2FDesktop%2Fretailer-dashboard.png)
+![retailer-dashboard.png](doc/site-screenshots/retailer-dashboard.png)
 
 ### Features for future iterations
 
@@ -491,7 +537,7 @@ page titles, meta tags in the header, without drifting into 'keyword stuffing'.
 
 ### Vegan (or similar term) + type of product = search result
 
-Customers are likely to be search for terms such as (obviously) vegan, and similar equivalents including
+Customers are likely to be searching for terms such as (obviously) vegan, and similar equivalents including
 'plant-based', 'cruelty-free', 'animal-free' - usually in conjunction with the type of product they're searching for,
 so 'vegan chocolate', 'plant-based ready meals', 'cruelty-free shampoo', 'animal-free laundry liquid'.
 Including plenty of keywords for the types of products found on the site is helpful, such as including a descriptive paragraph
@@ -500,7 +546,7 @@ under each category heading.
 Including descriptive text containing keywords is particularly useful for vegan products, as due to food labelling laws in the UK and EU,
 many terms cannot be used in the name of the products themselves, such as 'sausages', 'milk', 'cheese'.  However, users' search terms don't work 
 like this - the customer will be searching for "vegan bacon", not "plant-based smoky rashers made from wheat gluten", or whatever the manufacturers themselves
-are allowed to say on their packaging, so descriptions become even more useful.
+are allowed to say on their packaging, so descriptions added by webshops become even more useful.
 
 **Other SEO strategies**
 
